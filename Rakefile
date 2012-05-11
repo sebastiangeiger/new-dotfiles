@@ -2,10 +2,15 @@ require 'rake'
 require 'erb'
 
 desc "install the dot files into user's home directory"
-task :install => [:symlink_dotfiles, :change_default_shell]
-
-task :change_default_shell
-  system "chsh -s $(which zsh)"
+task :install => [:symlink_dotfiles, :change_default_shell] do
+end
+task :change_default_shell do
+  if `env | grep SHELL` =~ /zsh$/
+    puts "Default shell is zsh"
+  else
+    puts "Setting zsh as default shell"
+    system "chsh -s $(which zsh)" 
+  end
 end
 
 task :symlink_dotfiles do
