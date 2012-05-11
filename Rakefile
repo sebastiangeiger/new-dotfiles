@@ -2,14 +2,19 @@ require 'rake'
 require 'erb'
 
 desc "install the dot files into user's home directory"
-task :install => [:symlink_dotfiles, :change_default_shell] do
+task :install => [:symlink_dotfiles, :change_default_shell, :checkout_oh_my_zsh] do
+end
+task :checkout_oh_my_zsh do
+  system "git clone git://github.com/sebastiangeiger/oh-my-zsh.git #{File.join(ENV['HOME'], ".oh-my-zsh")}"
 end
 task :change_default_shell do
   if `env | grep SHELL` =~ /zsh$/
     puts "Default shell is zsh"
-  else
+  elsif executable_exists?("zsh")
     puts "Setting zsh as default shell"
     system "chsh -s $(which zsh)" 
+  else
+    $stderr.puts "Please install zsh, then run 'rake change_default_shell'"
   end
 end
 
@@ -43,6 +48,11 @@ task :symlink_dotfiles do
   end
 end
 
+def executable_exists?(command)
+  exit_value = `hash #{command} 2>/dev/null; echo $?` 
+  Integer(exit_value) == 0
+end
+
 def replace_file(file)
   system %Q{rm -rf "$HOME/.#{file.sub('.erb', '')}"}
   link_file(file)
@@ -59,4 +69,5 @@ def link_file(file)
     system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
   end
 end
+
 
