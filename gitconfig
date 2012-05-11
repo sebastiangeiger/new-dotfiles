@@ -1,0 +1,19 @@
+[user]
+	name = Sebastian Geiger
+	email = sebastian.geiger@gmail.com
+[color]
+	diff = auto
+	status = auto
+	branch = auto
+[core]
+	editor = /usr/bin/vim
+	askpass = ~/git-password
+[alias]
+	st = status
+	co = checkout
+  aa = add --all
+  dc = diff --cached
+  di = diff
+  ci = commit
+  pullff = pull --ff-only
+  log = log --graph
