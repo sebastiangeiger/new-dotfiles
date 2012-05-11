@@ -1,5 +1,31 @@
 set nocompatible                  " Must come first because it changes other options.
-call pathogen#infect()            " Using pathogen.vim for plugins
+filetype off
+
+"====================
+"| Vundle related   |
+"====================
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'tpope/vim-fugitive'
+Bundle 'kien/ctrlp.vim' 
+"instead of: Bundle 'wincent/Command-T'
+Bundle 'tpope/vim-rails'
+Bundle 'vim-scripts/tComment'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'bkad/CamelCaseMotion'
+Bundle 'ecomba/vim-ruby-refactoring'
+Bundle 'mirell/vim-matchit'
+Bundle 'msanders/snipmate.vim'
+Bundle 'scrooloose/snipmate-snippets'
+Bundle 'sebastiangeiger/gitignore.vim'
+Bundle 'vim-scripts/VimClojure'
+Bundle 'samsonw/vim-task'
+"Bundle 'vim-scripts/a.vim'
+"Bundle 'vim-scripts/rubycomplete.vim' "TODO: Does weird stuff!
+"Bundle 'tpope/vim-cucumber'
+"Bundle 'tpope/vim-haml'
+
 
 syntax enable                     " Turn on syntax highlighting.
 filetype plugin indent on         " Turn on file type detection.
@@ -67,20 +93,6 @@ endif
 "map <leader>tl :tablast<cr>
 "map <leader>tm :tabmove
 
-" Uncomment to use Jamis Buck's file opening plugin
-"map <Leader>t :FuzzyFinderTextMate<Enter>
-
-" Controversial...swap colon and semicolon for easier commands
-"nnoremap ; :
-"nnoremap : ;
-
-"vnoremap ; :
-"vnoremap : ;
-
-" Automatic fold settings for specific files. Uncomment to use.
-" autocmd FileType ruby setlocal foldmethod=syntax
-" autocmd FileType css  setlocal foldmethod=indent shiftwidth=2 tabstop=2
-
 let &t_Co=256            "Make iTerm play nicely
 
 nnoremap <C-W>O :call MaximizeToggle ()<CR>
@@ -113,25 +125,6 @@ iab <expr> dts strftime("%a, %e %b %Y %H:%M:%S %z")
 
 " Add clear search highlight to space functionality in normal mode
 nmap <SPACE> <SPACE>:noh<CR>
-
-" OmniCppCompete
-" configure tags - add additional tags here or comment out not-used ones
-set tags+=~/.vim/tags/cpp
-" build tags of your own project with Ctrl-F12
-map <C-F12> :!/usr/local/bin/ctags -R --sort=yes --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-
-" OmniCppComplete
-let OmniCpp_NamespaceSearch = 1
-let OmniCpp_GlobalScopeSearch = 1
-let OmniCpp_ShowAccess = 1
-let OmniCpp_ShowPrototypeInAbbr = 1 " show function parameters
-let OmniCpp_MayCompleteDot = 1 " autocomplete after .
-let OmniCpp_MayCompleteArrow = 1 " autocomplete after ->
-let OmniCpp_MayCompleteScope = 1 " autocomplete after ::
-let OmniCpp_DefaultNamespaces = ["std", "_GLIBCXX_STD"]
-" automatically open and close the popup menu / preview window
-au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
-set completeopt=menuone,menu,longest,preview
 
 " Show lines longer than 100 if in C++ mode
 autocmd FileType cpp match ErrorMsg '\%>100v.\+'
@@ -239,6 +232,6 @@ imap jj <Esc>
 
 let g:snippets_dir = '~/.vim/bundle/snipmate-snippets/snippets/,~/.vim/snippets/'
 
-nnoremap <Leader>t :silent :CommandTFlush<CR>:CommandT<CR>
+let g:ctrlp_map = '<Leader>t'
 
-source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
+"source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim

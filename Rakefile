@@ -2,17 +2,37 @@ require 'rake'
 require 'erb'
 
 desc "install the dot files into user's home directory"
-task :install => [:symlink_dotfiles, :change_default_shell, :checkout_oh_my_zsh] do
+
+task :install => [:symlink_dotfiles, :change_default_shell, :checkout_oh_my_zsh, :install_vundle] do
 end
+
+task :install_vundle do
+  if File.exists?(File.join(ENV['HOME'], ".vim", "bundle", "vundle"))
+    puts "Vundle is already installed"
+  else
+    puts "Installing Vundle"
+    system "mkdir -p ~/.vim/bundle"
+    system "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
+  end
+  puts "Executing BundleInstall"
+  system "vim +BundleInstall +qall"
+end
+
 task :checkout_oh_my_zsh do
-  system "git clone git://github.com/sebastiangeiger/oh-my-zsh.git #{File.join(ENV['HOME'], ".oh-my-zsh")}"
+  if File.exists?(File.join(ENV['HOME'], ".oh-my-zsh"))
+    puts "Oh-my-zsh is already installed"
+  else
+    system "git clone git://github.com/robbyrussell/oh-my-zsh.git #{File.join(ENV['HOME'], ".oh-my-zsh")}"
+  end
 end
+
 task :change_default_shell do
   if `env | grep SHELL` =~ /zsh$/
     puts "Default shell is zsh"
   elsif executable_exists?("zsh")
     puts "Setting zsh as default shell"
     system "chsh -s $(which zsh)" 
+    puts "Logout and login again so can enjoy your shiny new zsh!"
   else
     $stderr.puts "Please install zsh, then run 'rake change_default_shell'"
   end
