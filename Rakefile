@@ -6,6 +6,9 @@ desc "install the dot files into user's home directory"
 task :install => [:symlink_dotfiles, :change_default_shell, :checkout_oh_my_zsh, :install_vundle] do
 end
 
+task :mac => [:install, :install_homebrew] do
+end
+
 task :install_vundle do
   if File.exists?(File.join(ENV['HOME'], ".vim", "bundle", "vundle"))
     puts "Vundle is already installed"
@@ -37,6 +40,18 @@ task :change_default_shell do
     puts "Logout and login again so can enjoy your shiny new zsh!"
   else
     $stderr.puts "Please install zsh, then run 'rake change_default_shell'"
+  end
+end
+
+task :install_homebrew do
+  if executable_exists?("brew")
+    puts "homebrew is already installed"
+  else
+    puts "installing homebrew"
+    system %Q{/usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"}
+  end
+  IO.read("homebrews").reject{|app| app.strip.empty?}.each do |application|
+    system "brew install #{application}"
   end
 end
 
