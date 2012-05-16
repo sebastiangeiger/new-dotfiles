@@ -9,6 +9,10 @@ end
 task :mac => [:install, :install_homebrew] do
 end
 
+task :rvm do
+  system "curl -L get.rvm.io | bash -s stable"
+end
+
 task :install_vundle do
   if File.exists?(File.join(ENV['HOME'], ".vim", "bundle", "vundle"))
     puts "Vundle is already installed"
