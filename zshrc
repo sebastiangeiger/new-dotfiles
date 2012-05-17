@@ -1,5 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
+DOTFILES=$HOME/new-dotfiles
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -27,7 +28,7 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(rails3 git ruby brew osx rvm ruby git-flow mvn)
 
 source $ZSH/oh-my-zsh.sh
-
+source $DOTFILES/check_if_files_were_modified.sh
 # Vi Mode =================
 bindkey -v 
 bindkey '^R' history-incremental-search-backward
