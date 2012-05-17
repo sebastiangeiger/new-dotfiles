@@ -31,10 +31,11 @@ source $ZSH/oh-my-zsh.sh
 # Vi Mode =================
 bindkey -v 
 bindkey '^R' history-incremental-search-backward
- 
-zle -N zle-keymap-select
-# /Vi Mode ===============
-# Customize to your needs...
+# /Vi Mode ================
+
+# Alias ==================
+alias ssh-tunnel="ssh -ND 8080"
+# /Alias =================
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
