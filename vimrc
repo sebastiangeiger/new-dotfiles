@@ -229,10 +229,22 @@ endfunc
 let g:vimclojure#HighlightBuiltins = 1
 let g:vimclojure#ParenRainbow = 1
 
-imap jj <Esc>
+" General key mappings
+" Making vim a bit harder:
+inoremap jk <Esc>
+inoremap <Esc> <nop>
+inoremap  <Up> <nop>
+inoremap  <Down> <nop>
+inoremap  <Left> <nop>
+inoremap  <Right> <nop>
+" No more accidental help windows
+:nmap <F1> :echo<CR>
+:imap <F1> <C-o>:echo<CR>
 
 let g:snippets_dir = '~/.vim/bundle/snipmate-snippets/snippets/,~/.vim/snippets/'
 
-let g:ctrlp_map = '<Leader>t'
+let g:ctrlp_map = '<Leader>t' "Keymapping for (the Ctrl+t replacement) Ctrl+p
+
+noremap <silent> <buffer> <Leader>m :call Toggle_task_status()<CR> "This is for vim-tasks
 
 "source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
