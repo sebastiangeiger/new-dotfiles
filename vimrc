@@ -245,6 +245,7 @@ let g:snippets_dir = '~/.vim/bundle/snipmate-snippets/snippets/,~/.vim/snippets/
 
 let g:ctrlp_map = '<Leader>t' "Keymapping for (the Ctrl+t replacement) Ctrl+p
 
-noremap <silent> <buffer> <Leader>m :call Toggle_task_status()<CR> "This is for vim-tasks
+"This is for vim-tasks
+noremap <silent> <buffer> <Leader>m :call Toggle_task_status()<CR> 
 
 "source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
