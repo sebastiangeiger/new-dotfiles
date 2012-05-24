@@ -38,6 +38,10 @@ bindkey '^R' history-incremental-search-backward
 alias ssh-tunnel="ssh -ND 8080"
 # /Alias =================
 
+# Coloring stderr =======
+exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )
+# /Coloring stderr ======
+
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
