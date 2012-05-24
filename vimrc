@@ -22,6 +22,7 @@ Bundle 'sebastiangeiger/gitignore.vim'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'samsonw/vim-task'
 Bundle 'pangloss/vim-javascript'
+Bundle 'tangledhelix/vim-octopress'
 "Bundle 'vim-scripts/a.vim'
 "Bundle 'vim-scripts/rubycomplete.vim' "TODO: Does weird stuff!
 "Bundle 'tpope/vim-cucumber'
