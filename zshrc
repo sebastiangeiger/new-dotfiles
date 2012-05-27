@@ -36,6 +36,7 @@ bindkey '^R' history-incremental-search-backward
 
 # Alias ==================
 alias ssh-tunnel="ssh -ND 8080"
+alias gti="git"
 # /Alias =================
 
 # Coloring stderr =======

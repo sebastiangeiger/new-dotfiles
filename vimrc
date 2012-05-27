@@ -249,4 +249,7 @@ let g:ctrlp_map = '<Leader>t' "Keymapping for (the Ctrl+t replacement) Ctrl+p
 "This is for vim-tasks
 noremap <silent> <buffer> <Leader>m :call Toggle_task_status()<CR> 
 
+"Editing epubs (epubs are zipped html pages)
+au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
+
 "source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
