@@ -37,6 +37,7 @@ bindkey '^R' history-incremental-search-backward
 # Alias ==================
 alias ssh-tunnel="ssh -ND 8080"
 alias gti="git"
+alias kerberos-screen="krenew -biL -- screen -Dm; screen"
 # /Alias =================
 
 # Coloring stderr =======
