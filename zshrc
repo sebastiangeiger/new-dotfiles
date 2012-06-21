@@ -38,6 +38,8 @@ bindkey '^R' history-incremental-search-backward
 alias ssh-tunnel="ssh -ND 8080"
 alias gti="git"
 alias kerberos-screen="krenew -biL -- screen -Dm; screen"
+alias download="wget -P $HOME/inbox"
+alias notify="growlnotify 'Terminal' -m '... is done in `pwd`.'"
 # /Alias =================
 
 # Coloring stderr =======
