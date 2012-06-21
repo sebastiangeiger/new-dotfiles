@@ -6,3 +6,4 @@ wget
 jslint
 gist
 tig
+tmux
