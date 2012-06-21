@@ -40,6 +40,9 @@ alias gti="git"
 alias kerberos-screen="krenew -biL -- screen -Dm; screen"
 alias download="wget -P $HOME/inbox"
 alias notify="growlnotify 'Terminal' -m '... is done in `pwd`.'"
+if [[ -f /Applications/MacVim.app/Contents/MacOS/Vim ]];then
+  alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+fi
 # /Alias =================
 
 # Coloring stderr =======
