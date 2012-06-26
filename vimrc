@@ -254,3 +254,6 @@ noremap <silent> <buffer> <Leader>m :call Toggle_task_status()<CR>
 au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
 
 "source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
+
+"Break line at 72 characters in commit messages
+autocmd filetype gitcommit set textwidth=72
