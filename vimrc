@@ -178,6 +178,7 @@ vnoremap <D-R> "hy:%s/<C-r>h//gc<left><left><left>
 
 " Toggle Comment
 map <D-/> <c-_><c-_>
+map <leader>/ <c-_><c-_>
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
