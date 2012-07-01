@@ -38,16 +38,12 @@ bindkey '^R' history-incremental-search-backward
 alias ssh-tunnel="ssh -ND 8080"
 alias gti="git"
 alias kerberos-screen="krenew -biL -- screen -Dm; screen"
-alias download="wget -P $HOME/inbox"
+alias download="wget -cP $HOME/inbox"
 alias notify="growlnotify 'Terminal' -m '... is done in `pwd`.'"
 if [[ -f /Applications/MacVim.app/Contents/MacOS/Vim ]];then
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 # /Alias =================
-
-# Coloring stderr =======
-exec 2>>( while read X; do print "\e[91m${X}\e[0m" > /dev/tty; done & )
-# /Coloring stderr ======
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
