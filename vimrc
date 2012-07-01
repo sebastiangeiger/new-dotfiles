@@ -180,6 +180,9 @@ vnoremap <D-R> "hy:%s/<C-r>h//gc<left><left><left>
 map <D-/> <c-_><c-_>
 map <leader>/ <c-_><c-_>
 
+" Switching back and forth
+map <leader><leader> <c-^>
+
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
  
