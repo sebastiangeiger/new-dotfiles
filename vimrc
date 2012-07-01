@@ -121,10 +121,6 @@ function! MaximizeToggle()
   endif
 endfunction
 
-" Enhancements for Ruby and Autotest
-compiler rubyunit
-nmap <Leader>fd :cf /tmp/autotest.txt<cr> :compiler rubyunit<cr>
-
 " Insert timestamp on typing dts 
 iab <expr> dts strftime("%a, %e %b %Y %H:%M:%S %z")
 
@@ -154,10 +150,6 @@ nnoremap <S-K> a<CR><Esc>k$
 
 " Autocorrects
 iab shoud should
-iab ü \"u
-iab ö \"o
-iab ä \"a
-iab ß \ss 
 
 " Remap omnicomplete
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
@@ -167,11 +159,6 @@ inoremap <expr> <C-f> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvis
 if has("gui_running")
   autocmd BufNewFile,BufRead,BufWrite * call SignLines()
 end
-
-" Sweet RSpec vim
-highlight RSpecFailed guibg=#671d1a
-highlight RSpecPending guibg=#54521a
-" autocmd FileType ruby map <D-r> :SweetVimRspecRunFileWithSigns<CR>
 
 " Rename highlighted text (after you pressed * for example)
 vnoremap <D-R> "hy:%s/<C-r>h//gc<left><left><left>
