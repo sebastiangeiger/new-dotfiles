@@ -88,15 +88,15 @@ if has("gui_running")
     set guioptions=egmrt
 endif
 " Tab mappings.
-"map <leader>tt :tabnew<cr>
-"map <leader>te :tabedit
-"map <leader>tc :tabclose<cr>
-"map <leader>to :tabonly<cr>
-"map <leader>tn :tabnext<cr>
-"map <leader>tp :tabprevious<cr>
-"map <leader>tf :tabfirst<cr>
-"map <leader>tl :tablast<cr>
-"map <leader>tm :tabmove
+map <C-T>t :tabnew<cr>
+map <C-T>e :tabedit
+map <C-T>c :tabclose<cr>
+map <C-T>o :tabonly<cr>
+map <C-T>n :tabnext<cr>
+map <C-T>p :tabprevious<cr>
+map <C-T>f :tabfirst<cr>
+map <C-T>l :tablast<cr>
+map <C-T>m :tabmove
 
 let &t_Co=256            "Make iTerm play nicely
 
