@@ -25,6 +25,7 @@ Bundle 'pangloss/vim-javascript'
 Bundle 'tangledhelix/vim-octopress'
 Bundle 'jpalardy/vim-slime'
 Bundle 'sjl/vitality.vim'
+Bundle 'Lokaltog/vim-powerline'
  "Play nicely with iTerm2
 "Bundle 'vim-scripts/a.vim'
 "Bundle 'vim-scripts/rubycomplete.vim' "TODO: Does weird stuff!
@@ -250,3 +251,6 @@ au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
 
 "Break line at 72 characters in commit messages
 autocmd filetype gitcommit set textwidth=72
+
+"Powerline config
+let g:Powerline_symbols = 'unicode'
