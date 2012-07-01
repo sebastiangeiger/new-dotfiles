@@ -24,6 +24,8 @@ Bundle 'samsonw/vim-task'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tangledhelix/vim-octopress'
 Bundle 'jpalardy/vim-slime'
+Bundle 'sjl/vitality.vim'
+ "Play nicely with iTerm2
 "Bundle 'vim-scripts/a.vim'
 "Bundle 'vim-scripts/rubycomplete.vim' "TODO: Does weird stuff!
 "Bundle 'tpope/vim-cucumber'
