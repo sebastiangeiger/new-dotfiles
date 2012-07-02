@@ -51,5 +51,5 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes, No, Abort, Edit) "
 export ECLIPSE_HOME="/Developer/Eclipse/indigo-3.7.1"
 export EDITOR="vim -f"
-export PATH="/usr/local/bin":$PATH:$ECLIPSE_HOME:"$HOME/.cabal/bin":"$HOME/.local/bin"
+export PATH="/usr/local/bin":$PATH:$ECLIPSE_HOME:"$HOME/.cabal/bin":"$HOME/.bin"
 
