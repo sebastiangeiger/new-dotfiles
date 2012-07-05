@@ -254,3 +254,6 @@ autocmd filetype gitcommit set textwidth=72
 
 "Powerline config
 let g:Powerline_symbols = 'unicode'
+
+"Remove trailing whitespaces
+autocmd BufWritePre * :%s/\s\+$//e

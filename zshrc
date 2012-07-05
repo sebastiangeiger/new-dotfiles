@@ -30,7 +30,7 @@ plugins=(rails3 git ruby brew osx rvm ruby git-flow mvn)
 source $ZSH/oh-my-zsh.sh
 source $DOTFILES/check_if_files_were_modified.sh
 # Vi Mode =================
-bindkey -v 
+bindkey -v
 bindkey '^R' history-incremental-search-backward
 # /Vi Mode ================
 
@@ -45,11 +45,10 @@ if [[ -f /Applications/MacVim.app/Contents/MacOS/Vim ]];then
 fi
 # /Alias =================
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm" 
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes, No, Abort, Edit) "
 export ECLIPSE_HOME="/Developer/Eclipse/indigo-3.7.1"
 export EDITOR="vim -f"
 export PATH="/usr/local/bin":$PATH:$ECLIPSE_HOME:"$HOME/.cabal/bin":"$HOME/.bin"
-
