@@ -1,13 +1,16 @@
 require 'rake'
 require 'erb'
 
+task :default => :install
+
 desc "install the dot files into user's home directory"
-
 task :install => [:symlink_dotfiles, :change_default_shell, :checkout_oh_my_zsh, :install_vundle] do
+  if `uname` =~ "Darwin"
+    Rake::Task["mac"].invoke
+  end
 end
 
-task :mac => [:install, :install_homebrew] do
-end
+task :mac => [:install_homebrew]
 
 task :rvm do
   system "curl -L get.rvm.io | bash -s stable"
@@ -40,7 +43,7 @@ task :change_default_shell do
     puts "Default shell is zsh"
   elsif executable_exists?("zsh")
     puts "Setting zsh as default shell"
-    system "chsh -s $(which zsh)" 
+    system "chsh -s $(which zsh)"
     puts "Logout and login again so can enjoy your shiny new zsh!"
   else
     $stderr.puts "Please install zsh, then run 'rake change_default_shell'"
@@ -63,7 +66,7 @@ task :symlink_dotfiles do
   replace_all = false
   Dir['*'].each do |file|
     next if %w[Rakefile README.md LICENSE TODO.tasks].include? file
-    if File.directory?(file) 
+    if File.directory?(file)
       replace_all = symlink_dir(file,replace_all)
     end
 
@@ -127,7 +130,7 @@ def symlink_file(file,replace_all)
 end
 
 def executable_exists?(command)
-  exit_value = `hash #{command} 2>/dev/null; echo $?` 
+  exit_value = `hash #{command} 2>/dev/null; echo $?`
   Integer(exit_value) == 0
 end
 
