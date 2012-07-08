@@ -5,7 +5,7 @@ task :default => :install
 
 desc "install the dot files into user's home directory"
 task :install => [:symlink_dotfiles, :change_default_shell, :checkout_oh_my_zsh, :install_vundle] do
-  if `uname` =~ "Darwin"
+  if `uname` =~ /Darwin/
     Rake::Task["mac"].invoke
   end
 end
