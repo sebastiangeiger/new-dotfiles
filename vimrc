@@ -257,3 +257,6 @@ let g:Powerline_symbols = 'unicode'
 
 "Remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
+
+"Custom spellfile
+set spellfile=~/.vim/en.utf-8.add
