@@ -8,7 +8,7 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
 Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim' 
+Bundle 'kien/ctrlp.vim'
 "instead of: Bundle 'wincent/Command-T'
 Bundle 'tpope/vim-rails'
 Bundle 'vim-scripts/tComment'
@@ -71,9 +71,9 @@ set noswapfile
 "set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
 " Tabs and white spaces
-set tabstop=2 
+set tabstop=2
 set softtabstop=2
-set shiftwidth=2                 
+set shiftwidth=2
 set expandtab
 
 set laststatus=2                  " Show the status line all the time
@@ -82,7 +82,7 @@ set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*Cap
 
 " use vividchalk
 colorscheme vividchalk
-set gfn=Monaco:h14 
+set gfn=Monaco:h14
 " Highlight current line
 set cursorline
 " hide toolbar
@@ -123,7 +123,7 @@ function! MaximizeToggle()
   endif
 endfunction
 
-" Insert timestamp on typing dts 
+" Insert timestamp on typing dts
 iab <expr> dts strftime("%a, %e %b %Y %H:%M:%S %z")
 
 " Add clear search highlight to space functionality in normal mode
@@ -174,7 +174,7 @@ map <leader><leader> <c-^>
 
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
- 
+
 " Use the same symbols as TextMate for tabstops and EOLs
 set listchars=tab:▸\ ,eol:¬
 
@@ -243,7 +243,7 @@ let g:snippets_dir = '~/.vim/bundle/snipmate-snippets/snippets/,~/.vim/snippets/
 let g:ctrlp_map = '<Leader>t' "Keymapping for (the Ctrl+t replacement) Ctrl+p
 
 "This is for vim-tasks
-noremap <silent> <buffer> <Leader>m :call Toggle_task_status()<CR> 
+noremap <silent> <buffer> <Leader>m :call Toggle_task_status()<CR>
 
 "Editing epubs (epubs are zipped html pages)
 au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
