@@ -26,6 +26,8 @@ Bundle 'tangledhelix/vim-octopress'
 Bundle 'jpalardy/vim-slime'
 Bundle 'sjl/vitality.vim'
 Bundle 'Lokaltog/vim-powerline'
+" Record activitiy
+Bundle 'AD7six/vim-activity-log'
 Bundle 'vim-pandoc/vim-pandoc'
  "Play nicely with iTerm2
 "Bundle 'vim-scripts/a.vim'
@@ -261,3 +263,6 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 "Custom spellfile
 set spellfile=~/.vim/en.utf-8.add
+
+" Activity log location:
+let g:activity_log_location = '~/Dropbox/vim-activity'
