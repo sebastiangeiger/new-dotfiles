@@ -261,6 +261,10 @@ let g:Powerline_symbols = 'unicode'
 "Remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
 
+"Get rspec filetype outside of rails projects
+autocmd BufRead *_spec.rb syn keyword rubyRspec describe context it specify it_should_behave_like before after setup subject its shared_examples_for shared_context let
+highlight def link rubyRspec Function
+
 "Custom spellfile
 set spellfile=~/.vim/en.utf-8.add
 
