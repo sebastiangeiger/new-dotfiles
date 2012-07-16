@@ -29,10 +29,6 @@ plugins=(rails3 git ruby brew osx rvm ruby git-flow mvn)
 
 source $ZSH/oh-my-zsh.sh
 source $DOTFILES/check_if_files_were_modified.sh
-# Vi Mode =================
-bindkey -v
-bindkey '^R' history-incremental-search-backward
-# /Vi Mode ================
 
 # Alias ==================
 alias ssh-tunnel="ssh -ND 8080"
