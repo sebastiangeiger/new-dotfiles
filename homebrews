@@ -8,3 +8,4 @@ gist
 tig
 tmux
 emacs --HEAD --use-git-head --srgb --cocoa
+z

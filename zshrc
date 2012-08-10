@@ -49,6 +49,13 @@ alias bx="bundle exec"
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
+# Z - Jump Around! =======
+. /usr/local/Cellar/z/1.1/etc/profile.d/z.sh
+function precmd () {
+_z --add "$(pwd -P)"
+}
+# /Z - Jump Around! =====
+
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes, No, Abort, Edit) "
 export ECLIPSE_HOME="/Developer/Eclipse/indigo-3.7.1"
 export EDITOR="vim -f"
