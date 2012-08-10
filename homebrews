@@ -1,3 +1,4 @@
+cabal-install
 macvim
 tree
 imagemagick
@@ -8,4 +9,6 @@ gist
 tig
 tmux
 emacs --HEAD --use-git-head --srgb --cocoa
+gnuplot
+mysql
 z
