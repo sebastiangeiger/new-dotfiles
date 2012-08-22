@@ -9,15 +9,16 @@
 	editor = /usr/bin/vim
 	askpass = <%= File.join(ENV['HOME'], "git-password") %>
 [alias]
-	st = status
+	st = status --short
 	co = checkout
   aa = add --all
+  ap = add --patch
   dc = diff --cached
   di = diff
   ci = commit -v
   cia = commit -v --amend
   pullff = pull --ff-only
-  log = log --graph
+  dateof = show -s --format="%ci"
   # Fancy logging.
   #   h = head
   #   hp = head with patch
