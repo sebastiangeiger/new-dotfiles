@@ -12,3 +12,4 @@ emacs --HEAD --use-git-head --srgb --cocoa
 gnuplot
 mysql
 z
+cowsay
