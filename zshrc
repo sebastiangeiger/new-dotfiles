@@ -49,6 +49,7 @@ alias ga="git add"
 alias gap="git ap"
 alias gl="git ra"
 alias gh="git h"
+alias gd="git diff"
 # /Alias =================
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
@@ -65,3 +66,5 @@ export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes
 export ECLIPSE_HOME="/Developer/Eclipse/indigo-3.7.1"
 export EDITOR="vim -f"
 export PATH="/usr/local/bin":$PATH:$ECLIPSE_HOME:"$HOME/.cabal/bin":"$HOME/.bin"
+export CLOJURE="/usr/local/Cellar/clojure/1.4.0/clojure-1.4.0.jar"
+export CLASSPATH=$CLASSPATH:$CLOJURE:"$HOME/.bin/server-2.3.4.jar"
