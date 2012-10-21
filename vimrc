@@ -240,8 +240,6 @@ inoremap  <Right> <nop>
 :nmap <F1> :echo<CR>
 :imap <F1> <C-o>:echo<CR>
 
-let g:snippets_dir = '~/.vim/bundle/snipmate-snippets/snippets/,~/.vim/snippets/'
-
 let g:ctrlp_map = '<Leader>t' "Keymapping for (the Ctrl+t replacement) Ctrl+p
 
 "This is for vim-tasks
@@ -250,7 +248,7 @@ noremap <silent> <buffer> <Leader>m :call Toggle_task_status()<CR>
 "Editing epubs (epubs are zipped html pages)
 au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
 
-"source ~/.vim/bundle/snipmate-snippets/snippets/support_functions.vim
+source ~/.vim/bundle/snipmate.vim/snippets/support_functions.vim
 
 "Break line at 72 characters in commit messages
 autocmd filetype gitcommit set textwidth=72
