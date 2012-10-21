@@ -11,5 +11,10 @@ tmux
 emacs --HEAD --use-git-head --srgb --cocoa
 gnuplot
 mysql
+clojure
+leiningen
+nailgun
 z
 cowsay
+hg
+mcabber
