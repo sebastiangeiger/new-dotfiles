@@ -1,0 +1,12 @@
+#!/bin/sh
+exitcode=$?
+success="$HOME/.bin/ok.png"
+fail="$HOME/.bin/fail.png"
+if [[ $exitcode == 0 ]]; then
+  image=$success
+else
+  image=$fail
+fi
+growlnotify --image $image "Terminal" -m "... is done in `pwd`."
+echo "exiting with ${exitcode}"
+exit $exitcode

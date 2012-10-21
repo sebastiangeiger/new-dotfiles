@@ -35,11 +35,11 @@ alias ssh-tunnel="ssh -ND 8080"
 alias gti="git"
 alias kerberos-screen="krenew -biL -- screen -Dm; screen"
 alias download="wget -cP $HOME/inbox"
-alias notify="growlnotify 'Terminal' -m '... is done in `pwd`.'"
 if [[ -f /Applications/MacVim.app/Contents/MacOS/Vim ]];then
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
 fi
 alias m="mvim"
+alias n="notify"
 if [[ -f /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs ]];then
 alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
 fi
