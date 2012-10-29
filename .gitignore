@@ -1,1 +1,3 @@
 vim/bundle/*
+bin/nma.sh
+bin/putio_download
