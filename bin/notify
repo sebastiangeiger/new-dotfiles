@@ -7,6 +7,7 @@ if [[ $exitcode == 0 ]]; then
 else
   image=$fail
 fi
-growlnotify --image $image "Terminal" -m "... is done in `pwd`."
+growlnotify --image $image "Terminal" -m "... is done in `pwd`. (Idle time `idle_time` s)"
+#TODO: Use idle_time to check if I am away from the computer, then use notify my android if necessary
 echo "exiting with ${exitcode}"
 exit $exitcode
