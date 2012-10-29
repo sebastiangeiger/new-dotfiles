@@ -1,4 +1,5 @@
 #!/bin/sh
+#TODO: This is better done as a shell function. Exit codes work then! (See http://stackoverflow.com/questions/12999830/getting-exit-code-of-last-shell-command-in-another-script)
 exitcode=$?
 success="$HOME/.bin/ok.png"
 fail="$HOME/.bin/fail.png"
