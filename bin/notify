@@ -1,14 +1,19 @@
 #!/bin/sh
-#TODO: This is better done as a shell function. Exit codes work then! (See http://stackoverflow.com/questions/12999830/getting-exit-code-of-last-shell-command-in-another-script)
-exitcode=$?
-success="$HOME/.bin/ok.png"
-fail="$HOME/.bin/fail.png"
-if [[ $exitcode == 0 ]]; then
-  image=$success
-else
-  image=$fail
-fi
-growlnotify --image $image "Terminal" -m "... is done in `pwd`. (Idle time `idle_time` s)"
-#TODO: Use idle_time to check if I am away from the computer, then use notify my android if necessary
-echo "exiting with ${exitcode}"
-exit $exitcode
+notify(){
+  exitcode=$?
+  success="$HOME/.bin/ok.png"
+  fail="$HOME/.bin/fail.png"
+  title="Terminal"
+  if [[ $exitcode == 0 ]]; then
+    image=$success
+    message="... is done in `pwd`."
+  else
+    image=$fail
+    message="... failed in `pwd`."
+  fi
+  growlnotify --image $image "${title}" -m "${message}"
+  if [[ `idle_time` -ge 45 ]]; then
+    $HOME/.bin/nma.sh "${title}" "${message}" "On machine `hostname`" 1
+  fi
+  (exit $exitcode) #This passes the exitcode through to the shell
+}
