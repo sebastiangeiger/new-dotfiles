@@ -254,7 +254,7 @@ source ~/.vim/bundle/snipmate.vim/snippets/support_functions.vim
 autocmd filetype gitcommit set textwidth=72
 
 "Powerline config
-let g:Powerline_symbols = 'unicode'
+let g:Powerline_symbols = 'fancy'
 
 "Remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
