@@ -31,6 +31,8 @@ Bundle 'AD7six/vim-activity-log'
 Bundle 'vim-pandoc/vim-pandoc'
 " Base16 color scheme
 Bundle 'chriskempson/base16-vim'
+" tomorrow color scheme
+Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 "Bundle 'vim-scripts/a.vim'
 "Bundle 'vim-scripts/rubycomplete.vim' "TODO: Does weird stuff!
 "Bundle 'tpope/vim-cucumber'
@@ -83,8 +85,8 @@ set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
-colorscheme base16-default
-set gfn=Inconsolata:h16
+colorscheme vividchalk
+set gfn=Inconsolata:h17
 " Highlight current line
 set cursorline
 " hide toolbar
