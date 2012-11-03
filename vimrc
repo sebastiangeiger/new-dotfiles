@@ -29,7 +29,8 @@ Bundle 'Lokaltog/vim-powerline'
 " Record activitiy
 Bundle 'AD7six/vim-activity-log'
 Bundle 'vim-pandoc/vim-pandoc'
- "Play nicely with iTerm2
+" Base16 color scheme
+Bundle 'chriskempson/base16-vim'
 "Bundle 'vim-scripts/a.vim'
 "Bundle 'vim-scripts/rubycomplete.vim' "TODO: Does weird stuff!
 "Bundle 'tpope/vim-cucumber'
@@ -82,8 +83,7 @@ set laststatus=2                  " Show the status line all the time
 " Useful status information at bottom of screen
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%y\ %{fugitive#statusline()}%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%=%-16(\ %l,%c-%v\ %)%P
 
-" use vividchalk
-colorscheme vividchalk
+colorscheme base16-default
 set gfn=Inconsolata:h16
 " Highlight current line
 set cursorline
