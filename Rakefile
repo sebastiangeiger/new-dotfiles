@@ -57,7 +57,8 @@ task :install_homebrew do
     puts "installing homebrew"
     system %Q{/usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"}
   end
-  IO.read("homebrews").reject{|app| app.strip.empty?}.each do |application|
+  installed_homebrews = `brew list`.split("\n")
+  (IO.read("homebrews").split("\n").reject{|app| app.strip.empty?} - installed_homebrews).each do |application|
     system "brew install #{application}"
   end
 end
