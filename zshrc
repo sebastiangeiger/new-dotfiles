@@ -34,11 +34,13 @@ source $DOTFILES/check_if_files_were_modified.sh
 alias ssh-tunnel="ssh -ND 8080"
 alias gti="git"
 alias kerberos-screen="krenew -biL -- screen -Dm; screen"
-alias download="wget -cP $HOME/inbox"
+alias download="wget -cP $HOME/inbox --quiet --content-disposition"
 if [[ -f /Applications/MacVim.app/Contents/MacOS/Vim ]];then
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
+  alias m="mvim"
+else
+  alias m="vim"
 fi
-alias m="mvim"
 alias n="notify"
 if [[ -f /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs ]];then
 alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
@@ -50,6 +52,8 @@ alias gap="git ap"
 alias gl="git ra"
 alias gh="git h"
 alias gd="git diff"
+
+alias t="todo.sh"
 # /Alias =================
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
