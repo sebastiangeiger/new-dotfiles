@@ -49,7 +49,7 @@ alias bx="bundle exec"
 alias gs="git st"
 alias ga="git add"
 alias gap="git ap"
-alias gl="git ra"
+alias gl="git l"
 alias gh="git h"
 alias gd="git diff"
 
