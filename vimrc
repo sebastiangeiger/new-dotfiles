@@ -33,6 +33,7 @@ Bundle 'vim-pandoc/vim-pandoc'
 Bundle 'chriskempson/base16-vim'
 " tomorrow color scheme
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
+Bundle 'rking/vim-detailed'
 "Bundle 'vim-scripts/a.vim'
 "Bundle 'vim-scripts/rubycomplete.vim' "TODO: Does weird stuff!
 "Bundle 'tpope/vim-cucumber'
