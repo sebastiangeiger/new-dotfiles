@@ -54,6 +54,7 @@ alias gh="git h"
 alias gd="git diff"
 
 alias t="todo.sh"
+alias irb="pry"
 # /Alias =================
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
