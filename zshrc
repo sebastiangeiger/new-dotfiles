@@ -34,7 +34,6 @@ source $DOTFILES/check_if_files_were_modified.sh
 alias ssh-tunnel="ssh -ND 8080"
 alias gti="git"
 alias kerberos-screen="krenew -biL -- screen -Dm; screen"
-alias download="wget -cP $HOME/inbox --quiet --content-disposition"
 if [[ -f /Applications/MacVim.app/Contents/MacOS/Vim ]];then
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
   alias m="mvim"
@@ -55,6 +54,7 @@ alias gd="git diff"
 
 alias t="todo.sh"
 alias irb="pry"
+alias diff="colordiff -u"
 # /Alias =================
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
