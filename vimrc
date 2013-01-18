@@ -35,6 +35,7 @@ Bundle 'chriskempson/base16-vim'
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'rking/vim-detailed'
 Bundle 'godlygeek/tabular'
+Bundle 'benmills/vimux'
 
 
 syntax enable                     " Turn on syntax highlighting.
@@ -171,9 +172,6 @@ vnoremap <D-R> "hy:%s/<C-r>h//gc<left><left><left>
 map <D-/> <c-_><c-_>
 map <leader>/ <c-_><c-_>
 
-" Switching back and forth
-map <leader><leader> <c-^>
-
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
@@ -275,6 +273,13 @@ map <silent> <leader>_ :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 
 " Clear Ctrl+P cache
 map <leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
+
+" Executing commands with vimux
+map <leader><leader> :VimuxRunLastCommand<CR>
+map <leader>c :VimuxClosePanes<CR>
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "30"
+
 " Tabularize patterns for only matching the first equal sign
 " AddTabularPattern 1=    /^[^=]*\zs=
 " AddTabularPattern 1==   /^[^=]*\zs=/r0c0l0
