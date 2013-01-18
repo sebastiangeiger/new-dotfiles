@@ -34,6 +34,7 @@ Bundle 'chriskempson/base16-vim'
 " tomorrow color scheme
 Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'rking/vim-detailed'
+Bundle 'godlygeek/tabular'
 
 
 syntax enable                     " Turn on syntax highlighting.
@@ -274,3 +275,7 @@ map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 
 " Clear Ctrl+P cache
 map <leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
+" Tabularize patterns for only matching the first equal sign
+" AddTabularPattern 1=    /^[^=]*\zs=
+" AddTabularPattern 1==   /^[^=]*\zs=/r0c0l0
+
