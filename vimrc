@@ -270,8 +270,8 @@ set spellfile=~/.vim/en.utf-8.add
 let g:activity_log_location = '~/Dropbox/vim-activity'
 
 " Edit and load vimrc
-map <leader>v :tabedit ~/.vimrc<CR>
-map <silent> <leader>V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map <leader>- :tabedit ~/.vimrc<CR>
+map <silent> <leader>_ :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 " Clear Ctrl+P cache
 map <leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
