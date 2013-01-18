@@ -36,6 +36,7 @@ Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'rking/vim-detailed'
 Bundle 'godlygeek/tabular'
 Bundle 'benmills/vimux'
+Bundle 'Arduino-syntax-file'
 
 
 syntax enable                     " Turn on syntax highlighting.
@@ -284,3 +285,5 @@ let g:VimuxHeight = "30"
 " AddTabularPattern 1=    /^[^=]*\zs=
 " AddTabularPattern 1==   /^[^=]*\zs=/r0c0l0
 
+" Arduino syntax highlighting
+autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
