@@ -1,16 +1,18 @@
-cabal-install
 macvim
+tmux
+todo-txt
+axel
 tree
+jslint
+wget
+mysql
+cabal-install
 imagemagick
 graphviz
-wget
-jslint
 gist
 tig
-tmux
 emacs --HEAD --use-git-head --srgb --cocoa
 gnuplot
-mysql
 clojure
 leiningen
 nailgun
@@ -19,9 +21,7 @@ cowsay
 hg
 mcabber
 qt
-todo-txt
 fortune
-axel
 youtube-dl
 ffmpeg
 colordiff
