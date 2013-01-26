@@ -11,7 +11,6 @@ imagemagick
 graphviz
 gist
 tig
-emacs --HEAD --use-git-head --srgb --cocoa
 gnuplot
 clojure
 leiningen
@@ -26,3 +25,5 @@ youtube-dl
 ffmpeg
 colordiff
 python3
+libksba
+automake
