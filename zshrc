@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh configuration.
 ZSH=$HOME/.oh-my-zsh
-DOTFILES=$HOME/new-dotfiles
+DOTFILES=$HOME/dotfiles
 
 # Set name of the theme to load.
 # Look in ~/.oh-my-zsh/themes/
@@ -36,10 +36,11 @@ alias gti="git"
 alias kerberos-screen="krenew -biL -- screen -Dm; screen"
 if [[ -f /Applications/MacVim.app/Contents/MacOS/Vim ]];then
   alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-  alias m="mvim"
+  export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim -f"
 else
-  alias m="vim"
+  export EDITOR="vim -f"
 fi
+alias m="vim"
 alias n="notify"
 if [[ -f /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs ]];then
 alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
@@ -53,7 +54,6 @@ alias gh="git h"
 alias gd="git diff"
 
 alias t="todo.sh"
-alias irb="pry"
 alias diff="colordiff -u"
 # /Alias =================
 
@@ -69,7 +69,6 @@ PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes, No, Abort, Edit) "
 export ECLIPSE_HOME="/Developer/Eclipse/indigo-3.7.1"
-export EDITOR="vim -f"
 export PATH="/usr/local/bin":$PATH:$ECLIPSE_HOME:"$HOME/.cabal/bin":"$HOME/.bin"
 export CLOJURE="/usr/local/Cellar/clojure/1.4.0/clojure-1.4.0.jar"
 export CLASSPATH=$CLASSPATH:$CLOJURE:"$HOME/.bin/server-2.3.4.jar"
