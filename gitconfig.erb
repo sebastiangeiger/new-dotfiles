@@ -7,7 +7,7 @@
 	branch = auto
 [core]
 	editor = /usr/bin/vim
-	askpass = <%= File.join(ENV['HOME'], "git-password") %>
+	askpass = <%= File.join(ENV['HOME'], ".bin" , "git-password") %>
 [alias]
 	st = status --short
 	co = checkout
