@@ -15,7 +15,7 @@ Bundle 'vim-scripts/tComment'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'ecomba/vim-ruby-refactoring'
-Bundle 'mirell/vim-matchit'
+Bundle 'edsono/vim-matchit'
 Bundle 'msanders/snipmate.vim'
 Bundle 'scrooloose/snipmate-snippets'
 Bundle 'sebastiangeiger/gitignore.vim'
@@ -23,9 +23,8 @@ Bundle 'vim-scripts/VimClojure'
 Bundle 'samsonw/vim-task'
 Bundle 'pangloss/vim-javascript'
 Bundle 'tangledhelix/vim-octopress'
-Bundle 'jpalardy/vim-slime'
 Bundle 'sjl/vitality.vim'
-Bundle 'Lokaltog/vim-powerline'
+" Bundle 'Lokaltog/vim-powerline'
 " Record activitiy
 Bundle 'AD7six/vim-activity-log'
 Bundle 'vim-pandoc/vim-pandoc'
@@ -36,7 +35,10 @@ Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'rking/vim-detailed'
 Bundle 'godlygeek/tabular'
 Bundle 'benmills/vimux'
+Bundle 'pgr0ss/vimux-ruby-test'
+Bundle 'cloud8421/vimux-cucumber'
 Bundle 'Arduino-syntax-file'
+Bundle 'slim-template/vim-slim'
 
 
 syntax enable                     " Turn on syntax highlighting.
@@ -276,7 +278,7 @@ map <silent> <leader>_ :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 map <leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
 
 " Executing commands with vimux
-map <leader><leader> :VimuxRunLastCommand<CR>
+map <leader><leader> :w<CR>:VimuxRunLastCommand<CR>
 map <leader>c :VimuxClosePanes<CR>
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "30"
