@@ -27,3 +27,6 @@ colordiff
 python3
 libksba
 automake
+mongodb
+autoconf
+apple-gcc42
