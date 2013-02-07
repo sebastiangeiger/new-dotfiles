@@ -281,6 +281,9 @@ map <leader><leader> :w<CR>:VimuxRunLastCommand<CR>
 map <leader>c :VimuxClosePanes<CR>
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "30"
+map <leader>q :cfile rspec.quickfix.errors<CR>
+nnoremap <C-n> :cn<CR>
+nnoremap <C-p> :cp<CR>
 
 " Tabularize patterns for only matching the first equal sign
 " AddTabularPattern 1=    /^[^=]*\zs=
