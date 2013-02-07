@@ -35,7 +35,7 @@ Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'rking/vim-detailed'
 Bundle 'godlygeek/tabular'
 Bundle 'benmills/vimux'
-Bundle 'pgr0ss/vimux-ruby-test'
+Bundle 'sebastiangeiger/vimux-ruby-test'
 Bundle 'cloud8421/vimux-cucumber'
 Bundle 'Arduino-syntax-file'
 Bundle 'slim-template/vim-slim'
@@ -151,7 +151,6 @@ autocmd FileType cpp nmap ,r   :w<CR>:call OsascriptVimexec ()<CR><CR>
 
 " Add empty lines without insert mode
 map <S-Enter> O<Esc>
-map <CR> o<Esc>
 
 " Opposite of Shift-J
 nnoremap <S-K> a<CR><Esc>k$

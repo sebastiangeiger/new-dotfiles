@@ -7,6 +7,7 @@
 [core]
 	editor = /usr/bin/vim
 	askpass = <%= File.join(ENV['HOME'], ".bin" , "git-password") %>
+	excludesfile = rspec.quickfix.errors
 [alias]
 	st = status --short
 	co = checkout
