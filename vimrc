@@ -285,9 +285,5 @@ map <leader>q :cfile rspec.quickfix.errors<CR>
 nnoremap <C-n> :cn<CR>
 nnoremap <C-p> :cp<CR>
 
-" Tabularize patterns for only matching the first equal sign
-" AddTabularPattern 1=    /^[^=]*\zs=
-" AddTabularPattern 1==   /^[^=]*\zs=/r0c0l0
-
 " Arduino syntax highlighting
 autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
