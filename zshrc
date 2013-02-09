@@ -34,9 +34,9 @@ source $DOTFILES/check_if_files_were_modified.sh
 alias ssh-tunnel="ssh -ND 8080"
 alias gti="git"
 alias kerberos-screen="krenew -biL -- screen -Dm; screen"
-if [[ -f /Applications/MacVim.app/Contents/MacOS/Vim ]];then
-  alias vim="/Applications/MacVim.app/Contents/MacOS/Vim"
-  export EDITOR="/Applications/MacVim.app/Contents/MacOS/Vim -f"
+if [[ -f /usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/Vim ]];then
+  alias vim="/usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/Vim"
+  export EDITOR="/usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/Vim -f"
 else
   export EDITOR="vim -f"
 fi
