@@ -30,3 +30,5 @@ automake
 mongodb
 autoconf
 apple-gcc42
+cmake
+postgresql
