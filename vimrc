@@ -35,6 +35,7 @@ Bundle 'sebastiangeiger/vimux-ruby-test'
 Bundle 'cloud8421/vimux-cucumber'
 Bundle 'Arduino-syntax-file'
 Bundle 'slim-template/vim-slim'
+Bundle 'Valloric/YouCompleteMe'
 
 
 syntax enable                     " Turn on syntax highlighting.
