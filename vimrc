@@ -28,10 +28,6 @@ Bundle 'sjl/vitality.vim'
 " Record activitiy
 Bundle 'AD7six/vim-activity-log'
 Bundle 'vim-pandoc/vim-pandoc'
-" Base16 color scheme
-Bundle 'chriskempson/base16-vim'
-" tomorrow color scheme
-Bundle 'chriskempson/tomorrow-theme', {'rtp': 'vim/'}
 Bundle 'rking/vim-detailed'
 Bundle 'godlygeek/tabular'
 Bundle 'benmills/vimux'
