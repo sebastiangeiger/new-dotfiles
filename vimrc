@@ -36,6 +36,8 @@ Bundle 'cloud8421/vimux-cucumber'
 Bundle 'Arduino-syntax-file'
 Bundle 'slim-template/vim-slim'
 Bundle 'Valloric/YouCompleteMe'
+Bundle 'kchmck/vim-coffee-script'
+Bundle 'puppetlabs/puppet-syntax-vim'
 
 
 syntax enable                     " Turn on syntax highlighting.
