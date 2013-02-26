@@ -42,6 +42,8 @@ else
 fi
 alias m="vim"
 alias n="notify"
+alias v="vagrant"
+alias r="rails"
 if [[ -f /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs ]];then
 alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
 fi
