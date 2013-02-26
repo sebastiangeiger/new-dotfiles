@@ -38,6 +38,7 @@ Bundle 'slim-template/vim-slim'
 Bundle 'Valloric/YouCompleteMe'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'puppetlabs/puppet-syntax-vim'
+Bundle 'airblade/vim-gitgutter'
 
 
 syntax enable                     " Turn on syntax highlighting.
@@ -286,3 +287,6 @@ nnoremap <C-p> :cp<CR>
 
 " Arduino syntax highlighting
 autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
+
+" Need this for gitgutter
+highlight clear SignColumn
