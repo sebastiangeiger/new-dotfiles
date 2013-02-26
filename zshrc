@@ -45,7 +45,10 @@ alias n="notify"
 alias v="vagrant"
 alias r="rails"
 if [[ -f /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs ]];then
-alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
+  alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
+fi
+if [[ -f /Applications/GitX.app/Contents/MacOS/GitX ]];then
+  alias gitx="/Applications/GitX.app/Contents/MacOS/GitX"
 fi
 alias bx="bundle exec"
 alias gs="git st"
