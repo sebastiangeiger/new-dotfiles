@@ -32,3 +32,5 @@ autoconf
 apple-gcc42
 cmake
 postgresql
+pow
+phantomjs
