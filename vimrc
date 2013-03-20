@@ -284,6 +284,10 @@ let g:VimuxHeight = "30"
 map <leader>q :cfile rspec.quickfix.errors<CR>
 nnoremap <C-n> :cn<CR>
 nnoremap <C-p> :cp<CR>
+autocmd FileType ruby map <buffer> <Leader>rf :w<CR>:RunRubyFocusedTest<CR>
+autocmd FileType ruby map <buffer> <Leader>ra :w<CR>:RunAllRubyTests<CR>
+autocmd FileType cucumber map <Leader>rf :w<CR>:RunFocusedCuke<CR>
+autocmd FileType cucumber map <Leader>ra :w<CR>:RunAllCukes<CR>
 
 " Arduino syntax highlighting
 autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
