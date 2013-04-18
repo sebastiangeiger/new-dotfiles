@@ -1,0 +1,23 @@
+#!/usr/bin/env ruby -w
+require 'yaml'
+
+def time
+  start = Time.now
+  yield
+  Time.now - start
+end
+
+if __FILE__ == $0
+  statistics = {}
+  feature_files = Dir.glob("**/*.feature")
+  puts "Found #{feature_files.size} feature files"
+  feature_files.each do |feature_file|
+    statistics[feature_file] ||= {}
+    statistics[feature_file][:time] = time do
+      system "cucumber #{feature_file} -r features"
+    end
+    statistics[feature_file][:number_of_scenarios] = `cucumber #{feature_file} -r features --dry-run | tail -3 | head -1 | cut -d ' ' -f 1`.to_i
+  end
+  File.open("cucumber_stats.yml","w+") {|f| f.write(YAML.dump(statistics))}
+  p statistics
+end
