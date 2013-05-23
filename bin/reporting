@@ -1,0 +1,59 @@
+#!/usr/bin/env ruby
+require 'date'
+
+def vim_activity_times
+  vim_activity = `cat ~/Dropbox/vim-activity | grep "$(pwd)" | cut -d ";" -f 1 | cut -d " " -f 1-2`.split(/\n/)
+  vim_activity.map do |line|
+    DateTime.parse(line)
+  end.sort
+end
+
+def to_ranges(times)
+  times.map do |time|
+    Range.new(time,time)
+  end
+end
+
+def minutes_between(date_1, date_2)
+  ((date_1 - date_2) * 24 * 60).to_f
+end
+
+def merge(range_1, range_2)
+  Range.new(range_1.begin, range_2.end)
+end
+
+def compact_time_ranges(time_ranges, threshold = 15)
+  raise unless time_ranges.size >= 1
+  new_time_ranges = [time_ranges.first]
+  time_ranges.each do |range|
+    current_last_range = new_time_ranges.pop
+    diff = minutes_between(range.begin, current_last_range.end)
+    if diff <= threshold
+      new_time_ranges << merge(current_last_range, range)
+    else
+      new_time_ranges << current_last_range
+      new_time_ranges << range
+    end
+  end
+  new_time_ranges
+end
+
+def nice_format(ranges)
+  current_date = nil
+  ranges.each do |range|
+    if current_date.nil? or range.begin.day != current_date.day
+      puts if current_date
+      current_date = range.begin
+      puts current_date.strftime("%A, %d.%m. %Y")
+    end
+    puts "From: #{range.begin.strftime("%H:%M")} .... To: #{range.end.strftime("%H:%M")}"
+  end
+end
+
+def remove_short_time_ranges(time_ranges, threshold = 5)
+  time_ranges.reject do |range|
+    minutes_between(range.end, range.begin) <= threshold
+  end
+end
+
+nice_format remove_short_time_ranges(compact_time_ranges(to_ranges(vim_activity_times)))
