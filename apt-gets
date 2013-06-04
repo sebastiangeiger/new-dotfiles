@@ -1,3 +1,6 @@
+libmysqlclient-dev
+nodejs
+git-flow
 curl
 zsh
 tmux

@@ -7,10 +7,13 @@ desc "install the dot files into user's home directory"
 task :install => [:symlink_dotfiles, :change_default_shell, :checkout_oh_my_zsh, :install_vundle] do
   if `uname` =~ /Darwin/
     Rake::Task["mac"].invoke
+  elsif `uname` =~ /Linux/
+    Rake::Task["linux"].invoke
   end
 end
 
 task :mac => [:install_homebrew]
+task :linux => [:install_with_apt_get]
 
 task :rvm do
   system "curl -L get.rvm.io | bash -s stable"
