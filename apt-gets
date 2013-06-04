@@ -12,9 +12,6 @@ imagemagick
 graphviz
 tig
 gnuplot
-clojure
-leiningen
-nailgun
 cowsay
 mcabber
 fortune
