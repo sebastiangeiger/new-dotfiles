@@ -57,6 +57,7 @@ alias gap="git ap"
 alias gl="git l"
 alias gh="git h"
 alias gd="git diff"
+alias gf="nocorrect git flow"
 
 alias t="todo.sh"
 alias diff="colordiff -u"
