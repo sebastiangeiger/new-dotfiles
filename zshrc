@@ -67,6 +67,7 @@ alias git-email-mo='git config user.email "sebastian.geiger@mo-stud.io"'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:/usr/local/share/npm/bin
 
 # Z - Jump Around! =======
 #. /usr/local/Cellar/z/1.1/etc/profile.d/z.sh
