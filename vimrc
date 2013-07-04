@@ -39,6 +39,7 @@ Bundle 'Valloric/YouCompleteMe'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'airblade/vim-gitgutter'
+Bundle 't9md/vim-ruby-xmpfilter'
 
 
 syntax enable                     " Turn on syntax highlighting.
@@ -136,7 +137,7 @@ iab <expr> dts strftime("%a, %e %b %Y %H:%M:%S %z")
 nmap <SPACE> <SPACE>:noh<CR>
 
 " Show lines longer than 100 if in C++ mode
-autocmd FileType cpp match ErrorMsg '\%>100v.\+'
+match ErrorMsg '\%>79v.\+'
 
 " Run the ~/.vim/bin/vimexec.scpt AppleScript which takes the .vimexec.sh file
 " and executes it on the current iTerm
@@ -294,3 +295,12 @@ autocmd! BufNewFile,BufRead *.ino setlocal ft=arduino
 
 " Need this for gitgutter
 highlight clear SignColumn
+
+" Mappings for vim-ruby-xmpfilter
+nmap <buffer> <leader>m <Plug>(xmpfilter-run)
+xmap <buffer> <leader>m <Plug>(xmpfilter-run)
+imap <buffer> <leader>m <Plug>(xmpfilter-run)
+
+nmap <buffer> <F5> <Plug>(xmpfilter-mark)
+xmap <buffer> <F5> <Plug>(xmpfilter-mark)
+imap <buffer> <F5> <Plug>(xmpfilter-mark)

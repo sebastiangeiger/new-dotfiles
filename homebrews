@@ -32,5 +32,7 @@ autoconf
 apple-gcc42
 cmake
 postgresql
-pow
 phantomjs
+git-flow
+pstree
+mobile-shell
