@@ -1,0 +1,15 @@
+#!/bin/sh
+main=$1
+side=$2
+current=$(git rev-parse --abbrev-ref HEAD)
+echo "Merging $2 into $1"
+git stash save
+git checkout $side
+git pull --ff
+git checkout $main
+git pull --ff
+git merge $side
+git checkout $side
+git merge $main
+echo "Switching back to $current"
+git checkout $current
