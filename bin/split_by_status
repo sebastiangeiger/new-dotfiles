@@ -1,0 +1,27 @@
+#!/usr/bin/env ruby -w
+def append(line, file)
+  puts %{Writing "#{line}" to "#{file}"}
+  content = IO.read(file).split("\n") if File.exists? file
+  content ||= []
+  content << line
+  File.open(file, "w") {|f| f.write(content.join("\n")) }
+end
+
+if __FILE__ == $0
+  if ARGV.size != 4 
+    puts "Usage: split_by_status input_file command_pattern successful_file failing_file"
+    puts "       'line' in command_pattern will be replaced with the current line from the input_file"
+    exit 127
+  end
+  input_file       = ARGV[0]
+  command_pattern  = ARGV[1]
+  successful_file  = ARGV[2]
+  failing_file     = ARGV[3]
+  IO.read(input_file).split("\n").each do |line|
+    command = command_pattern.gsub("line", line)
+    exit_status = system(command)
+    output_file = (exit_status ? successful_file : failing_file )
+    append(line, output_file)
+  end
+  exit 0
+end

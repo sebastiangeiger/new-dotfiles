@@ -22,7 +22,8 @@ def merge(range_1, range_2)
   Range.new(range_1.begin, range_2.end)
 end
 
-def compact_time_ranges(time_ranges, threshold = 15)
+def compact_time_ranges(time_ranges, threshold = 5)
+  threshold = threshold.to_i
   raise unless time_ranges.size >= 1
   new_time_ranges = [time_ranges.first]
   time_ranges.each do |range|
@@ -56,4 +57,4 @@ def remove_short_time_ranges(time_ranges, threshold = 5)
   end
 end
 
-nice_format remove_short_time_ranges(compact_time_ranges(to_ranges(vim_activity_times)))
+nice_format compact_time_ranges(to_ranges(vim_activity_times), ARGV[0] || 5)
