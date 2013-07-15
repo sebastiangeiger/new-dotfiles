@@ -158,6 +158,10 @@ nnoremap <S-K> a<CR><Esc>k$
 " Autocorrects
 iab shoud should
 
+" Remap omnicomplete
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' : '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+inoremap <expr> <C-f> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
 " Nicer TODO markers (see plugin todo-signs.vim)
 if has("gui_running")
   autocmd BufNewFile,BufRead,BufWrite * call SignLines()
