@@ -230,6 +230,7 @@ let g:vimclojure#ParenRainbow = 1
 
 " General key mappings
 " Making vim a bit harder:
+inoremap jj <Esc>
 inoremap jk <Esc>
 inoremap <Esc> <nop>
 inoremap  <Up> <nop>
@@ -278,6 +279,7 @@ map <leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
 
 " Executing commands with vimux
 map <leader><leader> :w<CR>:VimuxRunLastCommand<CR>
+imap <leader><leader> jk:w<CR>:VimuxRunLastCommand<CR>
 map <leader>c :VimuxClosePanes<CR>
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "30"
