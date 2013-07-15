@@ -178,7 +178,7 @@ map <leader>/ <c-_><c-_>
 nmap <leader>l :set list!<CR>
 
 " Use the same symbols as TextMate for tabstops and EOLs
-set listchars=tab:▸\ ,eol:¬
+set listchars=tab:>-,eol:�
 
 " Two functions that let you move windows between tabs
 function MoveToPrevTab()

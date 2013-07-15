@@ -9,7 +9,7 @@ if [ -f ".project" ]; then
     echo "Creating the session "${SESSION_NAME}""
     # Create the session and set it up
     # Window 1: vim
-    tmux new-session -s "${SESSION_NAME}" -n vim -d
+    tmux -u new-session -s "${SESSION_NAME}" -n vim -d
     tmux send-keys -t "${SESSION_NAME}":1 'vim' C-m
 
     # Window 2: rails server
