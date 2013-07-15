@@ -19,6 +19,10 @@ task :rvm do
   system "curl -L get.rvm.io | bash -s stable"
 end
 
+task :compile_you_complete_me => [:install_vundle, :install_homebrew] do
+  system 'cd ~/.vim/bundle/YouCompleteMe; ./install.sh --clang-completer'
+end
+
 task :install_vundle do
   if File.exists?(File.join(ENV['HOME'], ".vim", "bundle", "vundle"))
     puts "Vundle is already installed"
