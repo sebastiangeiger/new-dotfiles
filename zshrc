@@ -33,7 +33,6 @@ source $DOTFILES/check_if_files_were_modified.sh
 # Alias ==================
 alias ssh-tunnel="ssh -ND 8080"
 alias gti="git"
-alias kerberos-screen="krenew -biL -- screen -Dm; screen"
 if [[ -f /usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/Vim ]];then
   alias vim="/usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/Vim"
   export EDITOR="/usr/local/Cellar/macvim/7.3-66/MacVim.app/Contents/MacOS/Vim -f"
@@ -46,9 +45,6 @@ alias v="vagrant"
 alias r="rails"
 if [[ -f /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs ]];then
   alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
-fi
-if [[ -f /Applications/GitX.app/Contents/MacOS/GitX ]];then
-  alias gitx="/Applications/GitX.app/Contents/MacOS/GitX"
 fi
 alias bx="bundle exec"
 alias gs="git st"
@@ -68,6 +64,7 @@ alias git-email-mo='git config user.email "sebastian.geiger@mo-stud.io"'
 # /Alias =================
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
+PATH=$PATH:/usr/local/sbin # for some brews
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/usr/local/share/npm/bin
 
