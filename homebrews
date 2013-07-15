@@ -36,3 +36,6 @@ phantomjs
 git-flow
 pstree
 mobile-shell
+mtr
+redis
+ctags
