@@ -16,8 +16,6 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'edsono/vim-matchit'
-Bundle 'msanders/snipmate.vim'
-Bundle 'scrooloose/snipmate-snippets'
 Bundle 'sebastiangeiger/gitignore.vim'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'samsonw/vim-task'
@@ -248,8 +246,6 @@ noremap <silent> <buffer> <Leader>m :call Toggle_task_status()<CR>
 
 "Editing epubs (epubs are zipped html pages)
 au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
-
-source ~/.vim/bundle/snipmate.vim/snippets/support_functions.vim
 
 "Break line at 72 characters in commit messages
 autocmd filetype gitcommit set textwidth=72
