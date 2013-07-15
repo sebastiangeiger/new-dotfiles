@@ -1,0 +1,2 @@
+#!/bin/sh
+ctags --extra=+f --exclude=.git --exclude=log -R * `rvm gemdir`/gems/*
