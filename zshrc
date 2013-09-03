@@ -68,9 +68,10 @@ PATH=$PATH:/usr/local/sbin # for some brews
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 PATH=$PATH:/usr/local/share/npm/bin
 
-# Z - Jump Around! =======
-#. /usr/local/Cellar/z/1.1/etc/profile.d/z.sh
-# /Z - Jump Around! =====
+# Needed for tmux utf8 ==============
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+# /Needed for tmux utf8 =============
 
 # The notify command is a function
 . $HOME/.bin/notify
