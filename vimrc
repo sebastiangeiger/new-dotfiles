@@ -133,7 +133,7 @@ endfunction
 iab <expr> dts strftime("%a, %e %b %Y %H:%M:%S %z")
 
 " Add clear search highlight to space functionality in normal mode
-nmap <SPACE> <SPACE>:noh<CR>
+nnoremap <leader><SPACE> :nohl<CR>
 
 " Show lines longer than 100 if in C++ mode
 match ErrorMsg '\%>79v.\+'
@@ -150,7 +150,7 @@ autocmd FileType ruby map <D-r> :wall<CR>:call OsascriptVimexec ()<CR><CR>
 autocmd FileType cpp nmap ,r   :w<CR>:call OsascriptVimexec ()<CR><CR>
 
 " Add empty lines without insert mode
-map <S-Enter> O<Esc>
+nmap <S-Enter> O<Esc>
 
 " Opposite of Shift-J
 nnoremap <S-K> a<CR><Esc>k$
@@ -276,7 +276,8 @@ map <silent> <leader>_ :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 map <leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
 
 " Executing commands with vimux
-map <leader><leader> :w<CR>:VimuxRunLastCommand<CR>
+noremap <leader><leader> :w<CR>:VimuxRunLastCommand<CR>
+noremap <SPACE> :w<CR>:VimuxRunLastCommand<CR>
 imap <leader><leader> jk:w<CR>:VimuxRunLastCommand<CR>
 map <leader>c :VimuxClosePanes<CR>
 let g:VimuxOrientation = "h"
