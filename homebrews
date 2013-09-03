@@ -1,3 +1,4 @@
+ack
 macvim
 tmux
 todo-txt
@@ -39,3 +40,4 @@ mobile-shell
 mtr
 redis
 ctags
+terminal-notifier
