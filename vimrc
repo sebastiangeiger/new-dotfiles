@@ -135,8 +135,8 @@ iab <expr> dts strftime("%a, %e %b %Y %H:%M:%S %z")
 " Add clear search highlight to space functionality in normal mode
 nnoremap <leader><SPACE> :nohl<CR>
 
-" Show lines longer than 100 if in C++ mode
-match ErrorMsg '\%>79v.\+'
+" Show lines longer than 79
+autocmd BufNewFile,BufRead * match ErrorMsg '\%>79v.\+'
 
 " Run the ~/.vim/bin/vimexec.scpt AppleScript which takes the .vimexec.sh file
 " and executes it on the current iTerm
