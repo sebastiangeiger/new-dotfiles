@@ -11,7 +11,7 @@ notify(){
     image=$fail
     message="... failed in `pwd`."
   fi
-  /Applications/terminal-notifier.app/Contents/MacOS/terminal-notifier -message "${message}"
+  terminal-notifier -message "${message}"
   # if [[ `idle_time` -ge 45 ]]; then
   #   $HOME/.bin/nma.sh "${title}" "${message}" "On machine `hostname`" 1
   # fi
