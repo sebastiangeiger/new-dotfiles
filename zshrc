@@ -81,3 +81,6 @@ export ECLIPSE_HOME="/Developer/Eclipse/indigo-3.7.1"
 export PATH="/usr/local/bin":$PATH:$ECLIPSE_HOME:"$HOME/.cabal/bin":"$HOME/.bin"
 export CLOJURE="/usr/local/Cellar/clojure/1.4.0/clojure-1.4.0.jar"
 export CLASSPATH=$CLASSPATH:$CLOJURE:"$HOME/.bin/server-2.3.4.jar"
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
