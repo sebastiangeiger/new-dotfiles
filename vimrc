@@ -77,6 +77,8 @@ set nowritebackup                 " And again.
 set noswapfile
 "set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
+set autoread                      " Automatically read changed files
+
 " Tabs and white spaces
 set tabstop=2
 set softtabstop=2
@@ -232,6 +234,8 @@ let g:vimclojure#ParenRainbow = 1
 " Making vim a bit harder:
 inoremap jj <Esc>
 inoremap jk <Esc>
+inoremap Jk <Esc>
+inoremap JK <Esc>
 inoremap <Esc> <nop>
 inoremap  <Up> <nop>
 inoremap  <Down> <nop>
@@ -240,6 +244,8 @@ inoremap  <Right> <nop>
 " No more accidental help windows
 :nmap <F1> :echo<CR>
 :imap <F1> <C-o>:echo<CR>
+" Get lost Ex-mode
+nnoremap Q <nop>
 
 let g:ctrlp_map = '<Leader>t' "Keymapping for (the Ctrl+t replacement) Ctrl+p
 
@@ -281,7 +287,7 @@ noremap <SPACE> :w<CR>:VimuxRunLastCommand<CR>
 imap <leader><leader> jk:w<CR>:VimuxRunLastCommand<CR>
 map <leader>c :VimuxClosePanes<CR>
 let g:VimuxOrientation = "h"
-let g:VimuxHeight = "30"
+let g:VimuxHeight = "36"
 map <leader>q :cfile rspec.quickfix.errors<CR>
 nnoremap <C-n> :cn<CR>
 nnoremap <C-p> :cp<CR>
