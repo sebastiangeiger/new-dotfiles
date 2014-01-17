@@ -62,6 +62,9 @@ alias t="todo.sh"
 alias diff="colordiff -u"
 alias git-email-personal='git config user.email "sebastian.geiger@gmail.com"'
 alias git-email-mo='git config user.email "sebastian.geiger@mo-stud.io"'
+
+alias wifi-on="networksetup -setairportpower en0 on"
+alias wifi-off="networksetup -setairportpower en0 off"
 # /Alias =================
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
