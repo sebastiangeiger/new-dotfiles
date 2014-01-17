@@ -46,7 +46,8 @@ alias r="rails"
 if [[ -f /usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs ]];then
   alias emacs="/usr/local/Cellar/emacs/HEAD/Emacs.app/Contents/MacOS/Emacs -nw"
 fi
-alias bx="bundle exec"
+alias bx="nocorrect bundle exec"
+alias bundle="nocorrect bundle"
 alias gs="git st"
 alias ga="git add"
 alias gap="git ap"
