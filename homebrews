@@ -16,6 +16,7 @@ gnuplot
 clojure
 leiningen
 nailgun
+rlwrap
 z
 cowsay
 hg
@@ -41,3 +42,9 @@ mtr
 redis
 ctags
 terminal-notifier
+apr
+apr-util
+ab
+lynx
+pdftk
+unrar
