@@ -87,10 +87,17 @@ class AxelDownload < Rule
   def matches?
     true
   end
+  def download_limitation
+    if Time.now.saturday? or Time.now.sunday?
+      ""
+    else
+      "-s #{512*1024}"
+    end
+  end
   def action
     lambda do
       puts "Starting #{@url.full_url}"
-      `axel -a -n 10 -s #{512*1024} #{@url.full_url}`
+      `axel -a #{download_limitation} -n 10 #{@url.full_url}`
       puts "Downloaded #{@url.full_url}"
     end
   end
