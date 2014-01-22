@@ -11,3 +11,4 @@ TOODs
   - ZSH theme that indicates a remote connection
   - Merge homebrews and apt-get lists into something that resembles Gemfiles
   - Automatically compile ycm/ycm_core
+  - Automatically create a branch depending on the machine?
