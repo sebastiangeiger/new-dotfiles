@@ -72,7 +72,7 @@ end
 
 task :install_with_apt_get do
   list = (IO.read("apt-gets").split("\n").reject{|app| app.strip.empty?})
-  system "sudo apt-get install #{list.join(" ")}"
+  system "sudo apt-get -y install #{list.join(" ")}"
 end
 
 task :symlink_dotfiles do
