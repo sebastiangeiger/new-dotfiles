@@ -1,3 +1,4 @@
+require_relative 'helper/package_list'
 require 'rake'
 require 'erb'
 
@@ -65,20 +66,20 @@ task :install_homebrew do
     system %Q{/usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"}
   end
   installed_homebrews = `brew list`.split("\n")
-  (IO.read("homebrews").split("\n").reject{|app| app.strip.empty?} - installed_homebrews).each do |application|
+  (PackageList.from_file("Packagefile").list_for(:mac) - installed_homebrews).each do |application|
     system "brew install #{application}"
   end
 end
 
 task :install_with_apt_get do
-  list = (IO.read("apt-gets").split("\n").reject{|app| app.strip.empty?})
+  list = PackageList.from_file("Packagefile").list_for(:linux)
   system "sudo apt-get -y install #{list.join(" ")}"
 end
 
 task :symlink_dotfiles do
   replace_all = false
   Dir['*'].each do |file|
-    next if %w[Rakefile README.md LICENSE TODO.tasks].include? file
+    next if %w[Rakefile README.md LICENSE TODO.tasks Packagefile helper].include? file
     if File.directory?(file)
       replace_all = symlink_dir(file,replace_all)
     end
