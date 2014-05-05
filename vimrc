@@ -183,49 +183,55 @@ nmap <leader>l :set list!<CR>
 set listchars=tab:>-,eol:Â
 
 " Two functions that let you move windows between tabs
-function MoveToPrevTab()
-  "there is only one window
-  if tabpagenr('$') == 1 && winnr('$') == 1
-    return
-  endif
-  "preparing new window
-  let l:tab_nr = tabpagenr('$')
-  let l:cur_buf = bufnr('%')
-  if tabpagenr() != 1
-    close!
-    if l:tab_nr == tabpagenr('$')
-      tabprev
+if !exists("*MoveToPrevTab")
+  function MoveToPrevTab()
+    "there is only one window
+    if tabpagenr('$') == 1 && winnr('$') == 1
+      return
     endif
-    vsplit
-  else
-    close!
-    exe "0tabnew"
-  endif
-  "opening current buffer in new window
-  exe "b".l:cur_buf
-endfunc
+    "preparing new window
+    let l:tab_nr = tabpagenr('$')
+    let l:cur_buf = bufnr('%')
+    if tabpagenr() != 1
+      close!
+      if l:tab_nr == tabpagenr('$')
+        tabprev
+      endif
+      vsplit
+    else
+      close!
+      exe "0tabnew"
+    endif
+    "opening current buffer in new window
+    exe "b".l:cur_buf
+  endfunc
+  command MoveToPrevTab :call MoveToPrevTab()
+endif
 
-function MoveToNextTab()
-  "there is only one window
-  if tabpagenr('$') == 1 && winnr('$') == 1
-    return
-  endif
-  "preparing new window
-  let l:tab_nr = tabpagenr('$')
-  let l:cur_buf = bufnr('%')
-  if tabpagenr() < tab_nr
-    close!
-    if l:tab_nr == tabpagenr('$')
-      tabnext
+if !exists("*MoveToNextTab")
+  function MoveToNextTab()
+    "there is only one window
+    if tabpagenr('$') == 1 && winnr('$') == 1
+      return
     endif
-    vsplit
-  else
-    close!
-    tabnew
-  endif
-  "opening current buffer in new window
-  exe "b".l:cur_buf
-endfunc
+    "preparing new window
+    let l:tab_nr = tabpagenr('$')
+    let l:cur_buf = bufnr('%')
+    if tabpagenr() < tab_nr
+      close!
+      if l:tab_nr == tabpagenr('$')
+        tabnext
+      endif
+      vsplit
+    else
+      close!
+      tabnew
+    endif
+    "opening current buffer in new window
+    exe "b".l:cur_buf
+  endfunc
+  command MoveToNextTab :call MoveToNextTab()
+endif
 
 let g:vimclojure#HighlightBuiltins = 1
 let g:vimclojure#ParenRainbow = 1
