@@ -59,7 +59,8 @@ alias gfa="git fetch --all"
 alias gf="nocorrect git flow"
 alias feature="gf feature"
 
-alias t="todo.sh"
+alias t="nocorrect todo.sh"
+alias te="vim ~/Dropbox/todo/todo.txt"
 alias diff="colordiff -u"
 alias git-email-personal='git config user.email "sebastian.geiger@gmail.com"'
 alias git-email-mo='git config user.email "sebastian.geiger@mo-stud.io"'
