@@ -1,0 +1,3 @@
+#!/bin/sh
+TEMP_FILE=asasldkjasdhaisdsd.txt
+tail -n +2 $1 > $TEMP_FILE && mv $TEMP_FILE $1
