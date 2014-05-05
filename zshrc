@@ -29,6 +29,7 @@ plugins=(rails3 git ruby brew osx rvm ruby git-flow mvn)
 
 source $ZSH/oh-my-zsh.sh
 source $DOTFILES/check_if_files_were_modified.sh
+source $HOME/.pushover.conf
 
 # Alias ==================
 alias ssh-tunnel="ssh -ND 8080"
