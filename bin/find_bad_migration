@@ -1,0 +1,18 @@
+#!/bin/bash
+reset='\e[0m';
+green='\e[1;32m';
+red='\e[1;31m';
+rake db:drop db:create
+ls -1 db/migrate | sort | cut -f 1 -d '_' | while read version; do
+    printf "${version}"
+    ERROR=$(((rake db:migrate:up VERSION=${version}; ) 1>/dev/null) 2>&1)
+    if [ $? -eq 0 ]; then
+      printf "\r${green}${version}${reset}\n"
+    else
+      printf "\r${red}${version}${reset}\n"
+      echo "ERROR:"
+      echo ${ERROR}
+      break
+    fi
+  done
+
