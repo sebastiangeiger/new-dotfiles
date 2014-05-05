@@ -54,3 +54,4 @@ package "curl", :only => :linux
 package "nodejs"
 package "hr"
 package "tidy"
+package "bcrypt"
