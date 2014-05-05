@@ -82,6 +82,7 @@ export LC_ALL=en_US.UTF-8
 # The notify command is a function
 . $HOME/.bin/notify
 
+export MPD_HOST=192.168.1.22
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes, No, Abort, Edit) "
 export ECLIPSE_HOME="/Developer/Eclipse/indigo-3.7.1"
 export PATH="/usr/local/bin":$PATH:$ECLIPSE_HOME:"$HOME/.cabal/bin":"$HOME/.bin"
