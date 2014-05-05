@@ -52,3 +52,5 @@ package "zsh"
 package "libmysqlclient-dev", :only => :linux
 package "curl", :only => :linux
 package "nodejs"
+package "hr"
+package "tidy"
