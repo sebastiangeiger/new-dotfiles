@@ -12,8 +12,9 @@ notify(){
     message="... failed in `pwd`."
   fi
   terminal-notifier -message "${message}"
-  # if [[ `idle_time` -ge 45 ]]; then
-  #   $HOME/.bin/nma.sh "${title}" "${message}" "On machine `hostname`" 1
-  # fi
+  if [[ `idle_time` -ge 45 ]]; then
+    message="${message} (Idle for `idle_time`s)"
+    curl --data "token=${PUSHOVER_TOKEN}&user=${PUSHOVER_USER}&message=${message}&title=${title}" https://api.pushover.net/1/messages.json
+  fi
   (exit $exitcode) #This passes the exitcode through to the shell
 }
