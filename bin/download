@@ -91,7 +91,7 @@ class AxelDownload < Rule
     if Time.now.saturday? or Time.now.sunday?
       ""
     else
-      "-s #{512*1024}"
+      "-s #{700*1024}"
     end
   end
   def action
