@@ -1,0 +1,85 @@
+#!/usr/bin/env ruby
+
+def find_unused_lines(output)
+  indices = []
+  output.each_with_index do |element, i|
+    if element =~ /NOT MATCHED BY ANY STEPS/ and i >= 1
+      indices << (i - 1) # NOT MATCHED BY ANY STEPS is printed on next line
+    end
+  end
+  indices.map do |line_number|
+    output.at(line_number)
+  end
+end
+
+def file_and_line_number(lines)
+  lines.map do |line|
+    line.match(/^.*\#(.*)$/)[1]
+  end
+end
+
+Position = Struct.new(:file_name, :line_number) do
+  def self.from_line(line)
+    match_data = line.match(/^\s*(.*)\:(.*)$/)
+    new(match_data[1], match_data[2].to_i)
+  end
+
+  def position_of_next_end_tag
+    contents = IO.read(file_name).split("\n")
+    make_sure_its_a_step_definition(contents, line_number)
+    end_line_number = find_next_end_tag(contents, line_number)
+    Position.new(file_name, end_line_number)
+  end
+
+  def find_next_end_tag(contents, line_number)
+    until contents[line_number] =~ /^\s*end\s*$/
+      line_number += 1
+    end
+    line_number + 1 # contents starts with index 0, lines with 1
+  end
+  def make_sure_its_a_step_definition(contents, line_number)
+    start_line = contents[line_number-1]
+    unless start_line =~ /^\s*(Then|When|Given)(\s|\()/
+      raise "Start not found"
+    end
+  end
+end
+
+def extract_positions(file_and_line_number)
+  file_and_line_number.map do |line|
+    Position.from_line(line)
+  end
+end
+
+StepDefinition = Struct.new(:start_position, :end_position) do
+  def self.from_start_position(start_position)
+    new(start_position, determine_end_position(start_position))
+  end
+
+  def self.determine_end_position(start_position)
+    start_position.position_of_next_end_tag
+  end
+end
+
+def find_step_definitions(starting_positions)
+  starting_positions.map do |start_position|
+    StepDefinition.from_start_position(start_position)
+  end
+end
+
+def delete_instructions(step_definitions)
+  step_definitions.each do |definition|
+    file_name = definition.start_position.file_name
+    start_line = definition.start_position.line_number
+    end_line = definition.end_position.line_number
+    puts %{Delete in "#{file_name}" from #{start_line} to #{end_line}}
+  end
+end
+
+output = `cucumber -f stepdefs --dry-run`.split("\n")
+
+positions = extract_positions(file_and_line_number(find_unused_lines(output)))
+step_definitions = find_step_definitions(positions)
+delete_instructions(step_definitions)
+
+#FIXME: False positives: if I use `step "some step"` but "some step" nowhere in the features it gets reported
