@@ -85,7 +85,5 @@ export LC_ALL=en_US.UTF-8
 export MPD_HOST=192.168.1.22
 export SPROMPT="Correct $fg[red]%R$reset_color to $fg[green]%r?$reset_color (Yes, No, Abort, Edit) "
 export ECLIPSE_HOME="/Developer/Eclipse/indigo-3.7.1"
-export PATH="/usr/local/bin":$PATH:$ECLIPSE_HOME:"$HOME/.cabal/bin":"$HOME/.bin"
-
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
+export PLAY_PATH="/usr/local/bin/play-2.2.3"
+export PATH="/usr/local/bin":$PLAY_PATH:$PATH:$ECLIPSE_HOME:"$HOME/.cabal/bin":"$HOME/.bin"
