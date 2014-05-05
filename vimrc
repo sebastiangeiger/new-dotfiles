@@ -37,8 +37,8 @@ Bundle 'kchmck/vim-coffee-script'
 Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'airblade/vim-gitgutter'
 Bundle 't9md/vim-ruby-xmpfilter'
-Bundle 'jnwhiteh/vim-golang'
 Bundle 'mileszs/ack.vim'
+Bundle 'plasticboy/vim-markdown'
 
 
 syntax enable                     " Turn on syntax highlighting.
