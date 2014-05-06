@@ -34,12 +34,8 @@ source $HOME/.pushover.conf
 # Alias ==================
 alias ssh-tunnel="ssh -ND 8080"
 alias gti="git"
-if [[ -f /usr/local/Cellar/macvim/7.4-72/MacVim.app/Contents/MacOS/Vim ]];then
-  alias vim="/usr/local/Cellar/macvim/7.4-72/MacVim.app/Contents/MacOS/Vim"
-  export EDITOR="/usr/local/Cellar/macvim/7.4-72/MacVim.app/Contents/MacOS/Vim -f"
-else
-  export EDITOR="vim -f"
-fi
+alias vim="reattach-to-user-namespace vim"
+export EDITOR="vim -f"
 alias m="vim"
 alias n="notify"
 alias v="vagrant"
