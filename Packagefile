@@ -1,5 +1,5 @@
 package "ack"
-package "macvim", :only => :mac
+package "macvim --override-system-vim", :only => :mac
 package "tmux"
 package "todo-txt"
 package "axel"
@@ -55,3 +55,4 @@ package "nodejs"
 package "hr"
 package "tidy"
 package "bcrypt"
+package "reattach-to-user-namespace --wrap-pbcopy-and-pbpaste", :only => :mac
