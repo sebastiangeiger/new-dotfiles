@@ -1,3 +1,6 @@
 vim/bundle/*
 bin/nma.sh
 bin/putio_download
+config/fish/fishd.*
+config/fish/fish_history
+config/fish/pushover.fish
