@@ -7,6 +7,8 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+set shell=/bin/bash
+
 Bundle 'tpope/vim-fugitive'
 Bundle 'kien/ctrlp.vim'
 "instead of: Bundle 'wincent/Command-T'
@@ -39,6 +41,7 @@ Bundle 'airblade/vim-gitgutter'
 Bundle 't9md/vim-ruby-xmpfilter'
 Bundle 'mileszs/ack.vim'
 Bundle 'plasticboy/vim-markdown'
+Bundle 'dag/vim-fish'
 
 
 syntax enable                     " Turn on syntax highlighting.
