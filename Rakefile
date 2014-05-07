@@ -1,4 +1,4 @@
-require_relative 'helper/package_list'
+require File.expand_path('helper/package_list', File.dirname(__FILE__))
 require 'rake'
 require 'erb'
 

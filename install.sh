@@ -5,7 +5,7 @@ set -o errtrace
 set -o errexit
 
 if [ `uname` = "Linux" ]; then
-  sudo apt-get install -y rake git-core ruby1.9
+  sudo apt-get install -y rake git-core
 fi
 cd ~ && git clone git://github.com/sebastiangeiger/new-dotfiles.git dotfiles
 cd ~/dotfiles && rake install
