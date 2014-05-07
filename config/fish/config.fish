@@ -1,6 +1,6 @@
 set -x DOTFILES $HOME/dotfiles
 set -x EDITOR "vim"
-set -x PATH /usr/local/bin $PATH
+set -x PATH /usr/local/bin $HOME/.bin $PATH
 
 . $HOME/.config/fish/pushover.fish
 
