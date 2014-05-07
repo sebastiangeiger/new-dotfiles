@@ -7,4 +7,5 @@ set -o errexit
 if [ `uname` = "Linux" ]; then
   sudo apt-get install -y rake git-core
 fi
-rake install
+cd ~ && git clone git://github.com/sebastiangeiger/new-dotfiles.git dotfiles
+cd ~/dotfiles && rake install
