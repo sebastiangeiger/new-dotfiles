@@ -5,16 +5,14 @@ require 'erb'
 task :default => :install
 
 desc "install the dot files into user's home directory"
-task :install => [:symlink_dotfiles, :change_default_shell, :checkout_oh_my_zsh, :install_vundle] do
+task :install => [:symlink_dotfiles, :install_packages, :checkout_oh_my_zsh, :install_vundle, :change_default_shell]
+task :install_packages do
   if `uname` =~ /Darwin/
-    Rake::Task["mac"].invoke
+    Rake::Task["install_homebrew"].invoke
   elsif `uname` =~ /Linux/
-    Rake::Task["linux"].invoke
+    Rake::Task["install_with_apt_get"].invoke
   end
 end
-
-task :mac => [:install_homebrew]
-task :linux => [:install_with_apt_get]
 
 task :rvm do
   system "curl -L get.rvm.io | bash -s stable"
@@ -46,7 +44,7 @@ task :checkout_oh_my_zsh do
   end
 end
 
-task :change_default_shell do
+task :change_default_shell => [:install_packages] do
   if `env | grep SHELL` =~ /zsh$/
     puts "Default shell is zsh"
   elsif executable_exists?("zsh")
