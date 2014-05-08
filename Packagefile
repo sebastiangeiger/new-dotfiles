@@ -48,7 +48,7 @@ package "ab"
 package "lynx"
 package "pdftk"
 package "unrar"
-package "zsh"
+package "fish"
 package "libmysqlclient-dev", :only => :linux
 package "curl", :only => :linux
 package "nodejs"
