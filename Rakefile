@@ -5,7 +5,7 @@ require 'erb'
 task :default => :install
 
 desc "install the dot files into user's home directory"
-task :install => [:symlink_dotfiles, :install_packages, :checkout_oh_my_zsh, :install_vundle, :change_default_shell]
+task :install => [:symlink_dotfiles, :install_packages, :install_vundle, :change_default_shell]
 task :install_packages do
   if `uname` =~ /Darwin/
     Rake::Task["install_homebrew"].invoke
@@ -34,25 +34,15 @@ task :install_vundle do
   system "vim +BundleInstall +qall"
 end
 
-task :checkout_oh_my_zsh do
-  if File.exists?(File.join(ENV['HOME'], ".oh-my-zsh"))
-    puts "Oh-my-zsh is already installed"
-  else
-    oh_my_zsh = File.join(ENV['HOME'], ".oh-my-zsh")
-    system "git clone git://github.com/sebastiangeiger/oh-my-zsh.git #{oh_my_zsh}"
-    system "(cd #{oh_my_zsh} && git remote add robbyrussell git://github.com/robbyrussell/oh-my-zsh.git && git fetch robbyrussell && git checkout --track -b robby_master robbyrussell/master && git checkout master)"
-  end
-end
-
 task :change_default_shell => [:install_packages] do
-  if `env | grep SHELL` =~ /zsh$/
-    puts "Default shell is zsh"
-  elsif executable_exists?("zsh")
-    puts "Setting zsh as default shell"
-    system "chsh -s $(which zsh)"
-    puts "Logout and login again so can enjoy your shiny new zsh!"
+  if `env | grep SHELL` =~ /fish$/
+    puts "Default shell is fish"
+  elsif executable_exists?("fish")
+    puts "Setting fish as default shell"
+    system "chsh -s $(which fish)"
+    puts "Logout and login again so can enjoy your shiny new fish!"
   else
-    $stderr.puts "Please install zsh, then run 'rake change_default_shell'"
+    $stderr.puts "Please install fish, then run 'rake change_default_shell'"
   end
 end
 
