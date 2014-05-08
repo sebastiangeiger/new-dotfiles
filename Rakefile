@@ -60,6 +60,7 @@ task :install_homebrew do
 end
 
 task :install_with_apt_get do
+  system "sudo apt-get update"
   list = PackageList.from_file("Packagefile").list_for(:linux)
   system "sudo apt-get -y install #{list.join(" ")}"
 end

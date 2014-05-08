@@ -56,3 +56,4 @@ package "hr"
 package "tidy"
 package "bcrypt"
 package "reattach-to-user-namespace --wrap-pbcopy-and-pbpaste", :only => :mac
+package "language-pack-en-base", :only => :linux
