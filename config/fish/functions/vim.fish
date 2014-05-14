@@ -1,3 +1,7 @@
 function vim
-	reattach-to-user-namespace vim $argv
+  if type reattach-to-user-namespace > /dev/null
+    reattach-to-user-namespace vim $argv
+  else
+    /usr/bin/vim $argv
+  end
 end
