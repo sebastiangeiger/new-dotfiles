@@ -62,7 +62,13 @@ end
 task :install_with_apt_get do
   system "sudo apt-get update"
   list = PackageList.from_file("Packagefile").list_for(:linux)
-  system "sudo apt-get -y install #{list.join(" ")}"
+  available = `sudo apt-cache pkgnames`.split(/\n/)
+  available_in_list = Set.new(list).intersection(available).to_a
+  missing = list - available_in_list
+  File.open(File.join(ENV['HOME'], "missing_packages.txt"), "w") do |file|
+    file.write(missing.join("\n"))
+  end
+  system "sudo apt-get -y install #{available_in_list.join(" ")}"
 end
 
 task :symlink_dotfiles do
