@@ -32,7 +32,6 @@ package "automake"
 package "mongodb"
 package "autoconf"
 package "apple-gcc42"
-package "cmake"
 package "postgresql"
 package "phantomjs"
 package "git-flow"
@@ -58,4 +57,5 @@ package "bcrypt"
 package "reattach-to-user-namespace --wrap-pbcopy-and-pbpaste", :only => :mac
 package "language-pack-en-base", :only => :linux
 package "cmake", :only => :linux
+package "build-essential", :only => :linux
 package "python-dev", :only => :linux
