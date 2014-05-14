@@ -3,4 +3,4 @@ bin/nma.sh
 bin/putio_download
 config/fish/fishd.*
 config/fish/fish_history
-config/fish/pushover.fish
+config/fish/functions/pushover.fish
