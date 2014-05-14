@@ -2,7 +2,7 @@ set -x DOTFILES $HOME/dotfiles
 set -x EDITOR "vim"
 set -x PATH /usr/local/bin $HOME/.bin $PATH
 
-. $DOTFILES/check_if_files_were_modified.fish
+check_if_files_were_modified
 
 # Alias ==================
 alias ssh-tunnel="ssh -ND 8080"
