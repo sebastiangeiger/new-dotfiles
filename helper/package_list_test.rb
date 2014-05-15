@@ -52,4 +52,20 @@ class TestPackageList < Test::Unit::TestCase
     assert_equal ["program_2"], linux
   end
 
+  def test_list_for_with_programs_that_need_custom_repositories
+    string = <<-eos
+      package "program_1_linux", :only => :linux, :repository => "ppa:some/package"
+      package "program_2"
+    eos
+    mac = PackageList.new(string).list_for(:mac)
+    linux = PackageList.new(string).list_for(:linux)
+    linux_repos = PackageList.new(string).repositories_for(:linux)
+    mac_repos = PackageList.new(string).repositories_for(:mac)
+    assert_equal ["program_1_linux", "program_2"], linux
+    assert_equal ["ppa:some/package"], linux_repos
+    assert_equal ["program_2"], mac
+    assert_equal [], mac_repos
+  end
+
+
 end

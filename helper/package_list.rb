@@ -11,7 +11,11 @@ class PackageList
 
   def list_for(platform = :mac)
     instance_eval(@code)
-    @list.map{|package| package.for(platform)}.compact
+    @list.map{|package| package.for(platform).name}.compact
+  end
+  def repositories_for(platform = :mac)
+    instance_eval(@code)
+    @list.map{|package| package.for(platform).repository}.compact
   end
   def package(package_name, options = {})
     @list << Package.new(package_name, options)
@@ -24,11 +28,23 @@ class PackageList
     end
     def for(platform)
       if @options.has_key?(:only) and @options[:only] != platform
-        nil
+        NullPackage.new
       else
-        @options[platform] || @name
+        @desired_platform = platform
+        self
       end
     end
+    def name
+      @options[@desired_platform] || @name
+    end
+    def repository
+      @options[:repository]
+    end
+  end
+
+  class NullPackage
+    def name; nil; end
+    def repository; nil; end
   end
 
 end

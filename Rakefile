@@ -60,6 +60,13 @@ task :install_homebrew do
 end
 
 task :install_with_apt_get do
+  repositories = PackageList.from_file("Packagefile").repositories_for(:linux)
+  unless repositories.empty?
+    system "sudo apt-get install -y python-software-properties"
+    repositories.each do |repository|
+      system "sudo add-apt-repository #{repository}"
+    end
+  end
   system "sudo apt-get update"
   list = PackageList.from_file("Packagefile").list_for(:linux)
   available = `sudo apt-cache pkgnames`.split(/\n/)
