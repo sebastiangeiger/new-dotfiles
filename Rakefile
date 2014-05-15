@@ -64,7 +64,7 @@ task :install_with_apt_get do
   unless repositories.empty?
     system "sudo apt-get install -y python-software-properties"
     repositories.each do |repository|
-      system "sudo add-apt-repository #{repository}"
+      system "sudo add-apt-repository -y #{repository}"
     end
   end
   system "sudo apt-get update"
