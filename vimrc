@@ -283,7 +283,7 @@ highlight def link rubyRspec Function
 set spellfile=~/.vim/en.utf-8.add
 
 " Activity log location:
-let g:activity_log_location = '~/Dropbox/vim-activity'
+let g:activity_log_location = '~/Dropbox/vim-activity/%Y/%m/%d.log'
 
 " Edit and load vimrc
 map <leader>- :tabedit ~/.vimrc<CR>
