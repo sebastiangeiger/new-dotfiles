@@ -10,6 +10,7 @@ function notify
   set -l idle_time (idle_time)
   if test (echo "$idle_time > 45" | bc) -eq 1
     set message $message "(Idle for "{$idle_time}s")"
+    . ~/.config/fish/functions/pushover.fish
     curl https://api.pushover.net/1/messages.json -F token=$PUSHOVER_TOKEN \
       -F user=$PUSHOVER_USER -F message="$message" -F title=$title --silent \
       > /dev/null
