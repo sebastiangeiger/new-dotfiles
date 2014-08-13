@@ -60,3 +60,4 @@ package "language-pack-en-base", :only => :linux
 package "cmake", :only => :linux
 package "build-essential", :only => :linux
 package "python-dev", :only => :linux
+package "hub", :only => :mac
