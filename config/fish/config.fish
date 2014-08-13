@@ -20,6 +20,7 @@ end
 # Alias ==================
 alias ssh-tunnel="ssh -ND 8080"
 alias gti="git"
+alias g="git"
 alias m="vim"
 alias n="notify"
 alias v="vagrant"
@@ -45,3 +46,8 @@ alias git-email-mo='git config user.email "sebastian.geiger@mo-stud.io"'
 
 alias wifi-on="networksetup -setairportpower en0 on"
 alias wifi-off="networksetup -setairportpower en0 off"
+alias wifi-restart="wifi-off; sleep 2; wifi-on"
+
+alias ts="travis status --skip-version-check"
+alias th="travis history --skip-version-check"
+
