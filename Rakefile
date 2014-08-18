@@ -51,7 +51,7 @@ task :install_homebrew do
     puts "homebrew is already installed"
   else
     puts "installing homebrew"
-    system %Q{/usr/bin/ruby -e "$(/usr/bin/curl -fsSL https://raw.github.com/mxcl/homebrew/master/Library/Contributions/install_homebrew.rb)"}
+    system %Q{/usr/bin/ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"}
   end
   installed_homebrews = `brew list`.split("\n")
   (PackageList.from_file("Packagefile").list_for(:mac) - installed_homebrews).each do |application|
