@@ -42,7 +42,8 @@ alias t="todo.sh"
 alias te="vim ~/Dropbox/todo/todo.txt"
 alias diff="colordiff -u"
 alias git-email-personal='git config user.email "sebastian.geiger@gmail.com"'
-alias git-email-mo='git config user.email "sebastian.geiger@mo-stud.io"'
+alias git-email-big-nerd-ranch='git config user.email "sebastian@bignerdranch.com"'
+alias git-email-bnr=git-email-big-nerd-ranch
 
 alias wifi-on="networksetup -setairportpower en0 on"
 alias wifi-off="networksetup -setairportpower en0 off"
