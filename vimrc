@@ -325,7 +325,7 @@ imap <buffer> <F5> <Plug>(xmpfilter-mark)
 function! OpenCommitInGithub(...)
   " TODO: Find commit hash in line 
   " TODO: Make it work with git fugitive
-  " TODO: Jump back to vim after opening
+  " TODO: Jump back to vim after opening, none of this "Press ENTER or type command to continue" BS
   let wordUnderCursor = expand("<cword>")
   let inputFile = expand('%:p')
   if strlen(inputFile) > 0
@@ -353,3 +353,17 @@ function! OpenCommitInGithub(...)
   endif
 endfunction
 nnoremap <leader>gh :call OpenCommitInGithub()<CR>
+
+function! ToggleTodoStatus()
+  " TODO: keep highlight status
+  let line = getline(".")
+  let matches = matchlist(line, '\m\[\([ |x]\)\]')
+  if len(matches) > 0
+    if matches[1] == "x"
+      execute 's/\[x\]/[ ]/'
+    elseif matches[1] == " "
+      execute 's/\[ \]/[x]/'
+    endif
+  end
+endfunction
+nnoremap <leader>x :w<CR>:source ~/.vimrc<CR>:call ToggleTodoStatus()<CR>
