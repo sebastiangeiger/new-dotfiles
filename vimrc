@@ -293,7 +293,6 @@ map <silent> <leader>_ :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimr
 map <leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
 
 " Executing commands with vimux
-noremap <leader><leader> :w<CR>:VimuxRunLastCommand<CR>
 noremap <SPACE> :w<CR>:VimuxRunLastCommand<CR>
 imap <leader><leader> jk:w<CR>:VimuxRunLastCommand<CR>
 map <leader>c :VimuxClosePanes<CR>
@@ -321,3 +320,36 @@ imap <buffer> <leader>m <Plug>(xmpfilter-run)
 nmap <buffer> <F5> <Plug>(xmpfilter-mark)
 xmap <buffer> <F5> <Plug>(xmpfilter-mark)
 imap <buffer> <F5> <Plug>(xmpfilter-mark)
+
+" In Development
+function! OpenCommitInGithub(...)
+  " TODO: Find commit hash in line 
+  " TODO: Make it work with git fugitive
+  " TODO: Jump back to vim after opening
+  let wordUnderCursor = expand("<cword>")
+  let inputFile = expand('%:p')
+  if strlen(inputFile) > 0
+    let inputFile = a:1
+  end
+  let pathFragments = split(inputFile, '/')
+  let i = 1
+  let url = ""
+  while i < len(pathFragments)
+    let i += 1
+    let lastIndex = i * -1
+    let potentialGitConfig = "/" . join(pathFragments[0:lastIndex] + [ '.git', 'config' ], '/')
+    if filereadable(potentialGitConfig)
+      for line in readfile(potentialGitConfig)
+        " Looking for this: url = git@github.com:some/repo.git
+        let matches = matchlist(line, '\m\s*url\s*=\s*git@github\.com:\(.*\)\.git\s*')
+        if len(matches) > 0
+          let url = "http://github.com/".matches[1]
+        end
+      endfor
+    endif
+  endwhile
+  if len(url) > 0
+    execute "!open " . url . "/commit/" . wordUnderCursor
+  endif
+endfunction
+nnoremap <leader>gh :call OpenCommitInGithub()<CR>
