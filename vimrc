@@ -48,6 +48,7 @@ Bundle 'dag/vim-fish'
 
 " 2.3 New (Reevaluate after a while)
 " August 2014
+Bundle 'jceb/vim-orgmode'
 Bundle 'Lokaltog/vim-powerline'
 
 " 2.4 Icebox (Not sure if I am using those?!)
