@@ -46,7 +46,11 @@ Bundle 'Arduino-syntax-file'
 Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'dag/vim-fish'
 
-" 2.3 Icebox (Not sure if I am using those?!)
+" 2.3 New (Reevaluate after a while)
+" August 2014
+Bundle 'Lokaltog/vim-powerline'
+
+" 2.4 Icebox (Not sure if I am using those?!)
 Bundle 'rking/vim-detailed'
 Bundle 't9md/vim-ruby-xmpfilter'
 Bundle 'plasticboy/vim-markdown'
@@ -279,7 +283,7 @@ au BufReadCmd   *.epub      call zip#Browse(expand("<amatch>"))
 autocmd filetype gitcommit set textwidth=72
 
 "Powerline config
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'unicode'
 
 "Remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
