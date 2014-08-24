@@ -9,39 +9,48 @@ call vundle#rc()
 
 set shell=/bin/bash
 
+" 2. Plugins
+" 2.1 General Functionality
 Bundle 'tpope/vim-fugitive'
-Bundle 'kien/ctrlp.vim'
 "instead of: Bundle 'wincent/Command-T'
-Bundle 'tpope/vim-rails'
+Bundle 'kien/ctrlp.vim'
 Bundle 'vim-scripts/tComment'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'bkad/CamelCaseMotion'
-Bundle 'ecomba/vim-ruby-refactoring'
 Bundle 'edsono/vim-matchit'
 Bundle 'sebastiangeiger/gitignore.vim'
-Bundle 'vim-scripts/VimClojure'
-Bundle 'samsonw/vim-task'
-Bundle 'pangloss/vim-javascript'
-Bundle 'tangledhelix/vim-octopress'
+"make vim play nicely with tmux & iTerm
 Bundle 'sjl/vitality.vim'
-" Bundle 'Lokaltog/vim-powerline'
-" Record activitiy
+Bundle 'samsonw/vim-task'
+"record activitiy:
 Bundle 'AD7six/vim-activity-log'
-Bundle 'rking/vim-detailed'
 Bundle 'godlygeek/tabular'
 Bundle 'benmills/vimux'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'mileszs/ack.vim'
+
+" 2.2 Language specific
+" 2.2.1 Ruby / Rails
+Bundle 'tpope/vim-rails'
+Bundle 'vim-ruby/vim-ruby'
 Bundle 'pgr0ss/vimux-ruby-test'
 Bundle 'cloud8421/vimux-cucumber'
-Bundle 'Arduino-syntax-file'
 Bundle 'slim-template/vim-slim'
-Bundle 'Valloric/YouCompleteMe'
+" 2.2.2 Javascript
+Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
+" 2.2.3 Others
+Bundle 'tangledhelix/vim-octopress'
+Bundle 'vim-scripts/VimClojure'
+Bundle 'Arduino-syntax-file'
 Bundle 'puppetlabs/puppet-syntax-vim'
-Bundle 'airblade/vim-gitgutter'
-Bundle 't9md/vim-ruby-xmpfilter'
-Bundle 'mileszs/ack.vim'
-Bundle 'plasticboy/vim-markdown'
 Bundle 'dag/vim-fish'
+
+" 2.3 Icebox (Not sure if I am using those?!)
+Bundle 'rking/vim-detailed'
+Bundle 't9md/vim-ruby-xmpfilter'
+Bundle 'plasticboy/vim-markdown'
+Bundle 'ecomba/vim-ruby-refactoring'
 
 
 syntax enable                     " Turn on syntax highlighting.
