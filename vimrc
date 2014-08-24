@@ -92,7 +92,6 @@ set visualbell                    " No beeping.
 set nobackup                      " Don't make a backup before overwriting a file.
 set nowritebackup                 " And again.
 set noswapfile
-"set directory=$HOME/.vim/tmp//,.  " Keep swap files in one location
 
 set autoread                      " Automatically read changed files
 
@@ -337,7 +336,7 @@ imap <buffer> <F5> <Plug>(xmpfilter-mark)
 
 " In Development
 function! OpenCommitInGithub(...)
-  " TODO: Find commit hash in line 
+  " TODO: Find commit hash in line
   " TODO: Make it work with git fugitive
   " TODO: Jump back to vim after opening, none of this "Press ENTER or type command to continue" BS
   let wordUnderCursor = expand("<cword>")
