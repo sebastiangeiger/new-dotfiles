@@ -1,4 +1,5 @@
 require File.expand_path('helper/package_list', File.dirname(__FILE__))
+require File.expand_path('helper/symlinker', File.dirname(__FILE__))
 require 'rake'
 require 'erb'
 
@@ -79,92 +80,13 @@ task :install_with_apt_get do
 end
 
 task :symlink_dotfiles do
-  replace_all = false
-  Dir['*'].each do |file|
-    next if %w[Rakefile README.md LICENSE TODO.tasks Packagefile helper].include? file
-    if File.directory?(file)
-      replace_all = symlink_dir(file,replace_all)
-    end
-
-    if File.file?(file)
-      replace_all = symlink_file(file,replace_all)
-    end
-  end
-end
-
-def symlink_dir(dir,replace_all)
-  link_target = File.join(ENV['HOME'], ".#{dir}")
-  if File.identical?(link_target,File.expand_path(dir))
-    puts "~/.#{dir} already linked"
-  elsif File.exists?(link_target)
-    if replace_all
-      replace_file(dir)
-    else
-      print "overwrite ~/.#{dir}? [ynaq] "
-      case $stdin.gets.chomp
-      when 'a'
-        replace_all = true
-        replace_file(dir)
-      when 'y'
-        replace_file(dir)
-      when 'q'
-        exit
-      else
-        puts "skipping ~/.#{dir}"
-      end
-    end
-  else
-    link_file(dir)
-  end
-  replace_all
-end
-
-def symlink_file(file,replace_all)
-  if File.file?(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"))
-    if File.identical? file, File.join(ENV['HOME'], ".#{file.sub('.erb', '')}")
-      puts "identical ~/.#{file.sub('.erb', '')}"
-    elsif replace_all
-      replace_file(file)
-    else
-      print "overwrite ~/.#{file.sub('.erb', '')}? [ynaq] "
-      case $stdin.gets.chomp
-      when 'a'
-        replace_all = true
-        replace_file(file)
-      when 'y'
-        replace_file(file)
-      when 'q'
-        exit
-      else
-        puts "skipping ~/.#{file.sub('.erb', '')}"
-      end
-    end
-  else
-    link_file(file)
-  end
-  replace_all
+  Symlinker.new(from: File.dirname(__FILE__), to: ENV['HOME'])
+    .ignore(%w[Rakefile README.md LICENSE TODO.tasks Packagefile helper])
+    .prepend_names_with(".")
+    .link!
 end
 
 def executable_exists?(command)
   exit_value = `hash #{command} 2>/dev/null; echo $?`
   Integer(exit_value) == 0
 end
-
-def replace_file(file)
-  system %Q{rm -rf "$HOME/.#{file.sub('.erb', '')}"}
-  link_file(file)
-end
-
-def link_file(file)
-  if file =~ /.erb$/
-    puts "generating ~/.#{file.sub('.erb', '')}"
-    File.open(File.join(ENV['HOME'], ".#{file.sub('.erb', '')}"), 'w') do |new_file|
-      new_file.write ERB.new(File.read(file)).result(binding)
-    end
-  else
-    puts "linking ~/.#{file}"
-    system %Q{ln -s "$PWD/#{file}" "$HOME/.#{file}"}
-  end
-end
-
-
