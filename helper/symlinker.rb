@@ -1,5 +1,3 @@
-#TODO: integrate into Rakefile
-#TODO: Need some kind of diff algorithm
 require 'fileutils'
 require 'erb'
 require 'tempfile'
