@@ -96,7 +96,7 @@ class Symlinker
       end
     end
     if file_already_there?(target) and same_content?(content, target)
-      @ui.identical(source, target)
+      @ui.identical(target)
     elsif file_already_there?(target)
       if @ui.erb_files_differ(target,IO.read(target),content) == :overwrite
         write_file.call

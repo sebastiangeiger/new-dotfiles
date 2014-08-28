@@ -79,6 +79,7 @@ task :install_with_apt_get do
   system "sudo apt-get -y install #{available_in_list.join(" ")}"
 end
 
+desc "Symlink all files from the current directory into $HOME"
 task :symlink_dotfiles do
   Symlinker.new(from: File.dirname(__FILE__), to: ENV['HOME'])
     .ignore(%w[Rakefile README.md LICENSE TODO.tasks Packagefile helper])
