@@ -61,3 +61,5 @@ package "cmake", :only => :linux
 package "build-essential", :only => :linux
 package "python-dev", :only => :linux
 package "hub", :only => :mac
+package "fswatch", :only => :mac
+package "clisp"
