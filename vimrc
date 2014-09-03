@@ -37,6 +37,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'pgr0ss/vimux-ruby-test'
 Bundle 'cloud8421/vimux-cucumber'
 Bundle 'slim-template/vim-slim'
+Bundle 'puppetlabs/puppet-syntax-vim'
 " 2.2.2 Javascript
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
@@ -47,7 +48,6 @@ Bundle 'jtratner/vim-flavored-markdown'
 Bundle 'tangledhelix/vim-octopress'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'Arduino-syntax-file'
-Bundle 'puppetlabs/puppet-syntax-vim'
 Bundle 'dag/vim-fish'
 
 " 2.3 New (Reevaluate after a while)
