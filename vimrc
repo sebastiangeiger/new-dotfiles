@@ -18,6 +18,7 @@ Bundle 'vim-scripts/tComment'
 Bundle 'bkad/CamelCaseMotion'
 Bundle 'edsono/vim-matchit'
 Bundle 'sebastiangeiger/gitignore.vim'
+Bundle 'Rename'
 "make vim play nicely with tmux & iTerm
 Bundle 'sjl/vitality.vim'
 Bundle 'samsonw/vim-task'
