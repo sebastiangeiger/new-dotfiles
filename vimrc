@@ -40,7 +40,10 @@ Bundle 'slim-template/vim-slim'
 " 2.2.2 Javascript
 Bundle 'pangloss/vim-javascript'
 Bundle 'kchmck/vim-coffee-script'
-" 2.2.3 Others
+" 2.2.3 Markdown
+Bundle 'tpope/vim-markdown'
+Bundle 'jtratner/vim-flavored-markdown'
+" 2.2.4 Others
 Bundle 'tangledhelix/vim-octopress'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'Arduino-syntax-file'
@@ -55,7 +58,6 @@ Bundle 'Lokaltog/vim-powerline'
 " 2.4 Icebox (Not sure if I am using those?!)
 Bundle 'rking/vim-detailed'
 Bundle 't9md/vim-ruby-xmpfilter'
-Bundle 'plasticboy/vim-markdown'
 Bundle 'ecomba/vim-ruby-refactoring'
 
 
@@ -187,6 +189,12 @@ inoremap <expr> <C-f> pumvisible() ? '<C-n>' : '<C-x><C-o><C-n><C-p><C-r>=pumvis
 if has("gui_running")
   autocmd BufNewFile,BufRead,BufWrite * call SignLines()
 end
+
+" Want ghmarkdown instead of modula-2 or markdown
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
 
 " Rename highlighted text (after you pressed * for example)
 vnoremap <D-R> "hy:%s/<C-r>h//gc<left><left><left>
