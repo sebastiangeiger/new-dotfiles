@@ -44,6 +44,7 @@ alias diff="colordiff -u"
 alias git-email-personal='git config user.email "sebastian.geiger@gmail.com"'
 alias git-email-big-nerd-ranch='git config user.email "sebastian@bignerdranch.com"'
 alias git-email-bnr=git-email-big-nerd-ranch
+alias git-delete-merged='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
 alias wifi-on="networksetup -setairportpower en0 on"
 alias wifi-off="networksetup -setairportpower en0 off"
