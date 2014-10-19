@@ -54,6 +54,8 @@ Bundle 'dag/vim-fish'
 " August 2014
 Bundle 'jceb/vim-orgmode'
 Bundle 'Lokaltog/vim-powerline'
+" October 2014
+Bundle 'majutsushi/tagbar'
 
 " 2.4 Icebox (Not sure if I am using those?!)
 Bundle 'rking/vim-detailed'
@@ -389,3 +391,8 @@ function! ToggleTodoStatus()
   end
 endfunction
 nnoremap <leader>x :w<CR>:source ~/.vimrc<CR>:call ToggleTodoStatus()<CR>
+
+" Configuring Tagbar
+nmap - :TagbarToggle<CR>
+let g:tagbar_sort = 0
+let g:tagbar_compact = 1

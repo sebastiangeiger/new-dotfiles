@@ -19,6 +19,7 @@ task :rvm do
   system "curl -L get.rvm.io | bash -s stable"
 end
 
+desc "complies vim extensions YouCompleteMe"
 task :compile_you_complete_me => [:install_vundle, :install_packages] do
   system 'cd ~/.vim/bundle/YouCompleteMe; ./install.sh --clang-completer'
 end
