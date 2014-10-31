@@ -1,0 +1,46 @@
+#!/usr/bin/env ruby
+require 'todoist'
+require 'pivotal-tracker'
+
+def ensure_todoist_project_exists(name)
+  matches = Todoist::Project.all.select {|project| project.name == name}
+  if matches.size == 1
+    return matches.first
+  elsif matches.size == 0
+    puts %Q{Creating Todoist Project "#{name}"}
+    Todoist::Project.create(name)
+  else
+    raise "Expected to find no or one project, found #{matches.size}!"
+  end
+end
+
+def ensure_todoist_story_exists(project, name)
+  existing_tasks = project.tasks + project.completed_tasks
+  existing_task_names = existing_tasks.map(&:content)
+  if existing_task_names.include? name
+    puts %Q{Todoist Story "#{name}" in "#{project.name} already exists"}
+  else
+    puts %Q{Creating Todoist Story "#{name}" in "#{project.name}"}
+    project.add_task(name)
+  end
+end
+
+def main
+  raise "Please set your PIVOTAL_TOKEN" unless ENV["PIVOTAL_TOKEN"]
+  PivotalTracker::Client.token = ENV["PIVOTAL_TOKEN"]
+  raise "Please set your TODOIST_TOKEN" unless ENV["TODOIST_TOKEN"]
+  Todoist::Base.setup(ENV["TODOIST_TOKEN"])
+
+  stories = PivotalTracker::Project.all.each do |project|
+    stories = project.stories.all(owned_by: "Sebastian Geiger").
+      reject{|story| story.current_state == "accepted"}
+    unless stories.empty?
+      todist_project = ensure_todoist_project_exists(project.name)
+      stories.each do |story|
+        ensure_todoist_story_exists(todist_project,story.name)
+      end
+    end
+  end
+end
+
+main
