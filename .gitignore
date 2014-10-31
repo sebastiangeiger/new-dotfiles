@@ -3,5 +3,5 @@ bin/nma.sh
 bin/putio_download
 config/fish/fishd.*
 config/fish/fish_history
-config/fish/functions/pushover.fish
+config/fish/functions/secrets.fish
 .vagrant

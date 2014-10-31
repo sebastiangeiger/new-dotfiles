@@ -53,3 +53,4 @@ alias wifi-restart="wifi-off; sleep 2; wifi-on"
 alias ts="travis status --skip-version-check"
 alias th="travis history --skip-version-check"
 
+source ~/.config/fish/functions/secrets.fish
