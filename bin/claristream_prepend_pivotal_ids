@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+require 'pivotal-tracker'
+
+def main
+  raise "Please set your PIVOTAL_TOKEN" unless ENV["PIVOTAL_TOKEN"]
+  PivotalTracker::Client.token = ENV["PIVOTAL_TOKEN"]
+
+  projects = PivotalTracker::Project.all
+
+  matches = projects.select do |project|
+    project.name == "ClariStream Management System"
+  end
+
+  if matches.size == 1
+    claristream = matches.first
+    offenders = claristream.stories.all.reject do |story|
+      story.name.start_with?(story.id.to_s)
+    end.reject do |story|
+      story.name =~ /STORY TEMPLATE/
+    end
+    offenders.each do |story|
+      new_name = "#{story.id} - #{story.name}"
+      puts %Q{"#{story.name}" -> "#{new_name}"}
+      story.update(name: new_name)
+    end
+  else
+    raise "Found #{matches.size} matching projects, need 1!"
+  end
+end
+
+main
