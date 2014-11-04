@@ -63,3 +63,5 @@ package "python-dev", :only => :linux
 package "hub", :only => :mac
 package "fswatch", :only => :mac
 package "clisp"
+package "rbenv"
+package "ruby-build"
