@@ -16,7 +16,6 @@ end
 function fish_right_prompt
   __my_git_info
   set_color red
-  printf '[%s]' (command rvm current)
   set_color normal
 end
 

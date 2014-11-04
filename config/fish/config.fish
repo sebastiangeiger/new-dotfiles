@@ -1,17 +1,8 @@
 set -x DOTFILES $HOME/dotfiles
 set -x EDITOR "vim"
-set -l tmux_length (echo $TMUX | wc -m)
-if test $tmux_length -le 1
-  #Sourcing outside of a TMUX session
-  #For whatever reason manipulating the path inside a tmux session is causing
-  #problems with rvm
-  set -x PATH /usr/local/bin $HOME/.bin /usr/local/share/npm/bin $PATH
-end
+set -x PATH /usr/local/bin $HOME/.bin /usr/local/share/npm/bin $PATH
 set -x PYTHONPATH /usr/local/lib/python2.7/site-packages $PYTHONPATH
 set -x MPD_HOST "192.168.1.22"
-
-#Need to invoke rvm once to initialize it
-rvm > /dev/null
 
 if test status --is-interactive
   check_if_files_were_modified
