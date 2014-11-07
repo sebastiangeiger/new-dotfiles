@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+def rspec
+  system "bundle exec rspec"
+end
+def cucumber
+  if IO.read("config/cucumber.yml").split("\n").last.include? "all"
+    system "bundle exec cucumber -p all"
+  else
+    system "bundle exec cucumber"
+  end
+end
+
+`bundle`
+if rspec and cucumber
+  exit 0
+else
+  exit 1
+end
