@@ -1,0 +1,3 @@
+#!/usr/bin/env ruby
+branch_name = ARGV.join(" ").downcase.gsub(" - ", "-").gsub(" ","_")
+puts "sebastiangeiger/#{branch_name}"
