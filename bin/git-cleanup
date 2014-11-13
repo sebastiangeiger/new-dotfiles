@@ -1,0 +1,2 @@
+#!/bin/sh
+git-delete-all-merged && git remote prune origin
