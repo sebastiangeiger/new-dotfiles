@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+require 'pivotal-tracker'
+
+def main(story_urls)
+  raise "Please set your PIVOTAL_TOKEN" unless ENV["PIVOTAL_TOKEN"]
+  PivotalTracker::Client.token = ENV["PIVOTAL_TOKEN"]
+
+  projects = PivotalTracker::Project.all
+
+  matches = projects.select do |project|
+    project.name == "ClariStream Management System"
+  end
+
+  if matches.size == 1
+    claristream = matches.first
+    stories =  claristream.stories.all
+    urls_in_pivotal = stories.map(&:url)
+    urls_not_in_pivotal = (story_urls - urls_in_pivotal).uniq
+    puts urls_not_in_pivotal.map{|url| "  * #{url}"}.join("\n")
+  else
+    raise "Found #{matches.size} matching projects, need 1!"
+  end
+end
+
+def stories_from(files)
+  files.map do |file|
+    IO.read(file).split("\n")
+  end.flatten
+end
+
+main(stories_from(ARGV))
