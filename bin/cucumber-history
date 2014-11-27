@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+require 'optparse'
+require 'pry'
+
+options = {
+  branch: "develop"
+}
+OptionParser.new do |opts|
+  opts.banner = "Usage: cucumber-history [options]"
+
+  opts.on("-b", "--branch [BRANCH]", "The git branch to analyze", "More") do |value|
+    options[:branch] = value
+  end
+end.parse!
+
+branch = options[:branch]
+
+def bash(commands)
+  result = `bash -c "#{commands}"`
+  if $?.success?
+    result
+  else
+    raise %Q{Could not execute "#{commands}"}
+  end
+end
+
+def git(commands)
+  bash "git #{commands}"
+end
+
+git "checkout --quiet #{branch}"
+commit_hashes = git("log --first-parent --pretty='format:%H'").split
+p commit_hashes
+commit_hashes.first(1).each do |commit_hash|
+  git "checkout --force --quiet #{commit_hash}"
+  bash "bundle"
+  json = bash "bundle exec cucumber --format json 2>/dev/null"
+  p json
+  git 'reset --hard'
+end
+git "checkout --quiet #{branch}"
