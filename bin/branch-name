@@ -1,3 +1,6 @@
 #!/usr/bin/env ruby
-branch_name = ARGV.join(" ").downcase.gsub(" - ", "-").gsub(" ","_")
+branch_name = ARGV.join(" ").downcase.gsub(" - ", "-").gsub(/\W/,"_")
+while branch_name =~ /__/
+  branch_name = branch_name.gsub("__","_")
+end
 puts "sebastiangeiger/#{branch_name}"
