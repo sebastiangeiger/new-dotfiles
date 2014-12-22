@@ -68,6 +68,7 @@ def find_step_definitions(starting_positions)
 end
 
 def delete_instructions(step_definitions)
+  step_definitions.sort_by! {|sd| [sd.start_position.file_name, sd.start_position.line_number].join("_") }
   step_definitions.each do |definition|
     file_name = definition.start_position.file_name
     start_line = definition.start_position.line_number
@@ -76,7 +77,7 @@ def delete_instructions(step_definitions)
   end
 end
 
-output = `cucumber -f stepdefs --dry-run`.split("\n")
+output = `bundle exec cucumber -f stepdefs #{ARGV.join(" ")}`.split("\n")
 
 positions = extract_positions(file_and_line_number(find_unused_lines(output)))
 step_definitions = find_step_definitions(positions)
