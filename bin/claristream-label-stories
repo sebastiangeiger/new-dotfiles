@@ -1,0 +1,53 @@
+#!/usr/bin/env ruby
+require 'pivotal-tracker'
+require 'optparse'
+
+def main(story_ids, label)
+  raise "Please set your PIVOTAL_TOKEN" unless ENV["PIVOTAL_TOKEN"]
+  PivotalTracker::Client.token = ENV["PIVOTAL_TOKEN"]
+
+  projects = PivotalTracker::Project.all
+
+  matches = projects.select do |project|
+    project.name == "ClariStream Management System"
+  end
+
+  if matches.size == 1
+    claristream = matches.first
+    story_ids.each do |story_id|
+      story = claristream.stories.find(story_id)
+      labels = (story.labels || "").split(",")
+      unless labels.include? label
+        story.labels = (labels + [label]).join(",")
+        story.update
+        puts "Wrote #{story.url}"
+      end
+    end
+  else
+    raise "Found #{matches.size} matching projects, need 1!"
+  end
+end
+
+def parse_commandline_arguments
+  options = {}
+
+  OptionParser.new do |opts|
+    opts.on('-l', '--label LABEL', "Mandatory Label") do |value|
+      options[:label] = value
+    end
+  end.parse!
+
+  unless options[:label] =~ /^v0\.0\.\d{1}$/
+    raise "Label needs to be v0.0.X, found #{options[:label]}"
+  end
+
+
+  ARGV.each do |arg|
+    raise "#{arg} is not a PT story id" unless arg =~ /^\d{8}$/
+  end
+
+  options.merge(story_ids: ARGV)
+end
+
+args = parse_commandline_arguments
+main(args[:story_ids], args[:label])
