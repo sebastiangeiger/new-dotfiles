@@ -16,11 +16,15 @@ def main(story_ids, label)
     claristream = matches.first
     story_ids.each do |story_id|
       story = claristream.stories.find(story_id)
-      labels = (story.labels || "").split(",")
-      unless labels.include? label
-        story.labels = (labels + [label]).join(",")
-        story.update
-        puts "Wrote #{story.url}"
+      if story
+        labels = (story.labels || "").split(",")
+        unless labels.include? label
+          story.labels = (labels + [label]).join(",")
+          story.update
+          puts "Wrote #{story.url}"
+        end
+      else
+        puts "Story #{story_id} not found"
       end
     end
   else
