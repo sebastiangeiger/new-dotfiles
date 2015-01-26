@@ -35,6 +35,7 @@ alias feature="gf feature"
 alias t="todo.sh"
 alias te="vim ~/Dropbox/todo/todo.txt"
 alias diff="colordiff -u"
+alias ff="bundle exec rspec --fail-fast"
 alias git-email-personal='git config user.email "sebastian.geiger@gmail.com"'
 alias git-email-big-nerd-ranch='git config user.email "sebastian@bignerdranch.com"'
 alias git-email-bnr=git-email-big-nerd-ranch
