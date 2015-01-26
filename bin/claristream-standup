@@ -57,6 +57,8 @@ class ActivityGroup
 end
 
 class Activity
+  USELESS_FIELDS = ["label_ids", "updated_at", "before_id", "after_id", "accepted_at"]
+
   def initialize(hash)
     @hash = hash
   end
@@ -76,7 +78,24 @@ class Activity
   end
 
   def uninteresting_summary
-    "#{message} (kind: #{kind}, highlight: #{highlight})"
+    "#{message} (kind: #{kind}, highlight: #{highlight}, " +
+      "changed values: #{field_change_summary})"
+  end
+
+  def field_change_summary
+    changed_values = changes.map do |change|
+      original_values = change["original_values"]
+      new_values = change["new_values"]
+      affected_fields = original_values.keys
+      affected_fields.reject!{|field| USELESS_FIELDS.include? field}
+      affected_fields.map do |field|
+        "#{field}: #{original_values[field]} => #{new_values[field]}"
+      end.join(", ")
+    end.join(", ")
+  end
+
+  def changes
+    @hash["changes"] || []
   end
 
   def message
