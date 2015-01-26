@@ -68,6 +68,8 @@ class Activity
   def summary
     if kind == "story_update_activity" and highlight == "accepted"
       "Finished '#{story.abbreviated_name}'"
+    elsif kind == "story_update_activity" and highlight == "started"
+      "Working on '#{story.abbreviated_name}'"
     else
       nil
     end
