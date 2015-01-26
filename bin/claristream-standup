@@ -1,0 +1,182 @@
+#!/usr/bin/env ruby
+require 'faraday'
+require 'pry'
+require 'json'
+require 'pp'
+require 'date'
+
+PROJECT_ID = 1190174
+
+raise "Please set PIVOTAL_TOKEN" unless ENV["PIVOTAL_TOKEN"]
+
+class Story
+  def initialize(hash)
+    @hash = hash
+  end
+
+  def to_s
+    abbreviated_name
+  end
+
+  def name
+    @hash["name"]
+  end
+
+  def abbreviated_name
+    match_data = name.match /^\d*(\d{3}\s.*)$/
+    match_data[1]
+  end
+
+  def id
+    @hash["id"]
+  end
+
+  def eql?(other)
+    other.is_a?(Story) and other.id == id
+  end
+
+  def hash
+    id
+  end
+end
+
+class ActivityGroup
+  def initialize(story, activities)
+    @story = story
+    @activities = activities
+  end
+
+  def summary
+    @activities.map(&:summary).compact.first
+  end
+
+  def uninteresting_summary
+    return nil if summary
+    "#{@story.name}: #{@activities.map(&:uninteresting_summary)}"
+  end
+end
+
+class Activity
+  def initialize(hash)
+    @hash = hash
+  end
+
+  def project_id
+    @hash["project"]["id"]
+  end
+
+  def summary
+    if kind == "story_update_activity" and highlight == "accepted"
+      "Finished '#{story.abbreviated_name}'"
+    else
+      nil
+    end
+  end
+
+  def uninteresting_summary
+    "#{message} (kind: #{kind}, highlight: #{highlight})"
+  end
+
+  def message
+    @hash["message"]
+  end
+
+  def kind
+    @hash["kind"]
+  end
+
+  def highlight
+    @hash["highlight"]
+  end
+
+  def story
+    unless @story
+      hash = @hash["primary_resources"].detect{|res| res["kind"] == "story" }
+      @story = Story.new(hash)
+    end
+    @story
+  end
+end
+
+class MyActivities
+  def self.for(timespan:, project_id:)
+    response = connection.get("/services/v5/my/activity",
+                              occurred_after: timespan.start_time.iso8601,
+                              occurred_before: timespan.end_time.iso8601)
+    raise unless response.success?
+    activities = JSON.parse(response.body).map{|hash| Activity.new(hash)}
+    activities.select {|a| a.project_id == project_id}
+  end
+
+  private
+
+  def self.connection
+    @connection ||= Faraday.new(:url => 'https://www.pivotaltracker.com') do |faraday|
+      faraday.headers['X-TrackerToken'] = ENV["PIVOTAL_TOKEN"]
+      faraday.adapter  Faraday.default_adapter
+    end
+  end
+end
+
+class TimespanBetweenStandups
+  attr_reader :start_time, :end_time
+
+  def self.for(date)
+    timezone = DateTime.now.zone
+    end_time = DateTime.new(date.year, date.month, date.day, 15, 59, 59, timezone)
+    if date.monday?
+      date -= 3
+    else
+      date -= 1
+    end
+    start_time = DateTime.new(date.year, date.month, date.day, 16, 00, 0, timezone)
+    new(start_time, end_time)
+  end
+
+  def initialize(start_time, end_time)
+    @start_time = start_time
+    @end_time = end_time
+  end
+
+  def to_s
+    "from: #{@start_time.strftime(date_format)} - " +
+      "to: #{@end_time.strftime(date_format)}"
+  end
+
+  private
+
+  def date_format
+    "%a, %b %d %H:%M:%S"
+  end
+end
+
+def main(arguments)
+  puts "Standup reconfabulator:"
+  date = arguments[:date] || Date.today
+  timespan = TimespanBetweenStandups.for(date)
+  puts " - Getting activity #{timespan.to_s}"
+  activities = MyActivities.for(timespan: timespan, project_id: PROJECT_ID)
+  activity_groups = activities.group_by(&:story).map{|(story, activities)| ActivityGroup.new(story, activities)}
+  puts " - Found #{activities.size} activities"
+  puts " - Did not choose: "
+  activity_groups.map(&:uninteresting_summary).compact.map do |line|
+    puts "   - #{line}"
+  end
+
+
+  puts "\nYour standup is:"
+  puts "------- ✁ ---------"
+  activity_groups.map(&:summary).compact.map do |line|
+    puts " - #{line}"
+  end
+  puts " - Not blocked"
+  puts "------- ✃ ---------"
+end
+
+def arguments
+  result = {}
+  result[:date] = Date.parse(ARGV.first) unless ARGV.empty?
+  result
+end
+
+main(arguments)
