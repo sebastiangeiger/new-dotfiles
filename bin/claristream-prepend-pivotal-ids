@@ -16,7 +16,8 @@ def main
     offenders = claristream.stories.all.reject do |story|
       story.name.start_with?(story.id.to_s)
     end.reject do |story|
-      story.name =~ /STORY TEMPLATE/
+      story.name =~ /STORY TEMPLATE/ or
+        story.name =~ /QC DEFECT TEMPLATE/
     end
     offenders.each do |story|
       new_name = "#{story.id} - #{story.name}"
