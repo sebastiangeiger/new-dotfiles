@@ -57,7 +57,7 @@ class ActivityGroup
 end
 
 class Activity
-  USELESS_FIELDS = ["label_ids", "updated_at", "before_id", "after_id", "accepted_at"]
+  USELESS_FIELDS = ["label_ids", "updated_at", "before_id", "after_id", "accepted_at", "position"]
 
   def initialize(hash)
     @hash = hash
@@ -69,6 +69,8 @@ class Activity
 
   def summary
     if kind == "story_update_activity" and highlight == "accepted"
+      "Finished '#{story.abbreviated_name}'"
+    elsif kind == "story_update_activity" and highlight == "finished"
       "Finished '#{story.abbreviated_name}'"
     elsif kind == "story_update_activity" and highlight == "started"
       "Working on '#{story.abbreviated_name}'"
@@ -86,11 +88,19 @@ class Activity
     changed_values = changes.map do |change|
       original_values = change["original_values"]
       new_values = change["new_values"]
-      affected_fields = original_values.keys
-      affected_fields.reject!{|field| USELESS_FIELDS.include? field}
-      affected_fields.map do |field|
-        "#{field}: #{original_values[field]} => #{new_values[field]}"
-      end.join(", ")
+      affected_fields = new_values.keys
+      if original_values
+        affected_fields += original_values.keys
+        affected_fields.uniq.reject!{|field| USELESS_FIELDS.include? field}
+        affected_fields.map do |field|
+          "#{field}: #{original_values[field]} => #{new_values[field]}"
+        end.join(", ")
+      else
+        affected_fields.uniq.reject!{|field| USELESS_FIELDS.include? field}
+        affected_fields.map do |field|
+          "#{field}: new #{new_values[field]}"
+        end.join(", ")
+      end
     end.join(", ")
   end
 
@@ -187,7 +197,8 @@ def main(arguments)
 
   puts "\nYour standup is:"
   puts "------- ✁ ---------"
-  activity_groups.map(&:summary).compact.map do |line|
+  puts "#{date.strftime("%b %d")}:\n"
+  activity_groups.map(&:summary).compact.sort.map do |line|
     puts " - #{line}"
   end
   puts " - Not blocked"
