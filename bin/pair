@@ -11,7 +11,7 @@ if [ ! $(command -v tmux) ]; then
   echo "This script depends on tmux. Try: brew install tmux"
   exit 1
 fi
-if [ ! $(command -v ng) ]; then
+if [ ! $(command -v ngrok_wrapper) ]; then
   echo "This script depends on https://github.com/iamvery/dotfiles/blob/master/bin/ng"
   exit 1
 fi
@@ -45,7 +45,7 @@ up(){
     add $@
   fi
 
-  tmux new-session -d -s pairing "ng connect"
+  tmux new-session -d -s pairing "ngrok_wrapper connect"
   tmux split-window
   sleep 0.5 # some delay so tunnel has time to get up
   tmux send-keys "pair ssh" C-m
@@ -54,7 +54,7 @@ up(){
 
 ssh(){
   clipboard_helper="reattach-to-user-namespace"
-  ssh_command=$(ng ssh)
+  ssh_command=$(ngrok_wrapper ssh)
   echo $ssh_command
 
   if [ $(command -v $clipboard_helper) ]; then
