@@ -74,6 +74,8 @@ class Activity
       "Finished '#{story.abbreviated_name}'"
     elsif kind == "story_update_activity" and highlight == "started"
       "Working on '#{story.abbreviated_name}'"
+    elsif kind == "task_update_activity"  and highlight == "completed task:"
+      "Finished parts of '#{story.abbreviated_name}'"
     else
       nil
     end
