@@ -1,20 +1,26 @@
 function fish_prompt
   set -l last_status $status
   set -l path_component (prompt_pwd)
-  set_color $fish_color_cwd
+  if not test $last_status -eq 0
+    set prompt_background "4c0b13"
+  else
+    set prompt_background "0d1739"
+  end
+  set_color $fish_color_cwd -b $prompt_background
   set -l path_component_length (echo $path_component | awk '{print length($0)}')
   echo -n $path_component
-  set_color 424242
+  set_color 424242 -b $prompt_background
   echo -n " on "
   __git_branch
-  set_color 424242
+  set_color 424242 -b $prompt_background
   echo -n " at "
-  set_color a98758
-  date "+%H:%M"
+  set_color 787878 -b $prompt_background
+  echo -n (date "+%H:%M")
+  echo
   if not test $last_status -eq 0
-    set_color $fish_color_error
+    set_color $fish_color_error -b black
   else
-    set_color green
+    set_color green -b black
   end
   printf '$ '
   set_color normal
