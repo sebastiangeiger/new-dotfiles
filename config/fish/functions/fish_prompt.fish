@@ -16,6 +16,11 @@ function fish_prompt
   echo -n " at "
   set_color 787878 -b $prompt_background
   echo -n (date "+%H:%M")
+  echo -n " "
+  set_color $prompt_background -b black
+  echo -n "▶"
+  set_color black
+  echo -n " "
   echo
   if not test $last_status -eq 0
     set_color $fish_color_error -b black
