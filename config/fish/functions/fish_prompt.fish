@@ -29,7 +29,7 @@ function _first_line
   set_color $fish_color_prompt_neutral -b $prompt_background
   if test $inside_git_repository -eq 1
     echo -n " on "
-    __git_branch
+    __git_branch $path_component_length 16
   end
   set_color $fish_color_prompt_neutral -b $prompt_background
   echo -n " at "
@@ -58,7 +58,11 @@ function fish_right_prompt
 end
 
 function __git_branch
+  set -l path_component_length $argv[1]
+  set -l used_up_by_text       $argv[2]
+
   test $inside_git_repository -eq 1; or return
+
   set -l repo_info (command git rev-parse --git-dir --is-inside-git-dir --is-bare-repository --is-inside-work-tree --short HEAD ^/dev/null)
   test -n "$repo_info"; or return
 
@@ -71,8 +75,14 @@ function __git_branch
     set short_sha $repo_info[5]
   end
 
-  set branch (command git symbolic-ref -q --short HEAD ^/dev/null)
-  set branch (echo $branch | awk '{printf substr($0,0,40)}')
+  set -l branch (command git symbolic-ref -q --short HEAD ^/dev/null)
+  set -l max_branch_name_length (echo $COLUMNS' - '$path_component_length' - '$used_up_by_text' - 1' | bc)
+  set -l branch_name_length (echo $branch | awk '{print length($0)}')
+  if test $branch_name_length -gt $max_branch_name_length
+    set -l length (echo $max_branch_name_length' - 1' | bc)
+    set -l shorten_command '{printf substr($0,0,'$length')}'
+    set branch (echo $branch | awk $shorten_command)'…'
+  end
   set_color $fish_color_prompt_git_branch
   printf '%s' $branch
   set_color normal
