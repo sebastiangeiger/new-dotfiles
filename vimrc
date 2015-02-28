@@ -49,6 +49,7 @@ Bundle 'tangledhelix/vim-octopress'
 Bundle 'vim-scripts/VimClojure'
 Bundle 'Arduino-syntax-file'
 Bundle 'dag/vim-fish'
+Bundle 'wting/rust.vim'
 
 " 2.3 New (Reevaluate after a while)
 " August 2014
