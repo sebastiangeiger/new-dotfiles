@@ -54,7 +54,7 @@ function _second_line
 end
 
 function fish_right_prompt
-  # __git_status
+  __git_status
 end
 
 function __git_branch
@@ -94,18 +94,28 @@ function __git_status
   command git diff --no-ext-diff --quiet --exit-code
   set -l os $status
   if test $os -ne 0
-    set dirty '*'
+    set modified_color yellow
+  else
+    set modified_color black
   end
   set -l untracked (command git ls-files --others --exclude-standard | wc -l)
   if test $untracked -ne 0
-    set untracked '*'
+    set untracked_color red
   else
-    set untracked
+    set untracked_color black
+  end
+  set -l staged (command git diff --cached --numstat | wc -l)
+  if test $staged -ne 0
+    set staged_color green
+  else
+    set staged_color black
   end
 
-  set_color yellow
-  printf '%s' $untracked
-  set_color red
-  printf '%s' $dirty
+  set_color $untracked_color
+  printf '█ '
+  set_color $modified_color
+  printf '█ '
+  set_color $staged_color
+  printf '█ '
   set_color normal
 end
