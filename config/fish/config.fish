@@ -50,5 +50,7 @@ alias date-only="date \"+%Y-%m-%d\""
 alias ts="travis status --skip-version-check"
 alias th="travis history --skip-version-check"
 
+set -g fish_greeting ""
+
 source ~/.config/fish/functions/secrets.fish
 source ~/.config/fish/functions/colors.fish

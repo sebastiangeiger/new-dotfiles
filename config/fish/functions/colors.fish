@@ -1,21 +1,30 @@
-# set -g fish_color_normal      $base0
-# set -g fish_color_command     $base0
-# set -g fish_color_quote       $cyan
-# set -g fish_color_redirection $base0
-# set -g fish_color_end         $base0
-# set -g fish_color_error       $red
-# set -g fish_color_param       $blue
-# set -g fish_color_comment     $base01
-# set -g fish_color_match       $cyan
-# set -g fish_color_search_match "--background=$base02"
-# set -g fish_color_operator    $orange
-# set -g fish_color_escape      $cyan
-#
-# # Used by fish_prompt
-#
-# set -g fish_color_hostname    $cyan
-# set -g fish_color_cwd         $yellow
-# set -g fish_color_git         $green
+set -g fish_color_normal             black
+set -g fish_color_command            FF8700
+set -g fish_color_autosuggestion     5F5F5F
+set -g fish_color_comment            red
+set -g fish_color_cwd                0087FF
+set -g fish_color_cwd_root           red
+set -g fish_color_error              red\x1e\x2d\x2dbold
+set -g fish_color_escape             cyan
+set -g fish_color_escape             cyan
+set -g fish_color_history_current    cyan
+set -g fish_color_host               \x2do\x1ecyan
+set -g fish_color_match              cyan
+set -g fish_color_normal             normal
+set -g fish_color_operator           cyan
+set -g fish_color_param              00afff\x1ecyan
+set -g fish_color_quote              brown
+set -g fish_color_redirection        normal
+set -g fish_color_search_match       \x2d\x2dbackground\x3dpurple
+set -g fish_color_status             red
+set -g fish_color_user               \x2do\x1egreen
+set -g fish_color_valid_path         \x2d\x2dunderline
+set -g fish_pager_color_completion   normal
+set -g fish_pager_color_description  555\x1eyellow
+set -g fish_pager_color_prefix       cyan
+set -g fish_pager_color_progress     cyan
+
+# Specific for fish_prompt
 set -g fish_color_prompt_success_background 0d1739
 set -g fish_color_prompt_error_background   4c0b13
 set -g fish_color_prompt_neutral            424242
