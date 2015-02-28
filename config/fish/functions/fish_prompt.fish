@@ -1,5 +1,12 @@
 function fish_prompt
   set -l last_status $status
+  _first_line $last_status
+  echo ""
+  _second_line $last_status
+end
+
+function _first_line
+  set -l last_status $argv[1]
   set -l path_component (prompt_pwd)
   if not test $last_status -eq 0
     set prompt_background "4c0b13"
@@ -21,7 +28,10 @@ function fish_prompt
   echo -n "▶"
   set_color black
   echo -n " "
-  echo
+end
+
+function _second_line
+  set -l last_status $argv[1]
   if not test $last_status -eq 0
     set_color $fish_color_error -b black
   else
@@ -34,7 +44,6 @@ end
 function fish_right_prompt
   __git_status
 end
-
 
 function __git_branch
   set -l repo_info (command git rev-parse --git-dir --is-inside-git-dir --is-bare-repository --is-inside-work-tree --short HEAD ^/dev/null)
