@@ -1,8 +1,18 @@
 function fish_prompt
   set -l last_status $status
+  _check_for_git
   _first_line $last_status
   echo ""
   _second_line $last_status
+end
+
+function _check_for_git
+  git status 1>/dev/null 2>/dev/null
+  if test $status -eq 0
+    set -g inside_git_repository 1
+  else
+    set -g inside_git_repository 0
+  end
 end
 
 function _first_line
@@ -17,8 +27,10 @@ function _first_line
   set -l path_component_length (echo $path_component | awk '{print length($0)}')
   echo -n $path_component
   set_color $fish_color_prompt_neutral -b $prompt_background
-  echo -n " on "
-  __git_branch
+  if test $inside_git_repository -eq 1
+    echo -n " on "
+    __git_branch
+  end
   set_color $fish_color_prompt_neutral -b $prompt_background
   echo -n " at "
   set_color $fish_color_prompt_time -b $prompt_background
@@ -42,10 +54,11 @@ function _second_line
 end
 
 function fish_right_prompt
-  __git_status
+  # __git_status
 end
 
 function __git_branch
+  test $inside_git_repository -eq 1; or return
   set -l repo_info (command git rev-parse --git-dir --is-inside-git-dir --is-bare-repository --is-inside-work-tree --short HEAD ^/dev/null)
   test -n "$repo_info"; or return
 
@@ -66,6 +79,7 @@ function __git_branch
 end
 
 function __git_status
+  test $inside_git_repository -eq 1; or return
   set -l dirty
   command git diff --no-ext-diff --quiet --exit-code
   set -l os $status
