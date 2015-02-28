@@ -9,19 +9,19 @@ function _first_line
   set -l last_status $argv[1]
   set -l path_component (prompt_pwd)
   if not test $last_status -eq 0
-    set prompt_background "4c0b13"
+    set prompt_background $fish_color_prompt_error_background
   else
-    set prompt_background "0d1739"
+    set prompt_background $fish_color_prompt_success_background
   end
-  set_color $fish_color_cwd -b $prompt_background
+  set_color $fish_color_prompt_path -b $prompt_background
   set -l path_component_length (echo $path_component | awk '{print length($0)}')
   echo -n $path_component
-  set_color 424242 -b $prompt_background
+  set_color $fish_color_prompt_neutral -b $prompt_background
   echo -n " on "
   __git_branch
-  set_color 424242 -b $prompt_background
+  set_color $fish_color_prompt_neutral -b $prompt_background
   echo -n " at "
-  set_color 787878 -b $prompt_background
+  set_color $fish_color_prompt_time -b $prompt_background
   echo -n (date "+%H:%M")
   echo -n " "
   set_color $prompt_background -b black
@@ -33,9 +33,9 @@ end
 function _second_line
   set -l last_status $argv[1]
   if not test $last_status -eq 0
-    set_color $fish_color_error -b black
+    set_color $fish_color_prompt_error -b black
   else
-    set_color green -b black
+    set_color $fish_color_prompt_success -b black
   end
   printf '$ '
   set_color normal
@@ -60,7 +60,7 @@ function __git_branch
 
   set branch (command git symbolic-ref -q --short HEAD ^/dev/null)
   set branch (echo $branch | awk '{printf substr($0,0,40)}')
-  set_color green
+  set_color $fish_color_prompt_git_branch
   printf '%s' $branch
   set_color normal
 end

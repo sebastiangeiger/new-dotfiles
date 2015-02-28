@@ -51,3 +51,4 @@ alias ts="travis status --skip-version-check"
 alias th="travis history --skip-version-check"
 
 source ~/.config/fish/functions/secrets.fish
+source ~/.config/fish/functions/colors.fish
