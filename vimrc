@@ -174,6 +174,7 @@ autocmd FileType cpp map <D-r> :wall<CR>:call OsascriptVimexec ()<CR><CR>
 autocmd FileType java map <D-r> :wall<CR>:call OsascriptVimexec ()<CR><CR>
 autocmd FileType ruby map <D-r> :wall<CR>:call OsascriptVimexec ()<CR><CR>
 autocmd FileType cpp nmap ,r   :w<CR>:call OsascriptVimexec ()<CR><CR>
+autocmd FileType gitcommit :setlocal spell spelllang=en_us
 
 " Add empty lines without insert mode
 nmap <S-Enter> O<Esc>
