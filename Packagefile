@@ -65,3 +65,5 @@ package "fswatch", :only => :mac
 package "clisp"
 package "rbenv"
 package "ruby-build"
+package "fleetctl"
+package "etcdctl"
