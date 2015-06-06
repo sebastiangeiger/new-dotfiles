@@ -388,3 +388,12 @@ nnoremap <leader>x :w<CR>:source ~/.vimrc<CR>:call ToggleTodoStatus()<CR>
 nmap - :TagbarToggle<CR>
 let g:tagbar_sort = 0
 let g:tagbar_compact = 1
+
+
+function! OpenNoteTakingBuffer(...)
+  execute "split ~/Dropbox/Notes/Scratch.md"
+  execute "resize 15"
+  let a:hello = "World"
+  echo a:hello
+endfunction
+nnoremap <leader>s :call OpenNoteTakingBuffer()<CR>
