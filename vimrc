@@ -57,6 +57,8 @@ Bundle 'jceb/vim-orgmode'
 Bundle 'Lokaltog/vim-powerline'
 " October 2014
 Bundle 'majutsushi/tagbar'
+" May 2015
+Bundle 'tpope/vim-surround'
 
 " 2.4 Icebox (Not sure if I am using those?!)
 Bundle 'rking/vim-detailed'
