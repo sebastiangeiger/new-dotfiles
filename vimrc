@@ -166,18 +166,6 @@ nnoremap <leader><SPACE> :nohl<CR>
 " Show lines longer than 79
 autocmd BufNewFile,BufRead * match ErrorMsg '\%>79v.\+'
 
-" Run the ~/.vim/bin/vimexec.scpt AppleScript which takes the .vimexec.sh file
-" and executes it on the current iTerm
-function! OsascriptVimexec()
-	exec	"!osascript ~/.vim/bin/vimexec.scpt"
-endfunction
-" Now map it to Apple+R and ,r
-autocmd FileType cpp map <D-r> :wall<CR>:call OsascriptVimexec ()<CR><CR>
-autocmd FileType java map <D-r> :wall<CR>:call OsascriptVimexec ()<CR><CR>
-autocmd FileType ruby map <D-r> :wall<CR>:call OsascriptVimexec ()<CR><CR>
-autocmd FileType cpp nmap ,r   :w<CR>:call OsascriptVimexec ()<CR><CR>
-autocmd FileType gitcommit :setlocal spell spelllang=en_us
-
 " Add empty lines without insert mode
 nmap <S-Enter> O<Esc>
 
