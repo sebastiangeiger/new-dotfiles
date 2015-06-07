@@ -5,6 +5,7 @@ set -x RBENV_ROOT /usr/local/var/rbenv
 set -x PATH $RBENV_ROOT/bin $RBENV_ROOT/shims $PATH
 set -x PYTHONPATH /usr/local/lib/python2.7/site-packages $PYTHONPATH
 set -x MPD_HOST "192.168.1.22"
+set -x LESS "-RM~gIsw"
 
 
 if test status --is-interactive
