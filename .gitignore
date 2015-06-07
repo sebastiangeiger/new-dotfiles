@@ -5,3 +5,6 @@ config/fish/fishd.*
 config/fish/fish_history
 config/fish/functions/secrets.fish
 .vagrant
+config/MakerBot/
+config/configstore/
+config/hub
