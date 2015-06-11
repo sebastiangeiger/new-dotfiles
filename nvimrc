@@ -68,10 +68,13 @@ nnoremap <S-K> a<CR><Esc>k$
 "Remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
 
-"}}} 8. Vimrc files {{{1
+"}}} 8. Appearance {{{1
+colorscheme vividchalk
+
+"}}} 9. Vimrc files {{{1
 map <leader>- :edit ~/.nvimrc<CR>
 
-"}}} 9. git files {{{1
+"}}} 10. git files {{{1
 "Break line at 72 characters in commit messages
 autocmd filetype gitcommit set textwidth=72
 
