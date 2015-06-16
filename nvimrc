@@ -6,8 +6,11 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin()
+
 "8. Appearance {{{2
 Plugin 'tpope/vim-vividchalk'
+Plugin 'bling/vim-airline'
+
 "</Vundle for plugins> {{{2
 call vundle#end()
 
@@ -84,6 +87,9 @@ colorscheme vividchalk
 " Highlight lines longer than 79
 autocmd BufNewFile,BufRead * match ErrorMsg '\%>79v.\+'
 
+" Airline
+let g:airline#extensions#tabline#enabled = 1
+set laststatus=2
 "}}} 9. Vimrc files {{{1
 map <leader>- :edit ~/.nvimrc<CR>
 
