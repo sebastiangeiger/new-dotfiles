@@ -15,21 +15,16 @@ task :install_packages do
   end
 end
 
-desc "complies vim extensions YouCompleteMe"
-task :compile_you_complete_me => [:install_vundle, :install_packages] do
-  system 'cd ~/.vim/bundle/YouCompleteMe; ./install.sh --clang-completer'
-end
-
 task :install_vundle do
-  if File.exists?(File.join(ENV['HOME'], ".vim", "bundle", "vundle"))
+  if File.exists?(File.join(ENV['HOME'], ".nvim", "bundle", "vundle"))
     puts "Vundle is already installed"
   else
     puts "Installing Vundle"
-    system "mkdir -p ~/.vim/bundle"
-    system "git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle"
+    system "mkdir -p ~/.nvim/bundle"
+    system "git clone https://github.com/gmarik/vundle.git ~/.nvim/bundle/vundle"
   end
   puts "Executing BundleInstall"
-  system "vim +BundleInstall +qall"
+  system "nvim +BundleInstall +qall"
 end
 
 task :change_default_shell => [:install_packages] do

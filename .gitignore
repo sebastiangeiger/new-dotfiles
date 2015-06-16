@@ -1,4 +1,5 @@
 vim/bundle/*
+nvim/bundle/*
 bin/nma.sh
 bin/putio_download
 config/fish/fishd.*

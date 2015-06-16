@@ -1,5 +1,14 @@
 " vim:fdm=marker
 
+"0. Plugins {{{1
+"<Vundle for plugins> {{{2
+set nocompatible              " be iMproved, required
+filetype off                  " required
+set rtp+=~/.nvim/bundle/Vundle.vim
+call vundle#begin()
+"</Vundle for plugins> {{{2
+call vundle#end()
+
 "1. General configuration {{{1
 let mapleader = ','               " Set leader to ,
 syntax on                         " Switch syntax highlighting on
