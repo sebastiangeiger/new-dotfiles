@@ -6,6 +6,8 @@ set nocompatible              " be iMproved, required
 filetype off                  " required
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin()
+"8. Appearance {{{2
+Plugin 'tpope/vim-vividchalk'
 "</Vundle for plugins> {{{2
 call vundle#end()
 
