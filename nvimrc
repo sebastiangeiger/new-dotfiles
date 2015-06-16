@@ -57,6 +57,8 @@ imap <F1> <C-o>:echo<CR>
 "}}} 6. Navigating buffers {{{1
 nnoremap <leader>t :ls<CR>:b
 nnoremap <leader><leader> :b#<CR>
+nnoremap <Left> :bprevious<CR>
+nnoremap <Right> :bnext<CR>
 "}}} 7. Editing files {{{1
 
 " Opposite of Shift-J
