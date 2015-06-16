@@ -59,9 +59,6 @@ nnoremap <leader>t :ls<CR>:b
 nnoremap <leader><leader> :b#<CR>
 "}}} 7. Editing files {{{1
 
-" Show lines longer than 79
-autocmd BufNewFile,BufRead * match ErrorMsg '\%>79v.\+'
-
 " Opposite of Shift-J
 nnoremap <S-K> a<CR><Esc>k$
 
@@ -70,6 +67,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 "}}} 8. Appearance {{{1
 colorscheme vividchalk
+
+" Highlight lines longer than 79
+autocmd BufNewFile,BufRead * match ErrorMsg '\%>79v.\+'
 
 "}}} 9. Vimrc files {{{1
 map <leader>- :edit ~/.nvimrc<CR>
