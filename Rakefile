@@ -16,12 +16,12 @@ task :install_packages do
 end
 
 task :install_vundle do
-  if File.exists?(File.join(ENV['HOME'], ".nvim", "bundle", "vundle"))
+  if File.exists?(File.join(ENV['HOME'], ".nvim", "bundle", "Vundle.vim"))
     puts "Vundle is already installed"
   else
     puts "Installing Vundle"
     system "mkdir -p ~/.nvim/bundle"
-    system "git clone https://github.com/gmarik/vundle.git ~/.nvim/bundle/vundle"
+    system "git clone https://github.com/gmarik/Vundle.vim.git ~/.nvim/bundle/Vundle.vim"
   end
   puts "Executing BundleInstall"
   system "nvim +BundleInstall +qall"
