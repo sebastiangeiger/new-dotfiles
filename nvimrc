@@ -7,13 +7,17 @@ filetype off                  " required
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin()
 
-"8. Appearance {{{2
+"}}} 8. Appearance {{{2
 Plugin 'tpope/vim-vividchalk'
 Plugin 'bling/vim-airline'
 
-"</Vundle for plugins> {{{2
+"}}} 9. Running Tests {{{2
+Plugin 'benmills/vimux'
+
+"}}} </Vundle for plugins> {{{2
 call vundle#end()
 
+"}}}
 "1. General configuration {{{1
 let mapleader = ','               " Set leader to ,
 syntax on                         " Switch syntax highlighting on
@@ -90,10 +94,18 @@ autocmd BufNewFile,BufRead * match ErrorMsg '\%>79v.\+'
 " Airline
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
-"}}} 9. Vimrc files {{{1
+
+"}}} 9. Running Tests {{{1
+noremap <SPACE> :w<CR>:VimuxRunLastCommand<CR>
+imap <leader><leader> jk:w<CR>:VimuxRunLastCommand<CR>
+map <leader>c :VimuxClosePanes<CR>
+let g:VimuxOrientation = "h"
+let g:VimuxHeight = "36"
+
+"}}} 10. Vimrc files {{{1
 map <leader>- :edit ~/.nvimrc<CR>
 
-"}}} 10. git files {{{1
+"}}} 11. git files {{{1
 "Break line at 72 characters in commit messages
 autocmd filetype gitcommit set textwidth=72
 
