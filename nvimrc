@@ -7,6 +7,9 @@ filetype off                  " required
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin()
 
+"}}} 7. Editing files {{{2
+Plugin 'edsono/vim-matchit'       " '%' works for more constructs
+
 "}}} 8. Appearance {{{2
 Plugin 'tpope/vim-vividchalk'
 Plugin 'bling/vim-airline'
