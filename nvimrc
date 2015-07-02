@@ -87,6 +87,10 @@ nnoremap <S-K> a<CR><Esc>k$
 "Remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
 
+"Close buffer
+nnoremap <C-x> :w<CR>:bd<CR>
+nnoremap <leader>x :w<CR>:bd<CR>
+
 "}}} 8. Appearance {{{1
 colorscheme vividchalk
 
