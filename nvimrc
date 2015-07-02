@@ -50,6 +50,8 @@ set expandtab                     " Insert spaces when hitting <tab>
 set autoindent                    " Keep indentation level of previous line
 set smartindent                   " Indentation based on syntax
 
+filetype indent on                " Load the indentation for the current file type
+
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
