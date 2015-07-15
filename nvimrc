@@ -14,6 +14,8 @@ Plugin 'bling/vim-airline'
 "}}} 9. Running Tests {{{2
 Plugin 'benmills/vimux'
 
+"}}} 12. Ruby & Rails {{{2
+Plugin  'slim-template/vim-slim'
 "}}} </Vundle for plugins> {{{2
 call vundle#end()
 
@@ -115,4 +117,5 @@ map <leader>- :edit ~/.nvimrc<CR>
 "Break line at 72 characters in commit messages
 autocmd filetype gitcommit set textwidth=72
 
+"}}} 12. Ruby & Rails {{{1
 "}}}
