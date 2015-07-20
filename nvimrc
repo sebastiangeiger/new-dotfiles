@@ -7,17 +7,19 @@ filetype off                  " required
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin()
 
-"}}} 7. Editing files {{{2
-Plugin 'edsono/vim-matchit'       " '%' works for more constructs
+"}}} 7. Navigating files {{{2
+Plugin 'mileszs/ack.vim'
 
-"}}} 8. Appearance {{{2
+"}}} 8. Editing files {{{2
+
+"}}} 9. Appearance {{{2
 Plugin 'tpope/vim-vividchalk'
 Plugin 'bling/vim-airline'
 
-"}}} 9. Running Tests {{{2
+"}}} 10. Running Tests {{{2
 Plugin 'benmills/vimux'
 
-"}}} 12. Ruby & Rails {{{2
+"}}} 13. Ruby & Rails {{{2
 Plugin  'slim-template/vim-slim'
 "}}} </Vundle for plugins> {{{2
 call vundle#end()
@@ -84,7 +86,9 @@ nnoremap <leader>t :ls<CR>:b
 nnoremap <leader><leader> :b#<CR>
 nnoremap <Left> :bprevious<CR>
 nnoremap <Right> :bnext<CR>
-"}}} 7. Editing files {{{1
+"}}} 7. Navigating files {{{1
+
+"}}} 8. Editing files {{{1
 
 " Opposite of Shift-J
 nnoremap <S-K> a<CR><Esc>k$
@@ -96,7 +100,7 @@ autocmd BufWritePre * :%s/\s\+$//e
 nnoremap <C-x> :w<CR>:bd<CR>
 nnoremap <leader>x :w<CR>:bd<CR>
 
-"}}} 8. Appearance {{{1
+"}}} 9. Appearance {{{1
 colorscheme vividchalk
 
 " Highlight lines longer than 79
@@ -106,19 +110,19 @@ autocmd BufNewFile,BufRead * match ErrorMsg '\%>79v.\+'
 let g:airline#extensions#tabline#enabled = 1
 set laststatus=2
 
-"}}} 9. Running Tests {{{1
+"}}} 10. Running Tests {{{1
 noremap <SPACE> :w<CR>:VimuxRunLastCommand<CR>
 imap <leader><leader> jk:w<CR>:VimuxRunLastCommand<CR>
 map <leader>c :VimuxClosePanes<CR>
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "36"
 
-"}}} 10. Vimrc files {{{1
+"}}} 11. Vimrc files {{{1
 map <leader>- :edit ~/.nvimrc<CR>
 
-"}}} 11. git files {{{1
+"}}} 12. git files {{{1
 "Break line at 72 characters in commit messages
 autocmd filetype gitcommit set textwidth=72
 
-"}}} 12. Ruby & Rails {{{1
+"}}} 13. Ruby & Rails {{{1
 "}}}
