@@ -21,6 +21,10 @@ Plugin 'benmills/vimux'
 
 "}}} 13. Ruby & Rails {{{2
 Plugin  'slim-template/vim-slim'
+
+"}}} 14. Elixir {{{2
+Plugin 'elixir-lang/vim-elixir'
+
 "}}} </Vundle for plugins> {{{2
 call vundle#end()
 
@@ -125,4 +129,5 @@ map <leader>- :edit ~/.nvimrc<CR>
 autocmd filetype gitcommit set textwidth=72
 
 "}}} 13. Ruby & Rails {{{1
+"}}} 14. Elixir {{{1
 "}}}
