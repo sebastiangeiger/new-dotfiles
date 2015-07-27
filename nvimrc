@@ -91,7 +91,9 @@ nnoremap <leader><leader> :b#<CR>
 nnoremap <Left> :bprevious<CR>
 nnoremap <Right> :bnext<CR>
 "}}} 7. Navigating files {{{1
-
+" Go through ack matches
+nnoremap <C-n> :cnext<CR>
+nnoremap <C-p> :cprevious<CR>
 "}}} 8. Editing files {{{1
 
 " Opposite of Shift-J
