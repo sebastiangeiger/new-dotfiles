@@ -26,6 +26,9 @@ Plugin  'slim-template/vim-slim'
 "}}} 14. Elixir {{{2
 Plugin 'elixir-lang/vim-elixir'
 
+"}}} 15. Integration with external apps {{{2
+Plugin 'rizzatti/dash.vim'
+
 "}}} </Vundle for plugins> {{{2
 call vundle#end()
 
@@ -161,5 +164,9 @@ map <leader>- :edit ~/.nvimrc<CR>
 autocmd filetype gitcommit set textwidth=72
 
 "}}} 13. Ruby & Rails {{{1
+
 "}}} 14. Elixir {{{1
+"}}}
+"}}} 15. Integration with external apps {{{1
+
 "}}}
