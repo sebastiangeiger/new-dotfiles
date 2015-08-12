@@ -29,6 +29,9 @@ Plugin 'elixir-lang/vim-elixir'
 "}}} 15. Integration with external apps {{{2
 Plugin 'rizzatti/dash.vim'
 
+"}}} 16. Rust {{{2
+Plugin 'rust-lang/rust.vim'
+
 "}}} </Vundle for plugins> {{{2
 call vundle#end()
 
@@ -169,4 +172,5 @@ autocmd filetype gitcommit set textwidth=72
 "}}}
 "}}} 15. Integration with external apps {{{1
 
+"}}} 16. Rust {{{1
 "}}}
