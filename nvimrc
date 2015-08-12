@@ -171,6 +171,7 @@ autocmd filetype gitcommit set textwidth=72
 "}}} 14. Elixir {{{1
 "}}}
 "}}} 15. Integration with external apps {{{1
+map <leader>d :Dash<CR>
 
 "}}} 16. Rust {{{1
 "}}}
