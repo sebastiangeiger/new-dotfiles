@@ -9,3 +9,5 @@ config/fish/functions/secrets.fish
 config/MakerBot/
 config/configstore/
 config/hub
+emacs.d/elpa
+emacs.d/auto-save-list/
