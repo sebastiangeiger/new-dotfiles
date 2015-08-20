@@ -23,7 +23,8 @@
 
 (package-initialize)
 
-(ensure-package-installed 'evil)
+(ensure-package-installed 'evil
+                          'helm)
 
 (require 'evil)
 (evil-mode t)
