@@ -62,3 +62,6 @@
 
 (helm-mode 1)
 
+;; Line numbers
+(global-linum-mode 1)
+(setq linum-format "%d ")
