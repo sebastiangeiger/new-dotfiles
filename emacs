@@ -1,11 +1,13 @@
 (require 'package)
 
+;; Packages
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
 
 (setq package-enable-at-startup nil)
 
+;; Setup functions
 (defun ensure-package-installed (&rest packages)
   "Assure every package is installed, ask for installation if it’s not.
   Return a list of installed packages or nil for every skipped package."
@@ -26,5 +28,6 @@
 (ensure-package-installed 'evil
                           'helm)
 
+;; Evil mode
 (require 'evil)
 (evil-mode t)
