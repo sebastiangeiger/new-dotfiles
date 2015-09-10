@@ -26,8 +26,12 @@
 (package-initialize)
 
 (ensure-package-installed 'evil
+			  'evil-leader
                           'helm)
 
 ;; Evil mode
 (require 'evil)
+(require 'evil-leader)
+(global-evil-leader-mode)
+(evil-leader/set-leader ",")
 (evil-mode t)
