@@ -1,0 +1,25 @@
+#!/usr/bin/env ruby
+require 'date'
+
+def ordinal(number)
+  extension = case number
+              when 1
+                "st"
+              when 2
+                "nd"
+              when 3
+                "rd"
+              else
+                "th"
+              end
+  "#{number}#{extension}"
+end
+
+def parking_date(date)
+  number = ordinal((date.day / 7) + 1)
+  weekday = date.strftime("%A")
+  "#{number} #{weekday}"
+end
+
+puts "Today:    #{parking_date(Date.today)}    (#{Date.today.strftime("%d. %B")})"
+puts "Tomorrow: #{parking_date(Date.today + 1)}"
