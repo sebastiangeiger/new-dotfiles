@@ -1,0 +1,7 @@
+#!/bin/bash
+set -ex
+
+current_branch=$(git rev-parse --abbrev-ref HEAD)
+
+git bisect start $current_branch develop
+git bisect run $@
