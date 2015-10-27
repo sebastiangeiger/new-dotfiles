@@ -1,5 +1,5 @@
 set -x DOTFILES $HOME/dotfiles
-set -x EDITOR "nvim"
+set -x EDITOR "nvim -u ~/.nvimrc"
 set -x PATH /usr/local/bin $HOME/.bin /usr/local/share/npm/bin $PATH
 set -x RBENV_ROOT /usr/local/var/rbenv
 set -x PATH $RBENV_ROOT/bin $RBENV_ROOT/shims $PATH
@@ -28,7 +28,7 @@ alias gap="git ap"
 alias gl="git l"
 alias gh="git show HEAD --stat"
 alias gd="git diff"
-alias vim="nvim"
+alias vim="nvim -u ~/.nvimrc"
 
 alias diff="colordiff -u"
 alias ff="bundle exec rspec --fail-fast"

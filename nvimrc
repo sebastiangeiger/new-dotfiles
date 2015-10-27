@@ -4,14 +4,19 @@
 "<Vundle for plugins> {{{2
 set nocompatible              " be iMproved, required
 filetype off                  " required
+set shell=/bin/bash           " otherwise vundle doesn't want to update
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin()
 
 "}}} 7. Navigating files {{{2
+
 Plugin 'mileszs/ack.vim'
-Plugin 'unblevable/quick-scope'
+Plugin 'kien/ctrlp.vim'
 
 "}}} 8. Editing files {{{2
+Plugin 'vim-scripts/tComment'
+Plugin 'godlygeek/tabular'
+Plugin 'bkad/CamelCaseMotion'
 
 "}}} 9. Appearance {{{2
 Plugin 'tpope/vim-vividchalk'
@@ -21,7 +26,9 @@ Plugin 'bling/vim-airline'
 Plugin 'benmills/vimux'
 
 "}}} 13. Ruby & Rails {{{2
-Plugin  'slim-template/vim-slim'
+Plugin 'slim-template/vim-slim'
+Plugin 'tpope/vim-rails'
+Plugin 'vim-ruby/vim-ruby'
 
 "}}} 14. Elixir {{{2
 Plugin 'elixir-lang/vim-elixir'
@@ -93,8 +100,6 @@ nmap <F1> :echo<CR>
 imap <F1> <C-o>:echo<CR>
 
 "}}} 6. Navigating buffers {{{1
-nnoremap <leader>t :ls<CR>:b
-nnoremap <leader><leader> :b#<CR>
 nnoremap <Left> :bprevious<CR>
 nnoremap <Right> :bnext<CR>
 "}}} 7. Navigating files {{{1
@@ -102,33 +107,9 @@ nnoremap <Right> :bnext<CR>
 nnoremap <C-n> :cnext<CR>
 nnoremap <C-p> :cprevious<CR>
 
-function! Quick_scope_selective(movement)
-    let needs_disabling = 0
-    if !g:qs_enable
-        QuickScopeToggle
-        redraw
-        let needs_disabling = 1
-    endif
-
-    let letter = nr2char(getchar())
-
-    if needs_disabling
-        QuickScopeToggle
-    endif
-
-    return a:movement . letter
-endfunction
-
-let g:qs_enable = 0
-
-nnoremap <expr> <silent> f Quick_scope_selective('f')
-nnoremap <expr> <silent> F Quick_scope_selective('F')
-nnoremap <expr> <silent> t Quick_scope_selective('t')
-nnoremap <expr> <silent> T Quick_scope_selective('T')
-vnoremap <expr> <silent> f Quick_scope_selective('f')
-vnoremap <expr> <silent> F Quick_scope_selective('F')
-vnoremap <expr> <silent> t Quick_scope_selective('t')
-vnoremap <expr> <silent> T Quick_scope_selective('T')
+" Ctrl+P
+map <leader>t :CtrlP<CR>
+map <leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
 
 "}}} 8. Editing files {{{1
 
@@ -141,6 +122,9 @@ autocmd BufWritePre * :%s/\s\+$//e
 "Close buffer
 nnoremap <C-x> :w<CR>:bd<CR>
 nnoremap <leader>x :w<CR>:bd<CR>
+
+" Toggle Comment
+map <leader>/ <c-_><c-_>
 
 "}}} 9. Appearance {{{1
 colorscheme vividchalk
@@ -155,7 +139,8 @@ set laststatus=2
 "}}} 10. Running Tests {{{1
 noremap <SPACE> :w<CR>:VimuxRunLastCommand<CR>
 imap <leader><leader> jk:w<CR>:VimuxRunLastCommand<CR>
-map <leader>c :VimuxClosePanes<CR>
+map <leader>c :VimuxInterruptRunner<CR>
+map <leader>i :VimuxInspectRunner<CR>
 let g:VimuxOrientation = "h"
 let g:VimuxHeight = "36"
 
