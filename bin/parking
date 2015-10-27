@@ -16,7 +16,7 @@ def ordinal(number)
 end
 
 def parking_date(date)
-  number = ordinal((date.day / 7) + 1)
+  number = ordinal(((date.day - 1) / 7) + 1)
   weekday = date.strftime("%A")
   "#{number} #{weekday}"
 end
