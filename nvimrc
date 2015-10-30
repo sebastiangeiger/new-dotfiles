@@ -154,6 +154,11 @@ autocmd filetype gitcommit set textwidth=72
 
 "}}} 13. Ruby & Rails {{{1
 
+au BufEnter *.rb map <Leader>ra :call VimuxRunCommand("bundle exec rspec " . bufname("%"))<CR>
+au BufEnter *.rb map <Leader>rf :call VimuxRunCommand("bundle exec rspec " . bufname("%") . ":" . line("."))<CR>
+au BufEnter *.feature map <Leader>ra :call VimuxRunCommand("bundle exec cucumber " . bufname("%"))<CR>
+au BufEnter *.feature map <Leader>rf :call VimuxRunCommand("bundle exec cucumber " . bufname("%") . " -l " . line("."))<CR>
+"
 "}}} 14. Elixir {{{1
 "}}}
 "}}} 15. Integration with external apps {{{1
