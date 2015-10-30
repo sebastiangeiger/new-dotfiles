@@ -146,6 +146,7 @@ let g:VimuxHeight = "36"
 
 "}}} 11. Vimrc files {{{1
 map <leader>- :edit ~/.nvimrc<CR>
+map <silent> <leader>_ :source ~/.nvimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 "}}} 12. git files {{{1
 "Break line at 72 characters in commit messages
