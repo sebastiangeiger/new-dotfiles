@@ -3,4 +3,7 @@ branch_name = ARGV.join(" ").downcase.gsub(" - ", "-").gsub(/\W/,"_")
 while branch_name =~ /__/
   branch_name = branch_name.gsub("__","_")
 end
+while branch_name =~ /_$/
+  branch_name = branch_name[0..-2]
+end
 puts "sebastiangeiger/#{branch_name}"
