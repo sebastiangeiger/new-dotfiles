@@ -17,7 +17,8 @@ def main
       story.name.start_with?(story.id.to_s)
     end.reject do |story|
       story.name =~ /STORY TEMPLATE/ or
-        story.name =~ /QC DEFECT TEMPLATE/
+        story.name =~ /QC DEFECT TEMPLATE/ or
+        story.story_type == "release"
     end
     offenders.each do |story|
       new_name = "#{story.id} - #{story.name}"
