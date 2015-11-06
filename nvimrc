@@ -102,6 +102,11 @@ imap <F1> <C-o>:echo<CR>
 "}}} 6. Navigating buffers {{{1
 nnoremap <Left> :bprevious<CR>
 nnoremap <Right> :bnext<CR>
+
+"Close buffer
+nnoremap <C-x> :w<CR>:bp\|bd #<CR>
+nnoremap <leader>x :w<CR>:bp\|bd #<CR>
+
 "}}} 7. Navigating files {{{1
 " Go through ack matches
 nnoremap <C-n> :cnext<CR>
@@ -118,10 +123,6 @@ nnoremap <S-K> a<CR><Esc>k$
 
 "Remove trailing whitespaces
 autocmd BufWritePre * :%s/\s\+$//e
-
-"Close buffer
-nnoremap <C-x> :w<CR>:bd<CR>
-nnoremap <leader>x :w<CR>:bd<CR>
 
 " Toggle Comment
 map <leader>/ <c-_><c-_>
