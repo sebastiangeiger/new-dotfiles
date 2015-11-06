@@ -17,6 +17,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'vim-scripts/tComment'
 Plugin 'godlygeek/tabular'
 Plugin 'bkad/CamelCaseMotion'
+Plugin 'airblade/vim-gitgutter'
 
 "}}} 9. Appearance {{{2
 Plugin 'tpope/vim-vividchalk'
@@ -127,6 +128,10 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Toggle Comment
 map <leader>/ <c-_><c-_>
+
+" Git gutter
+nmap ]h <Plug>GitGutterNextHunk
+nmap [h <Plug>GitGutterPrevHunk
 
 "}}} 9. Appearance {{{1
 colorscheme vividchalk
