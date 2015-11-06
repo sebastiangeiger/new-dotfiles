@@ -115,6 +115,7 @@ nnoremap <C-p> :cprevious<CR>
 " Ctrl+P
 map <leader>t :CtrlP<CR>
 map <leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vcr_cassettes/*/*.yml
 
 "}}} 8. Editing files {{{1
 
