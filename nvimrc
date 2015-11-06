@@ -158,6 +158,7 @@ autocmd filetype gitcommit set textwidth=72
 
 au BufEnter *.rb map <Leader>ra :call VimuxRunCommand("bundle exec rspec " . bufname("%"))<CR>
 au BufEnter *.rb map <Leader>rf :call VimuxRunCommand("bundle exec rspec " . bufname("%") . ":" . line("."))<CR>
+au BufEnter *.rb map <Leader>rr :call VimuxRunCommand("bundle exec rspec")<CR>
 au BufEnter *.feature map <Leader>ra :call VimuxRunCommand("bundle exec cucumber " . bufname("%"))<CR>
 au BufEnter *.feature map <Leader>rf :call VimuxRunCommand("bundle exec cucumber " . bufname("%") . " -l " . line("."))<CR>
 "
