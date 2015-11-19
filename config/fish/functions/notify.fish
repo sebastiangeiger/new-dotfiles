@@ -14,7 +14,7 @@ function notify
       -F user=$PUSHOVER_USER -F message="$message" -F title=$title --silent \
       > /dev/null
   end
-  terminal-notifier -message "$message" > /dev/null
+  terminal-notifier -sound Submarine -message "$message" > /dev/null
   #This passes the exitcode through to the shell
   return $last_status
 end
