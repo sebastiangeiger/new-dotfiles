@@ -26,6 +26,7 @@ cask 'java'
 cask 'google-chrome'
 cask 'spotify'
 cask 'omnifocus'
+cask 'iTerm2'
 
 mas 'Airmail 3', id: 918858936
 mas 'Dash 3', id: 449589707
