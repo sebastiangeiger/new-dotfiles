@@ -21,12 +21,14 @@ brew 'reattach-to-user-namespace'
 brew 'go', args: [ "--devel" ] # Make hub work
 brew 'hub'
 brew 'fswatch'
+brew 'neovim'
 
 cask 'java'
 cask 'google-chrome'
 cask 'spotify'
 cask 'omnifocus'
 cask 'iTerm2'
+cask 'divvy'
 
 mas 'Airmail 3', id: 918858936
 mas 'Dash 3', id: 449589707
