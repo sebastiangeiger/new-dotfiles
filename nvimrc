@@ -31,6 +31,8 @@ Plugin 'benmills/vimux'
 Plugin 'slim-template/vim-slim'
 Plugin 'tpope/vim-rails'
 Plugin 'vim-ruby/vim-ruby'
+" Convert do .. end into { .. }
+Plugin 'jgdavey/vim-blockle'
 
 "}}} 14. Elixir {{{2
 Plugin 'elixir-lang/vim-elixir'
