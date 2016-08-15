@@ -18,6 +18,7 @@ Plugin 'vim-scripts/tComment'
 Plugin 'godlygeek/tabular'
 Plugin 'bkad/CamelCaseMotion'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'danro/rename.vim'
 
 "}}} 9. Appearance {{{2
 Plugin 'tpope/vim-vividchalk'
