@@ -36,12 +36,14 @@ Plugin 'jgdavey/vim-blockle'
 
 "}}} 14. Elixir {{{2
 Plugin 'elixir-lang/vim-elixir'
-
 "}}} 15. Integration with external apps {{{2
 Plugin 'rizzatti/dash.vim'
 
 "}}} 16. Rust {{{2
 Plugin 'rust-lang/rust.vim'
+
+"}}} 18. Elm {{{2
+Plugin 'lambdatoast/elm.vim'
 
 "}}} </Vundle for plugins> {{{2
 call vundle#end()
@@ -179,4 +181,7 @@ map <leader>d :Dash<CR>
 "}}} 17. Spellchecking/Correction {{{1
  iab teh the
  iab destory destroy
+"}}} 18. Elm {{{1
+au BufEnter *.elm map <Leader>rf :ElmMakeCurrentFile<CR>
+
 "}}}
