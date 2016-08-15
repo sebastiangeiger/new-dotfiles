@@ -1,5 +1,6 @@
 set -x DOTFILES $HOME/dotfiles
 set -x EDITOR "nvim -u ~/.nvimrc"
+set -x GIT_EDITOR "nvim -u ~/.nvimrc"
 set -x PATH /usr/local/bin $HOME/.bin /usr/local/share/npm/bin $PATH
 set -x RBENV_ROOT /usr/local/var/rbenv
 set -x PATH $RBENV_ROOT/bin $RBENV_ROOT/shims $PATH
