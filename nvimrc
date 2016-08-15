@@ -176,4 +176,7 @@ au BufEnter *.feature map <Leader>rf :call VimuxRunCommand("bundle exec cucumber
 map <leader>d :Dash<CR>
 
 "}}} 16. Rust {{{1
+"}}} 17. Spellchecking/Correction {{{1
+ iab teh the
+ iab destory destroy
 "}}}
