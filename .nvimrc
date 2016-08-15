@@ -7,7 +7,7 @@ filetype off                  " required
 set shell=/bin/bash           " otherwise vundle doesn't want to update
 set rtp+=~/.nvim/bundle/Vundle.vim
 call vundle#begin()
-
+Plugin 'VundleVim/Vundle.vim'
 "}}} 7. Navigating files {{{2
 
 Plugin 'mileszs/ack.vim'
