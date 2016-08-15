@@ -168,11 +168,18 @@ autocmd filetype gitcommit set textwidth=72
 
 au BufEnter *.rb map <Leader>ra :call VimuxRunCommand("bundle exec rspec " . bufname("%"))<CR>
 au BufEnter *.rb map <Leader>rf :call VimuxRunCommand("bundle exec rspec " . bufname("%") . ":" . line("."))<CR>
+au BufEnter *.rb map <Leader>rcf :call VimuxRunCommand("clear; bundle exec rspec " . bufname("%") . ":" . line("."))<CR>
 au BufEnter *.rb map <Leader>rr :call VimuxRunCommand("bundle exec rspec")<CR>
 au BufEnter *.feature map <Leader>ra :call VimuxRunCommand("bundle exec cucumber " . bufname("%"))<CR>
 au BufEnter *.feature map <Leader>rf :call VimuxRunCommand("bundle exec cucumber " . bufname("%") . " -l " . line("."))<CR>
+au BufEnter *.feature map <Leader>rcf :call VimuxRunCommand("clear; bundle exec cucumber " . bufname("%") . " -l " . line("."))<CR>
 "
 "}}} 14. Elixir {{{1
+au BufEnter *_test.exs map <Leader>ra :call VimuxRunCommand("mix test " . bufname("%"))<CR>
+au BufEnter *_test.exs map <Leader>rf :call VimuxRunCommand("mix test " . bufname("%") . ":" . line("."))<CR>
+au BufEnter *_test.exs map <Leader>rcf :call VimuxRunCommand("clear; mix test " . bufname("%") . ":" . line("."))<CR>
+au BufEnter *_test.exs map <Leader>rr :call VimuxRunCommand("mix test")<CR>
+au BufEnter *.ex map <Leader>rr :call VimuxRunCommand("mix test")<CR>
 "}}}
 "}}} 15. Integration with external apps {{{1
 map <leader>d :Dash<CR>
