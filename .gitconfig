@@ -5,7 +5,7 @@
 	status = auto
 	branch = auto
 [core]
-	excludesfile =<%= File.join(ENV['HOME'], ".gitignore_global") %>
+	excludesfile = "/Users/seb/.gitignore_global"
 [alias]
 	st = status --short
 	co = checkout
