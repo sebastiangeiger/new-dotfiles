@@ -29,6 +29,7 @@ cask 'spotify'
 cask 'omnifocus'
 cask 'iTerm2'
 cask 'divvy'
+cask 'anaconda'
 
 mas 'Airmail 3', id: 918858936
 mas 'Dash 3', id: 449589707
