@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 
 tap 'neovim/neovim'
+tap 'caskroom/versions'
 
 brew 'ack'
 brew 'tmux'
@@ -30,6 +31,7 @@ cask 'omnifocus'
 cask 'iTerm2'
 cask 'divvy'
 cask 'anaconda'
+cask 'intellij-idea-ce'
 
 mas 'Airmail 3', id: 918858936
 mas 'Dash 3', id: 449589707
