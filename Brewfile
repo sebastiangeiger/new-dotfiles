@@ -32,6 +32,7 @@ cask 'iTerm2'
 cask 'divvy'
 cask 'anaconda'
 cask 'intellij-idea-ce'
+cask 'alfred'
 
 mas 'Airmail 3', id: 918858936
 mas 'Dash 3', id: 449589707
