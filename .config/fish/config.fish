@@ -9,13 +9,7 @@ set -x PYTHONPATH /usr/local/lib/python2.7/site-packages $PYTHONPATH
 set -x MPD_HOST "192.168.1.22"
 set -x LESS "-RM~gIsw"
 
-
-if test status --is-interactive
-  check_if_files_were_modified
-end
-
 # Alias ==================
-alias ssh-tunnel="ssh -ND 8080"
 abbr -a gti="git"
 abbr -a g="git"
 abbr -a n="notify"
