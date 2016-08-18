@@ -23,6 +23,9 @@ brew 'go', args: [ "--devel" ] # Make hub work
 brew 'hub'
 brew 'fswatch'
 brew 'neovim'
+brew 'rbenv'
+brew 'rbenv-default-gems'
+brew 'ruby-build'
 
 cask 'java'
 cask 'google-chrome'
