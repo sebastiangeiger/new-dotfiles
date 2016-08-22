@@ -29,6 +29,7 @@ brew 'ruby-build'
 brew 'fswatch'
 brew 'jq'
 
+cask 'logitech-gaming-software'
 cask 'java'
 cask 'google-chrome'
 cask 'spotify'
