@@ -26,6 +26,8 @@ brew 'neovim'
 brew 'rbenv'
 brew 'rbenv-default-gems'
 brew 'ruby-build'
+brew 'fswatch'
+brew 'jq'
 
 cask 'java'
 cask 'google-chrome'
