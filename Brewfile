@@ -28,6 +28,8 @@ brew 'rbenv-default-gems'
 brew 'ruby-build'
 brew 'fswatch'
 brew 'jq'
+brew 'erlang', args: ["--without-wxmac"]
+brew 'elixir'
 
 cask 'logitech-gaming-software'
 cask 'java'
