@@ -191,4 +191,9 @@ map <leader>d :Dash<CR>
 "}}} 18. Elm {{{1
 au BufEnter *.elm map <Leader>rf :ElmMakeCurrentFile<CR>
 
+"}}} 19. Python {{{1
+au BufEnter *.py map <Leader>ra :call VimuxRunCommand("nosetests " . bufname("%"))<CR>
+au BufEnter *.py map <Leader>rf :call VimuxRunCommand("nosetests " . bufname("%"))<CR>
+au BufEnter *.py map <Leader>rr :call VimuxRunCommand("nosetests")<CR>
+
 "}}}
