@@ -30,10 +30,12 @@ brew 'fswatch'
 brew 'jq'
 brew 'erlang', args: ["--without-wxmac"]
 brew 'elixir'
+brew 'node'
 
 cask 'logitech-gaming-software'
 cask 'java'
 cask 'google-chrome'
+cask 'google-chrome-canary'
 cask 'spotify'
 cask 'omnifocus'
 cask 'iTerm2'
