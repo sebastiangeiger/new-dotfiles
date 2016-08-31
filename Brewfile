@@ -31,6 +31,7 @@ brew 'jq'
 brew 'erlang', args: ["--without-wxmac"]
 brew 'elixir'
 brew 'node'
+brew 'heroku'
 
 cask 'logitech-gaming-software'
 cask 'java'
