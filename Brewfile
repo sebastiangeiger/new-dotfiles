@@ -33,6 +33,7 @@ brew 'elixir'
 brew 'node'
 brew 'heroku'
 
+cask 'docker'
 cask 'google-drive'
 cask 'logitech-gaming-software'
 cask 'java'
