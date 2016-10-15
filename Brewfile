@@ -34,6 +34,7 @@ brew 'node'
 brew 'heroku'
 
 cask 'docker'
+cask 'pocketcast'
 cask 'google-drive'
 cask 'logitech-gaming-software'
 cask 'java'
