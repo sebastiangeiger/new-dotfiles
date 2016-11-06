@@ -48,6 +48,7 @@ cask 'flux'
 cask 'istat-menus'
 cask 'anaconda'
 cask 'intellij-idea-ce'
+cask 'fluid'
 cask 'alfred'
 
 mas 'Airmail 3', id: 918858936
