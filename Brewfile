@@ -51,6 +51,8 @@ cask 'intellij-idea-ce'
 cask 'fluid'
 cask 'alfred'
 cask 'dash'
+cask 'dropbox'
+cask '1password'
 
 mas 'Airmail 3', id: 918858936
 mas 'Slack', id: 803453959
