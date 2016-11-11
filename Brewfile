@@ -50,9 +50,9 @@ cask 'anaconda'
 cask 'intellij-idea-ce'
 cask 'fluid'
 cask 'alfred'
+cask 'dash'
 
 mas 'Airmail 3', id: 918858936
-mas 'Dash 3', id: 449589707
 mas 'Slack', id: 803453959
 mas 'Marked 2', id: 890031187
 mas 'Annotate', id: 918207447
