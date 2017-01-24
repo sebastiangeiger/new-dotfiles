@@ -32,6 +32,11 @@ brew 'erlang', args: ["--without-wxmac"]
 brew 'elixir'
 brew 'node'
 brew 'heroku'
+brew 'certbot'
+brew 'libxml2'
+brew 'libxslt'
+brew 'geckodriver'
+brew 'aspell'
 
 cask 'docker'
 cask 'pocketcast'
@@ -53,6 +58,12 @@ cask 'alfred'
 cask 'dash'
 cask 'dropbox'
 cask '1password'
+cask 'focus'
+cask 'elm-platform'
+cask 'screenhero'
+cask 'resilio-sync'
+cask 'firefox-esr'
+cask 'skim'
 
 mas 'Airmail 3', id: 918858936
 mas 'Slack', id: 803453959
