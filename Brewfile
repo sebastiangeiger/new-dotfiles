@@ -26,7 +26,6 @@ brew 'neovim'
 brew 'rbenv'
 brew 'rbenv-default-gems'
 brew 'ruby-build'
-brew 'fswatch'
 brew 'jq'
 brew 'erlang', args: ["--without-wxmac"]
 brew 'elixir'
@@ -37,6 +36,7 @@ brew 'libxml2'
 brew 'libxslt'
 brew 'geckodriver'
 brew 'aspell'
+brew 'watchman'
 
 cask 'docker'
 cask 'pocketcast'
@@ -64,6 +64,11 @@ cask 'screenhero'
 cask 'resilio-sync'
 cask 'firefox-esr'
 cask 'skim'
+cask 'toggldesktop'
+cask 'selfcontrol'
+cask 'backblaze'
+cask 'bartender'
+cask 'slate'
 
 mas 'Airmail 3', id: 918858936
 mas 'Slack', id: 803453959
