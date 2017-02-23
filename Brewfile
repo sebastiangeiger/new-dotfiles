@@ -73,7 +73,7 @@ cask 'toggldesktop'
 cask 'selfcontrol'
 cask 'backblaze'
 cask 'bartender'
-cask 'slate'
+cask 'mattr-slate'
 
 mas 'Airmail 3', id: 918858936
 mas 'Slack', id: 803453959
