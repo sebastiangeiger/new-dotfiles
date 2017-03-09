@@ -34,8 +34,7 @@ alias gro="git reset --hard origin/(git rev-parse --abbrev-ref HEAD)"
 alias diff="colordiff -u"
 abbr -a ff="bundle exec rspec --fail-fast"
 alias git-email-personal='git config user.email "sebastian.geiger@gmail.com"'
-alias git-email-big-nerd-ranch='git config user.email "sebastian@bignerdranch.com"'
-alias git-email-bnr=git-email-big-nerd-ranch
+alias git-email-stitch-fix='git config user.email "sebastian.geiger@stitchfix.com"'
 alias git-delete-merged='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
 alias wifi-on="networksetup -setairportpower en0 on"
