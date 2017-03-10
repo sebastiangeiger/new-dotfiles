@@ -163,6 +163,7 @@ map <silent> <leader>_ :source ~/.nvimrc<CR>:filetype detect<CR>:exe ":echo 'vim
 "}}} 12. git files {{{1
 "Break line at 72 characters in commit messages
 autocmd filetype gitcommit set textwidth=72
+autocmd filetype gitcommit setlocal spell
 
 "}}} 13. Ruby & Rails {{{1
 
