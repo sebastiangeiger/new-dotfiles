@@ -9,3 +9,4 @@ config/fish/functions/secrets.fish
 config/MakerBot/
 config/configstore/
 config/hub
+.config/fish/functions/secrets.fish
