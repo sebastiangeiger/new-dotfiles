@@ -187,8 +187,17 @@ map <leader>d :Dash<CR>
 
 "}}} 16. Rust {{{1
 "}}} 17. Spellchecking/Correction {{{1
- iab teh the
- iab destory destroy
+highlight clear SpellBad
+highlight SpellBad cterm=underline
+highlight clear SpellCap
+highlight SpellCap cterm=underline
+highlight clear SpellRare
+highlight SpellRare cterm=underline
+highlight clear SpellLocal
+highlight SpellLocal cterm=underline
+
+iab teh the
+iab destory destroy
 "}}} 18. Elm {{{1
 au BufEnter *.elm map <Leader>rf :ElmMakeCurrentFile<CR>
 
