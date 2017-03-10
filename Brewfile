@@ -44,7 +44,7 @@ brew 'rabbitmq'
 brew 'qt'
 
 cask 'docker'
-cask 'pocketcast'
+cask 'pocketcasts'
 cask 'google-drive'
 cask 'logitech-gaming-software'
 cask 'java'
