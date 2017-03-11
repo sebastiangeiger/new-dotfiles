@@ -42,6 +42,7 @@ brew 'git-lfs'
 brew 'redis'
 brew 'rabbitmq'
 brew 'qt'
+brew 'cheat'
 
 cask 'docker'
 cask 'pocketcasts'
@@ -74,6 +75,7 @@ cask 'selfcontrol'
 cask 'backblaze'
 cask 'bartender'
 cask 'mattr-slate'
+cask 'grandperspective'
 
 mas 'Airmail 3', id: 918858936
 mas 'Slack', id: 803453959
