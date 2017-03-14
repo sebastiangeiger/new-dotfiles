@@ -43,6 +43,7 @@ brew 'redis'
 brew 'rabbitmq'
 brew 'qt'
 brew 'cheat'
+brew 'yarn'
 
 cask 'docker'
 cask 'pocketcasts'
@@ -76,6 +77,7 @@ cask 'backblaze'
 cask 'bartender'
 cask 'mattr-slate'
 cask 'grandperspective'
+cask 'licecap'
 
 mas 'Airmail 3', id: 918858936
 mas 'Slack', id: 803453959
