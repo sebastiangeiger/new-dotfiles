@@ -29,6 +29,7 @@ brew 'neovim'
 brew 'node'
 brew 'phantomjs'
 brew 'postgresql94'
+`brew link --force postgresql94`
 brew 'python3'
 brew 'qt'
 brew 'rabbitmq'
