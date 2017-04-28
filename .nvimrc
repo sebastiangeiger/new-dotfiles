@@ -106,8 +106,12 @@ nmap <F1> :echo<CR>
 imap <F1> <C-o>:echo<CR>
 
 "}}} 6. Navigating buffers {{{1
-nnoremap <Left> :bprevious<CR>
-nnoremap <Right> :bnext<CR>
+if has('nvim')
+  " See https://github.com/neovim/neovim/issues/2048
+  nnoremap <BS> :bprevious<CR>
+endif
+nnoremap <C-l> :bnext<CR>
+nnoremap <C-j> :CtrlPBuffer<CR>
 
 "Close buffer
 nnoremap <C-x> :w<CR>:bp\|bd #<CR>
