@@ -80,6 +80,7 @@ cask 'selfcontrol'
 cask 'skim'
 cask 'spotify'
 cask 'toggldesktop'
+cask 'postman'
 
 mas 'Airmail 3', id: 918858936
 mas 'Annotate', id: 918207447
