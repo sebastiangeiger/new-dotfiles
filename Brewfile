@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 
 tap 'caskroom/versions'
+tap 'caskroom/drivers'
 tap 'homebrew/versions'
 tap 'neovim/neovim'
 tap 'tjanson/firefox-esr'
