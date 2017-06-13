@@ -54,7 +54,6 @@ cask 'anaconda'
 cask 'backblaze'
 cask 'bartender'
 cask 'dash'
-cask 'divvy'
 cask 'docker'
 cask 'dropbox'
 cask 'elm-platform'
@@ -82,6 +81,7 @@ cask 'skim'
 cask 'spotify'
 cask 'toggldesktop'
 cask 'postman'
+cask 'keybase'
 
 mas 'Airmail 3', id: 918858936
 mas 'Annotate', id: 918207447
