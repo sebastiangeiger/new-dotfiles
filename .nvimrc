@@ -218,4 +218,5 @@ au BufEnter *.py map <Leader>rr :call VimuxRunCommand("nosetests")<CR>
 "}}} 20. Javascript {{{1
 au BufEnter *.test.js map <Leader>ra :call VimuxRunCommand("bin/jest " . bufname("%"))<CR>
 au BufEnter *.js map <Leader>rr :call VimuxRunCommand("bin/jest")<CR>
+au BufEnter *.jsx map <Leader>rr :call VimuxRunCommand("bin/jest")<CR>
 "}}}
