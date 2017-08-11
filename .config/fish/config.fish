@@ -50,5 +50,7 @@ alias th="travis history --skip-version-check"
 
 set -g fish_greeting ""
 
+bind \ce edit_command_buffer
+
 source ~/.config/fish/functions/secrets.fish
 source ~/.config/fish/functions/colors.fish
