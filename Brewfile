@@ -47,6 +47,7 @@ brew 'tree'
 brew 'watchman'
 brew 'wget'
 brew 'yarn'
+brew 'git'
 
 cask '1password'
 cask 'alfred'
@@ -82,6 +83,7 @@ cask 'spotify'
 cask 'toggldesktop'
 cask 'postman'
 cask 'keybase'
+cask 'soapui'
 
 mas 'Airmail 3', id: 918858936
 mas 'Annotate', id: 918207447
