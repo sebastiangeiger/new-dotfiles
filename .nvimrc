@@ -39,6 +39,7 @@ Plugin 'jgdavey/vim-blockle'
 Plugin 'elixir-lang/vim-elixir'
 "}}} 15. Integration with external apps {{{2
 Plugin 'rizzatti/dash.vim'
+Plugin 'ruanyl/vim-gh-line'
 
 "}}} 16. Rust {{{2
 Plugin 'rust-lang/rust.vim'
