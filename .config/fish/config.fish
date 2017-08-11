@@ -30,6 +30,7 @@ abbr -a reb="git rebase origin/develop"
 abbr -a cont="git rebase --continue"
 alias vim="nvim -u ~/.nvimrc"
 alias gro="git reset --hard origin/(git rev-parse --abbrev-ref HEAD)"
+alias copy="tr -d '\n' | pbcopy"
 abbr -a wip="git commit -a -m 'WIP'"
 
 alias diff="colordiff -u"
