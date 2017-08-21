@@ -1,11 +1,12 @@
 cask_args appdir: '/Applications'
 
-tap 'caskroom/versions'
 tap 'caskroom/drivers'
+tap 'caskroom/versions'
 tap 'homebrew/versions'
 tap 'neovim/neovim'
 tap 'tjanson/firefox-esr'
 
+`brew link --force postgresql94`
 brew 'ack'
 brew 'aspell'
 brew 'axel'
@@ -18,6 +19,7 @@ brew 'erlang', args: ["--without-wxmac"]
 brew 'fish'
 brew 'fswatch'
 brew 'geckodriver'
+brew 'git'
 brew 'git-lfs'
 brew 'go', args: [ "--devel" ] # Make hub work
 brew 'graphviz'
@@ -31,7 +33,6 @@ brew 'neovim'
 brew 'node'
 brew 'phantomjs'
 brew 'postgresql94'
-`brew link --force postgresql94`
 brew 'python3'
 brew 'qt'
 brew 'rabbitmq'
@@ -47,7 +48,6 @@ brew 'tree'
 brew 'watchman'
 brew 'wget'
 brew 'yarn'
-brew 'git'
 
 cask '1password'
 cask 'alfred'
@@ -70,24 +70,24 @@ cask 'iTerm2'
 cask 'intellij-idea-ce'
 cask 'istat-menus'
 cask 'java'
+cask 'keybase'
 cask 'licecap'
 cask 'logitech-gaming-software'
 cask 'mattr-slate'
 cask 'omnifocus'
 cask 'pocketcasts'
+cask 'postman'
 cask 'resilio-sync'
 cask 'screenhero'
 cask 'selfcontrol'
 cask 'skim'
+cask 'soapui'
 cask 'spotify'
 cask 'toggldesktop'
-cask 'postman'
-cask 'keybase'
-cask 'soapui'
 
 mas 'Airmail 3', id: 918858936
 mas 'Annotate', id: 918207447
+mas 'Due — Reminders, Countdown Timers', id: 524373870
 mas 'Marked 2', id: 890031187
 mas 'Pocket', id: 568494494
 mas 'Slack', id: 803453959
-mas 'Due — Reminders, Countdown Timers', id: 524373870
