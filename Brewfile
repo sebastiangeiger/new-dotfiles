@@ -14,6 +14,7 @@ brew 'certbot'
 brew 'cheat'
 brew 'colordiff'
 brew 'cowsay'
+brew 'elasticsearch'
 brew 'elixir'
 brew 'erlang', args: ["--without-wxmac"]
 brew 'fish'
