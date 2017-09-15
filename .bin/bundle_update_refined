@@ -1,28 +1,72 @@
 #!/usr/bin/env ruby
 
-LINE_REGEX = /^  \* (\S+) \(.*$/
+LINE_REGEX = /^\s*\*\s*(?<name>\S+)\s*\((?<versions>.*)\).*$/
 
 def outdated_gems
   `bundle outdated`
     .split("\n")
-    .map {|line| gem_name(line) }
+    .map {|line| GemInfo.parse(line) }
     .compact
 end
 
-def gem_name(line)
-  if line =~ LINE_REGEX
-    line.match(LINE_REGEX)[1]
-  else
-    nil
+class GemInfo
+  attr_reader :name, :newest, :installed, :requested
+
+  def self.parse(line)
+    if line =~ LINE_REGEX
+      match_data = line.match(LINE_REGEX)
+      new(versions_hash(match_data[:versions]).merge(name: match_data[:name]))
+    else
+      nil
+    end
+  end
+
+  def self.versions_hash(versions)
+    result = versions
+      .split(",")
+      .map(&:strip)
+      .map do |version|
+        key, value = version.split(" ", 2)
+        [key.to_sym, value]
+      end
+    Hash[result]
+  end
+
+  def initialize(name:, newest:, installed:, requested: nil)
+    @name = name
+    @newest = newest
+    @installed = installed
+    @requested = requested
+  end
+
+  def dependencies
+    unless @dependencies
+      _name, *dependencies = `gem dependency #{name} --version #{newest}`.split("\n").map(&:strip)
+      @dependencies = dependencies
+    end
+    @dependencies
+  end
+
+  def number_of_production_dependencies
+    dependencies.count - number_of_development_dependencies
+  end
+
+  def number_of_development_dependencies
+    dependencies
+      .select {|dep| dep =~ /development/}
+      .count
   end
 end
 
 def main
-  outdated_gems.each_with_index do |gem, index|
-    puts "[#{index+1}/#{outdated_gems.count}]: #{gem}"
-    puts `bundle update #{gem}`
-    `git commit -a -m "Updated #{gem}"`
-  end
+  puts "Gathering information on gems..."
+  outdated_gems
+    .sort_by(&:number_of_production_dependencies)
+    .each_with_index do |gem, index|
+      puts "[#{index+1}/#{outdated_gems.count}]: #{gem.name}"
+      puts `bundle update #{gem.name}`
+      `git commit -a -m "Updated #{gem.name}"`
+    end
 end
 
 if __FILE__ == $0
