@@ -1,13 +1,7 @@
 #!/usr/bin/env ruby
+require 'optparse'
 
 LINE_REGEX = /^\s*\*\s*(?<name>\S+)\s*\((?<versions>.*)\).*$/
-
-def outdated_gems
-  `bundle outdated`
-    .split("\n")
-    .map {|line| GemInfo.parse(line) }
-    .compact
-end
 
 class GemInfo
   attr_reader :name, :newest, :installed, :requested
@@ -58,15 +52,80 @@ class GemInfo
   end
 end
 
-def main
+def options
+  unless @options
+    @options = {}
+    @options[:exclude] = []
+    OptionParser.new do |opts|
+      opts.banner = "Usage: bundle_update_refined [options]"
+
+      opts.on("--last REGEX", "Force gems matching the regex to be executed last") do |last|
+        @options[:last] = last
+      end
+
+      opts.on("--exclude NAMES", Array, "Force gems in the list to not be updated") do |exclude|
+        @options[:exclude] = exclude
+      end
+
+      opts.on("--[no-]dry-run", "Don't run the bundle updates") do |dry_run|
+        @options[:dry_run] = dry_run
+      end
+    end.parse!
+  end
+  @options
+end
+
+def outdated_gems
   puts "Gathering information on gems..."
-  outdated_gems
-    .sort_by(&:number_of_production_dependencies)
-    .each_with_index do |gem, index|
-      puts "[#{index+1}/#{outdated_gems.count}]: #{gem.name}"
-      puts `bundle update #{gem.name}`
-      `git commit -a -m "Updated #{gem.name}"`
+  `bundle outdated`
+    .split("\n")
+    .map {|line| GemInfo.parse(line) }
+    .compact
+end
+
+def exclude_gems(gems, exclude_list = [])
+  excluded, included = gems.partition {|gem| exclude_list.include?(gem.name)}
+  if excluded.any?
+    puts "Excluded gems:"
+    excluded.each {|gem| puts "  * #{gem.name}"}
+  end
+  included
+end
+
+def sort_gems(gems, last_regex)
+  puts "Determining order of updates..."
+  gems = gems.sort_by(&:number_of_production_dependencies)
+  if last_regex
+    matching, non_matching = gems.partition {|gem| Regexp.new(last_regex) =~ gem.name}
+    puts "Putting the following gems at the end:"
+    matching.each {|gem| puts "  * #{gem.name}"}
+    non_matching + matching
+  else
+    gems
+  end
+end
+
+def bundle_updates(gems, dry_run = false)
+  if dry_run
+    puts "Would update in the following order:"
+    gems.each_with_index do |gem, index|
+      puts "[#{index+1}/#{gems.count}]: #{gem.name}"
     end
+  else
+    gems
+      .each_with_index do |gem, index|
+        puts "[#{index+1}/#{gems.count}]: #{gem.name}"
+        `bundle update #{gem.name}`
+        `git commit -a -m "Updated #{gem.name} (#{gem.number_of_production_dependencies})"`
+      end
+  end
+end
+
+def main
+  gems = outdated_gems
+  gems = exclude_gems(gems, options[:exclude])
+  gems = sort_gems(gems, options[:last])
+  bundle_updates(gems, options[:dry_run])
 end
 
 if __FILE__ == $0
