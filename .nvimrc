@@ -123,6 +123,7 @@ nnoremap <leader>x :w<CR>:bp\|bd #<CR>
 " Go through ack matches
 nnoremap <C-n> :cnext<CR>
 nnoremap <C-p> :cprevious<CR>
+nnoremap <leader>a :AckFromSearch<CR>
 
 " Ctrl+P
 map <leader>t :CtrlP<CR>
