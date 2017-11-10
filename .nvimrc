@@ -131,7 +131,8 @@ map <leader>T :CtrlPClearAllCaches<CR>:CtrlP<CR>
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/vcr_cassettes/*/*.yml,*/node_modules/*
 
 " NerdTree
-map <leader><Tab> :NERDTreeToggle<CR>
+nnoremap <Tab> :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
 
 "}}} 8. Editing files {{{1
 
