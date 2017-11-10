@@ -153,7 +153,7 @@ nmap [h <Plug>GitGutterPrevHunk
 colorscheme vividchalk
 
 " Highlight lines longer than 79
-autocmd BufNewFile,BufRead * match ErrorMsg '\%>79v.\+'
+autocmd BufNewFile,BufRead * match ErrorMsg '\%>99v.\+'
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1
