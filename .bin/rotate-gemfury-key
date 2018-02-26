@@ -1,9 +1,8 @@
 #!/bin/sh
 set +ex
 
-new_key=$(heroku config:get BUNDLE_GEM__FURY__IO --app $CONFIG_APP)
 gem sources --remove $(gem sources --list | grep "gem.fury.io")
-gem sources --add "https://$new_key@gem.fury.io/me/"
-bundle config https://gem.fury.io/me/ $new_key
+gem sources --add "https://$1@gem.fury.io/me/"
+bundle config https://gem.fury.io/me/ $1
 
 set -ex
