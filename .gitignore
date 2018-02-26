@@ -13,3 +13,4 @@ config/hub
 .config/hub
 .config/fish/functions/__fnm_*.fish
 .config/fish/fishd.*
+bin/op

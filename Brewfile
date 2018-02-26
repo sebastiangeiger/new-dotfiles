@@ -24,6 +24,7 @@ brew 'geckodriver'
 brew 'git'
 brew 'git-lfs'
 brew 'go', args: [ "--devel" ] # Make hub work
+brew 'gpg'
 brew 'graphviz'
 brew 'heroku'
 brew 'hub'
