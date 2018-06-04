@@ -1,0 +1,6 @@
+#!/bin/sh
+BASE_URL="https://circleci.com/gh/"
+REPO=$(git remote get-url --push origin | sed 's/git@github.com:\(.*\)\/\(.*\)\.git/\1\/workflows\/\2\/tree\//')
+BRANCH=$(git status -sb | sed 's/## \(.*\)\.\.\.origin\/\(.*\)/\2/')
+
+open $BASE_URL$REPO$BRANCH
